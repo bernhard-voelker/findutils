@@ -1,13 +1,13 @@
 # translation of findutils to Greek
 # This file is distributed under the same license as the findutils package.
-# Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2004, 2016 Free Software Foundation, Inc.
 # Lefteris Dimitroulakis <edimitro@tee.gr>, 2004, 2005.
 # Lefteris Dimitroulakis <ledimitro@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: findutils-4.5.13\n"
 "Report-Msgid-Bugs-To: bug-findutils@gnu.org\n"
-"POT-Creation-Date: 2015-12-27 20:34+0000\n"
+"POT-Creation-Date: 2016-01-04 00:12+0000\n"
 "PO-Revision-Date: 2014-11-29 00:39+0200\n"
 "Last-Translator: Lefteris Dimitroulakis <ledimitro@gmail.com>\n"
 "Language-Team: Greek <team@lists.gnome.gr>\n"
@@ -18,42 +18,83 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: find/exec.c:136
+#: find/exec.c:135
 #, c-format
 msgid "Failed to save working directory in order to run a command on %s"
 msgstr "Αποτυχία διάσωσης καταλόγου εργασίας ώστε να τρέξει εντολή σε %s"
 
-#: find/exec.c:256
+#: find/exec.c:255
 #, c-format
 msgid "Cannot close standard input"
 msgstr "Δεν μπορώ να κλείσω την τυπική είσοδο"
 
-#: find/exec.c:285
+#: find/exec.c:284
 #, fuzzy, c-format
 msgid "Failed to change directory%s%s"
 msgstr "Αποτυχία αλλαγής καταλόγου"
 
-#: find/exec.c:314 xargs/xargs.c:1265
+#: find/exec.c:313 xargs/xargs.c:1265
 #, c-format
 msgid "cannot fork"
 msgstr "Δεν μπορώ να κλωνοποιήσω"
 
-#: find/exec.c:345
+#: find/exec.c:344
 #, c-format
 msgid "error waiting for %s"
 msgstr "σφάλμα περιμένοντας γιά %s"
 
-#: find/exec.c:354
+#: find/exec.c:353
 #, c-format
 msgid "%s terminated by signal %d"
 msgstr "%s τερματίστηκε από το σήμα %d"
 
-#: find/oldfind.c:204 find/ftsfind.c:677
+#: find/fstype.c:185
+#, c-format
+msgid "Cannot read mounted file system list"
+msgstr "Αδυναμία ανάγνωσης λίστας προσαρτημένου συστήματος αρχείων"
+
+#: find/fstype.c:244
+msgid "unknown"
+msgstr "άγνωστο"
+
+#: find/ftsfind.c:245 find/oldfind.c:1139
+#, c-format
+msgid ""
+"Symbolic link %s is part of a loop in the directory hierarchy; we have "
+"already visited the directory to which it points."
+msgstr ""
+"Ο συμβολικός σύνδεσμος %s αποτελεί τμήμα ενός βρόχου στην ιεραρχία "
+"καταλόγων· έχομε ήδη επισκευτεί το κατάλογο στον οποίο αναφέρεται."
+
+#: find/ftsfind.c:259
+#, c-format
+msgid ""
+"File system loop detected; %s is part of the same file system loop as %s."
+msgstr ""
+"Ανιχνεύτηκε βρόχος στο σύστημα αρχείων· %s αποτελεί μέρος του ιδίου βρόχου "
+"με %s."
+
+#: find/ftsfind.c:444 find/util.c:221
+#, c-format
+msgid "WARNING: file %s appears to have mode 0000"
+msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: το αρχείο %s φαίνεται να έχει mode 0000"
+
+#: find/ftsfind.c:559
+#, c-format
+msgid "cannot search %s"
+msgstr "αδυναμία αναζήτησης %s"
+
+#: find/ftsfind.c:609
+#, c-format
+msgid "failed to restore working directory after searching %s"
+msgstr "αποτυχία αποκατάστασης καταλόγου εργασίας μετά την αναζήτηση %s"
+
+#: find/ftsfind.c:677 find/oldfind.c:204
 #, fuzzy, c-format
 msgid "Failed to initialize shared-file hash table"
 msgstr "Αποτυχία ενεργοποίησης hash table"
 
-#: find/oldfind.c:220 find/ftsfind.c:693 locate/bigram.c:105 locate/code.c:174
+#: find/ftsfind.c:693 find/oldfind.c:220 locate/bigram.c:105 locate/code.c:174
 #: locate/frcode.c:233 locate/locate.c:1581 xargs/xargs.c:423
 #, c-format
 msgid "The atexit library function failed"
@@ -107,15 +148,6 @@ msgstr "Αποτυχία επιστροφής στο γονικό κατάλογ
 msgid "Failed to safely change directory into %s"
 msgstr "Αποτυχία ασφαλούς αλλαγής καταλόγου σε %s"
 
-#: find/oldfind.c:1139 find/ftsfind.c:245
-#, c-format
-msgid ""
-"Symbolic link %s is part of a loop in the directory hierarchy; we have "
-"already visited the directory to which it points."
-msgstr ""
-"Ο συμβολικός σύνδεσμος %s αποτελεί τμήμα ενός βρόχου στην ιεραρχία "
-"καταλόγων· έχομε ήδη επισκευτεί το κατάλογο στον οποίο αναφέρεται."
-
 #: find/oldfind.c:1158
 #, c-format
 msgid ""
@@ -153,39 +185,7 @@ msgstr ""
 "results may have failed to include directories that should have been "
 "searched."
 
-#: find/fstype.c:185
-#, c-format
-msgid "Cannot read mounted file system list"
-msgstr "Αδυναμία ανάγνωσης λίστας προσαρτημένου συστήματος αρχείων"
-
-#: find/fstype.c:244
-msgid "unknown"
-msgstr "άγνωστο"
-
-#: find/ftsfind.c:259
-#, c-format
-msgid ""
-"File system loop detected; %s is part of the same file system loop as %s."
-msgstr ""
-"Ανιχνεύτηκε βρόχος στο σύστημα αρχείων· %s αποτελεί μέρος του ιδίου βρόχου "
-"με %s."
-
-#: find/ftsfind.c:444 find/util.c:222
-#, c-format
-msgid "WARNING: file %s appears to have mode 0000"
-msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: το αρχείο %s φαίνεται να έχει mode 0000"
-
-#: find/ftsfind.c:559
-#, c-format
-msgid "cannot search %s"
-msgstr "αδυναμία αναζήτησης %s"
-
-#: find/ftsfind.c:609
-#, c-format
-msgid "failed to restore working directory after searching %s"
-msgstr "αποτυχία αποκατάστασης καταλόγου εργασίας μετά την αναζήτηση %s"
-
-#: find/parser.c:452
+#: find/parser.c:451
 #, c-format
 msgid ""
 "The -delete action automatically turns on -depth, but -prune does nothing "
@@ -196,7 +196,7 @@ msgstr ""
 "τίποτα όταν η -depth είναι παρούσα.  Αν θες όμως να προχωρήσεις όπωσδήποτε, "
 "χρησιμοποίησε την επιλογή -depth."
 
-#: find/parser.c:608
+#: find/parser.c:607
 #, c-format
 msgid ""
 "warning: you have specified the %s option after a non-option argument %s, "
@@ -209,7 +209,7 @@ msgstr ""
 "τόσο πριν όσο και μετά).  Παρακαλώ καθόρισε επιλογές πριν από άλλα "
 "ορίσματα.\n"
 
-#: find/parser.c:915
+#: find/parser.c:914
 #, c-format
 msgid ""
 "warning: the -d option is deprecated; please use -depth instead, because the "
@@ -218,7 +218,7 @@ msgstr ""
 "προειδοποίηση: η επιλογή -d έχει καταργηθεί, στη θέση της δώσε -depth που "
 "συμφωνεί με το POSIX."
 
-#: find/parser.c:1188
+#: find/parser.c:1187
 #, c-format
 msgid ""
 "%s is not the name of an existing group and it does not look like a numeric "
@@ -227,17 +227,17 @@ msgstr ""
 "%s δεν αποτελεί όνομα υπάρχουσας ομάδας και δεν μιάζει με ένα αριθμητικό "
 "group ID γιατί έχει τη μη αναμενόμενη κατάληξη %s"
 
-#: find/parser.c:1203
+#: find/parser.c:1202
 #, c-format
 msgid "%s is not the name of an existing group"
 msgstr "%s δεν είναι όνομα υπάρχουσας ομάδας"
 
-#: find/parser.c:1209
+#: find/parser.c:1208
 #, c-format
 msgid "argument to -group is empty, but should be a group name"
 msgstr "το όρισμα στο -group είναι κενό, αλλά θα έπρεπε να είναι όνομα ομάδας"
 
-#: find/parser.c:1231
+#: find/parser.c:1230
 msgid ""
 "\n"
 "default path is the current directory; default expression is -print\n"
@@ -249,7 +249,7 @@ msgstr ""
 "η έκφραση μπορεί ν' αποτελείται από: τελεστές, επιλογές, tests κι "
 "ενέργειες:\n"
 
-#: find/parser.c:1234
+#: find/parser.c:1233
 msgid ""
 "operators (decreasing precedence; -and is implicit where no others are "
 "given):\n"
@@ -260,7 +260,7 @@ msgstr ""
 "      ( EXPR )   ! EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2\n"
 "      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 , EXPR2\n"
 
-#: find/parser.c:1238
+#: find/parser.c:1237
 msgid ""
 "positional options (always true): -daystart -follow -regextype\n"
 "\n"
@@ -274,7 +274,7 @@ msgstr ""
 "       -depth --help -maxdepth ΕΠΙΠΕΔΑ -mindepth ΕΠΙΠΕΔΑ -mount -noleaf\n"
 "       --version -xdev -ignore_readdir_race -noignore_readdir_race\n"
 
-#: find/parser.c:1243
+#: find/parser.c:1242
 msgid ""
 "tests (N can be +N or -N or N): -amin N -anewer FILE -atime N -cmin N\n"
 "      -cnewer FILE -ctime N -empty -false -fstype TYPE -gid N -group NAME\n"
@@ -289,7 +289,7 @@ msgstr ""
 "PATTERN\n"
 "      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE"
 
-#: find/parser.c:1248
+#: find/parser.c:1247
 msgid ""
 "      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN\n"
 "      -readable -writable -executable\n"
@@ -301,11 +301,11 @@ msgstr ""
 "      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
 "      -used N -user NAME -xtype [bcdpfls]"
 
-#: find/parser.c:1253
+#: find/parser.c:1252
 msgid "      -context CONTEXT\n"
 msgstr "      -context CONTEXT\n"
 
-#: find/parser.c:1255
+#: find/parser.c:1254
 msgid ""
 "\n"
 "actions: -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print \n"
@@ -319,7 +319,7 @@ msgstr ""
 "      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;\n"
 "      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;\n"
 
-#: find/parser.c:1261
+#: find/parser.c:1260
 msgid ""
 "Report (and track progress on fixing) bugs via the findutils bug-reporting\n"
 "page at http://savannah.gnu.org/ or, if you have no web access, by sending\n"
@@ -330,12 +330,12 @@ msgstr ""
 "στο http://savannah.gnu.org/ ή, αν δεν έχεις πρόσβαση στο web,\n"
 "αποστέλοντας μήνυμα στη διεύθυνση <bug-findutils@gnu.org>."
 
-#: find/parser.c:1316
+#: find/parser.c:1315
 #, c-format
 msgid "sanity check of the fnmatch() library function failed."
 msgstr "η συνάρτηση βιβλιοθήκης fnmatch(), δεν πέρασε τον έλεγχο ακεραιότητος."
 
-#: find/parser.c:1330
+#: find/parser.c:1329
 #, c-format
 msgid ""
 "warning: Unix filenames usually don't contain slashes (though pathnames "
@@ -350,44 +350,44 @@ msgstr ""
 "perhaps '-samefile'.  Alternatively, if you are using GNU grep, you could "
 "use 'find ... -print0 | grep -FzZ %s'."
 
-#: find/parser.c:1456
+#: find/parser.c:1455
 #, c-format
 msgid "Expected a positive decimal integer argument to %s, but got %s"
 msgstr "Ανάμενα ως όρισμα του %s ένα θετικό ακέραιο, αλλά έλαβα %s"
 
-#: find/parser.c:1621
+#: find/parser.c:1620
 #, c-format
 msgid "This system does not provide a way to find the birth time of a file."
 msgstr ""
 "Αυτό το σύστημα δεν διαθέτει τρόπο εύρεσης του χρόνου δημιουργίας ενός "
 "αρχείου."
 
-#: find/parser.c:1642
+#: find/parser.c:1641
 #, c-format
 msgid "The %s test needs an argument"
 msgstr "«%s» απαιτεί όρισμα"
 
-#: find/parser.c:1679
+#: find/parser.c:1678
 #, c-format
 msgid "I cannot figure out how to interpret %s as a date or time"
 msgstr "δεν μπορώ να προσδιορίσω πώς να ερμηνεύσω %s ως ημερομηνία και ώρα"
 
-#: find/parser.c:1696
+#: find/parser.c:1695
 #, c-format
 msgid "Cannot obtain birth time of file %s"
 msgstr "Αδυναμία εύρεσης του χρόνου δημιουργίας του αρχείου %s"
 
-#: find/parser.c:1840
+#: find/parser.c:1839
 #, c-format
 msgid "warning: -%s %s will not match anything because it ends with /."
 msgstr "προειδοποίηση: τίποτα δεν ταιριάζει με -%s %s γιατί τελειώνει με /."
 
-#: find/parser.c:1937
+#: find/parser.c:1936
 #, c-format
 msgid "invalid mode %s"
 msgstr "άκυρη κατάσταση «%s»"
 
-#: find/parser.c:1955
+#: find/parser.c:1954
 #, c-format
 msgid ""
 "warning: you have specified a mode pattern %s (which is equivalent to /000). "
@@ -398,6 +398,11 @@ msgstr ""
 "to /000). The meaning of -perm /000 has now been changed to be consistent "
 "with -perm -000; that is, while it used to match no files, it now matches "
 "all files."
+
+#: find/parser.c:2127
+#, c-format
+msgid "failed to compile regular expression '%s': %s"
+msgstr ""
 
 #: find/parser.c:2156
 #, c-format
@@ -580,32 +585,32 @@ msgstr "< %s ... %s > ? "
 msgid "Failed to write prompt for -ok"
 msgstr "Failed to write prompt for -ok"
 
-#: find/pred.c:1192 find/print.c:1239
+#: find/pred.c:1192 find/print.c:1238
 #, c-format
 msgid "getfilecon failed: %s"
 msgstr "αποτυχία getfilecon: %s"
 
-#: find/print.c:346
+#: find/print.c:345
 #, c-format
 msgid "warning: escape `\\' followed by nothing at all"
 msgstr "warning: escape `\\' followed by nothing at all"
 
-#: find/print.c:365
+#: find/print.c:364
 #, c-format
 msgid "warning: unrecognized escape `\\%c'"
 msgstr "προειδοποίηση: μη αναγνωριζόμενη ακολουθία διαφυγής «\\%c»"
 
-#: find/print.c:385
+#: find/print.c:384
 #, c-format
 msgid "error: %s at end of format string"
 msgstr "error: %s στο τέλος του αλφαρηθμιτικού μορφοποίησης"
 
-#: find/print.c:409
+#: find/print.c:408
 #, c-format
 msgid "error: the format directive `%%%c' is reserved for future use"
 msgstr "error: η οδηγία μορφοποίησης «%%%c» προορίζεται για μελλοντική χρήση"
 
-#: find/print.c:417
+#: find/print.c:416
 #, c-format
 msgid ""
 "warning: format directive `%%%c' should be followed by another character"
@@ -613,7 +618,7 @@ msgstr ""
 "προειδοποίηση: η οδηγία μορφοποίησης «%%%c» θα πρέπει να ακολουθείται από "
 "ένα άλλο χαρακτήρα"
 
-#: find/print.c:425
+#: find/print.c:424
 #, c-format
 msgid "warning: unrecognized format directive `%%%c'"
 msgstr "προειδοποίηση: άγνωστη οδηγία μορφοποίησης «%%%c»"
@@ -732,52 +737,52 @@ msgstr "μη αναμενόμενο extra κατηγόρημα"
 msgid "oops -- invalid default insertion of and!"
 msgstr "oops -- η παρεμβολή της προεπιλεγμένης παραμέτρου «and» είναι άκυρη!"
 
-#: find/util.c:175
+#: find/util.c:174
 #, c-format
 msgid "Usage: %s [-H] [-L] [-P] [-Olevel] [-D "
 msgstr "Χρήση: %s [-H] [-L] [-P] [-Olevel] [-D "
 
-#: find/util.c:177
+#: find/util.c:176
 #, c-format
 msgid "] [path...] [expression]\n"
 msgstr "] [path...] [expression]\n"
 
-#: find/util.c:459
+#: find/util.c:458
 #, fuzzy, c-format
 msgid "Failed to save initial working directory%s%s"
 msgstr "αποτυχία διάσωσης αρχικού καταλόγου εργασίας"
 
-#: find/util.c:478
+#: find/util.c:477
 #, fuzzy, c-format
 msgid "Failed to restore initial working directory%s%s"
 msgstr "αποτυχία επαναφοράς αρχικού καταλόγου εργασίας"
 
-#: find/util.c:828
+#: find/util.c:827
 #, c-format
 msgid "Ignoring unrecognised debug flag %s"
 msgstr "Άγνωστη σημαία αποσφαλμάτωσης %s, αγνοήθηκε"
 
-#: find/util.c:835
+#: find/util.c:834
 #, c-format
 msgid "Empty argument to the -D option."
 msgstr "Κενό όρισμα στην επιλογή -D."
 
-#: find/util.c:851
+#: find/util.c:850
 #, c-format
 msgid "The -O option must be immediately followed by a decimal integer"
 msgstr "Την επιλογή -O πρέπει αμέσως να ακολουθεί δεκαδικός ακέραιος"
 
-#: find/util.c:861 find/util.c:872
+#: find/util.c:860 find/util.c:871
 #, c-format
 msgid "Please specify a decimal number immediately after -O"
 msgstr "Παρακαλώ ορίσατε ένα δεκαδικό αριθμό αμέσως μετά -O"
 
-#: find/util.c:877 find/util.c:882
+#: find/util.c:876 find/util.c:881
 #, c-format
 msgid "Invalid optimisation level %s"
 msgstr "Μη έγκυρο επίπεδο βελτιστοποίησης %s"
 
-#: find/util.c:890
+#: find/util.c:889
 #, c-format
 msgid ""
 "Optimisation level %lu is too high.  If you want to find files very quickly, "
@@ -786,7 +791,7 @@ msgstr ""
 "Επίπεδο βελτιστοποίησης %lu πολύ υψηλό.  Αν θέλετε να βρείτε αρχεία πολύ "
 "γρήγορα, εξετάστε τη χρήση του GNU locate."
 
-#: find/util.c:1034
+#: find/util.c:1033
 #, c-format
 msgid ""
 "The environment variable FIND_BLOCK_SIZE is not supported, the only thing "
@@ -795,368 +800,29 @@ msgstr ""
 "Η μεταβλητή περιβάλλοντος FIND_BLOCK_SIZE δεν υποστηρίζεται, αυτό που "
 "επιρρεάζει το μέγεθος μπλοκ είναι η μεταβλητή περιβάλλοντος POSIXLY_CORRECT"
 
-#: gl/lib/argmatch.c:133
-#, c-format
-msgid "invalid argument %s for %s"
-msgstr "Το όρισμα «%s» για την «%s» δεν είναι έγκυρο"
-
-#: gl/lib/argmatch.c:134
-#, c-format
-msgid "ambiguous argument %s for %s"
-msgstr "Το όρισμα «%s» για την «%s» είναι ασαφές"
-
-#: gl/lib/argmatch.c:153
-msgid "Valid arguments are:"
-msgstr "Έγκυρα ορίσματα είναι:"
-
-#: gl/lib/closein.c:100
-msgid "error closing file"
-msgstr "σφάλμα στο κλείσημο του αρχείου"
-
-#: gl/lib/closeout.c:112 locate/code.c:153 locate/frcode.c:210
-#, c-format
-msgid "write error"
-msgstr "write error"
-
-#: gl/lib/error.c:191
-msgid "Unknown system error"
-msgstr "Άγνωστο σφάλμα συστήματος"
-
-#: gl/lib/getopt.c:575 gl/lib/getopt.c:604
-#, c-format
-msgid "%s: option '%s' is ambiguous; possibilities:"
-msgstr "%s: η επιλογή «%s» είναι ασαφής, δυνατότητες:"
-
-#: gl/lib/getopt.c:619
-#, fuzzy, c-format
-msgid "%s: option '%s' is ambiguous\n"
-msgstr "%s: η επιλογή «-W %s» είναι ασαφής\n"
-
-#: gl/lib/getopt.c:654 gl/lib/getopt.c:658
-#, c-format
-msgid "%s: option '--%s' doesn't allow an argument\n"
-msgstr "%s: η επιλογή «--%s» δεν επιτρέπει όρισμα\n"
-
-#: gl/lib/getopt.c:667 gl/lib/getopt.c:672
-#, c-format
-msgid "%s: option '%c%s' doesn't allow an argument\n"
-msgstr "%s: η επιλογή «%c%s» δεν επιτρέπει όρισμα\n"
-
-#: gl/lib/getopt.c:715 gl/lib/getopt.c:734
-#, c-format
-msgid "%s: option '--%s' requires an argument\n"
-msgstr "%s: η επιλογή «--%s» απαιτεί ένα όρισμα\n"
-
-#: gl/lib/getopt.c:772 gl/lib/getopt.c:775
-#, c-format
-msgid "%s: unrecognized option '--%s'\n"
-msgstr "%s: η επιλογή «--%s» δεν αναγνωρίζεται\n"
-
-#: gl/lib/getopt.c:783 gl/lib/getopt.c:786
-#, c-format
-msgid "%s: unrecognized option '%c%s'\n"
-msgstr "%s: μη αναγνωριζόμενη επιλογή «%c%s»\n"
-
-#: gl/lib/getopt.c:835 gl/lib/getopt.c:838
-#, c-format
-msgid "%s: invalid option -- '%c'\n"
-msgstr "%s: μη έγκυρη επιλογή -- «%c»\n"
-
-#: gl/lib/getopt.c:891 gl/lib/getopt.c:908 gl/lib/getopt.c:1118
-#: gl/lib/getopt.c:1136
-#, c-format
-msgid "%s: option requires an argument -- '%c'\n"
-msgstr "%s: η επιλογή απαιτεί ένα όρισμα -- «%c»\n"
-
-#: gl/lib/getopt.c:964 gl/lib/getopt.c:980
-#, c-format
-msgid "%s: option '-W %s' is ambiguous\n"
-msgstr "%s: η επιλογή «-W %s» είναι ασαφής\n"
-
-#: gl/lib/getopt.c:1004 gl/lib/getopt.c:1022
-#, c-format
-msgid "%s: option '-W %s' doesn't allow an argument\n"
-msgstr "%s: η επιλογή «-W %s» δεν επιτρέπει όρισμα\n"
-
-#: gl/lib/getopt.c:1043 gl/lib/getopt.c:1061
-#, c-format
-msgid "%s: option '-W %s' requires an argument\n"
-msgstr "%s: η επιλογή «-W %s» απαιτεί όρισμα\n"
-
-#: gl/lib/openat-die.c:38
-#, c-format
-msgid "unable to record current working directory"
-msgstr "unable to record current working directory"
-
-#: gl/lib/openat-die.c:57
-#, c-format
-msgid "failed to return to initial working directory"
-msgstr "αποτυχία επαναφοράς στον αρχικό κατάλογο εργασίας"
-
-#. TRANSLATORS:
-#. Get translations for open and closing quotation marks.
-#. The message catalog should translate "`" to a left
-#. quotation mark suitable for the locale, and similarly for
-#. "'".  For example, a French Unicode local should translate
-#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), respectively.
-#.
-#. If the catalog has no translation, we will try to
-#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
-#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
-#. current locale is not Unicode, locale_quoting_style
-#. will quote 'like this', and clocale_quoting_style will
-#. quote "like this".  You should always include translations
-#. for "`" and "'" even if U+2018 and U+2019 are appropriate
-#. for your locale.
-#.
-#. If you don't know what to put here, please see
-#. <http://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
-#. and use glyphs suitable for your language.
-#: gl/lib/quotearg.c:347
-msgid "`"
-msgstr "`"
-
-#: gl/lib/quotearg.c:348
-msgid "'"
-msgstr "'"
-
-#. TRANSLATORS: A regular expression testing for an affirmative answer
-#. (english: "yes").  Testing the first character may be sufficient.
-#. Take care to consider upper and lower case.
-#. To enquire the regular expression that your system uses for this
-#. purpose, you can use the command
-#. locale -k LC_MESSAGES | grep '^yesexpr='
-#: gl/lib/rpmatch.c:150
-msgid "^[yY]"
-msgstr "^[yY]"
-
-#. TRANSLATORS: A regular expression testing for a negative answer
-#. (english: "no").  Testing the first character may be sufficient.
-#. Take care to consider upper and lower case.
-#. To enquire the regular expression that your system uses for this
-#. purpose, you can use the command
-#. locale -k LC_MESSAGES | grep '^noexpr='
-#: gl/lib/rpmatch.c:163
-msgid "^[nN]"
-msgstr "^[nN]"
-
-#: gl/lib/version-etc.c:74
-#, c-format
-msgid "Packaged by %s (%s)\n"
-msgstr "Packaged by %s (%s)\n"
-
-#: gl/lib/version-etc.c:77
-#, c-format
-msgid "Packaged by %s\n"
-msgstr "Packaged by %s\n"
-
-#. TRANSLATORS: Translate "(C)" to the copyright symbol
-#. (C-in-a-circle), if this symbol is available in the user's
-#. locale.  Otherwise, do not translate "(C)"; leave it as-is.
-#: gl/lib/version-etc.c:84
-msgid "(C)"
-msgstr "(C)"
-
-#: gl/lib/version-etc.c:86
-msgid ""
-"\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>.\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-"\n"
-msgstr ""
-"\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>.\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-"\n"
-
-#. TRANSLATORS: %s denotes an author name.
-#: gl/lib/version-etc.c:102
-#, c-format
-msgid "Written by %s.\n"
-msgstr "Γράφτηκε από %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#: gl/lib/version-etc.c:106
-#, c-format
-msgid "Written by %s and %s.\n"
-msgstr "Γράφτηκε από τους %s και %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#: gl/lib/version-etc.c:110
-#, c-format
-msgid "Written by %s, %s, and %s.\n"
-msgstr "Γράφτηκε από τους %s, %s, και %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:117
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"and %s.\n"
-msgstr ""
-"Γράφτηκε από τους %s, %s, %s,\n"
-"και %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:124
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, and %s.\n"
-msgstr ""
-"Γράφτηκε από τους %s, %s, %s,\n"
-"%s, και %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:131
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, and %s.\n"
-msgstr ""
-"Γράφτηκε από τους %s, %s, %s,\n"
-"%s, %s, και %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:139
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, and %s.\n"
-msgstr ""
-"Γράφτηκε από τους %s, %s, %s,\n"
-"%s, %s, %s, και %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:147
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"and %s.\n"
-msgstr ""
-"Γράφτηκε από τους %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"και %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:156
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"%s, and %s.\n"
-msgstr ""
-"Γράφτηκε από τους %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"%s, και %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:167
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"%s, %s, and others.\n"
-msgstr ""
-"Γράφτηκε από τους %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"%s, %s, και άλλους.\n"
-
-#. TRANSLATORS: The placeholder indicates the bug-reporting address
-#. for this package.  Please add _another line_ saying
-#. "Report translation bugs to <...>\n" with the address for translation
-#. bugs (typically your translation team's web or email address).
-#: gl/lib/version-etc.c:245
-#, c-format
-msgid ""
-"\n"
-"Report bugs to: %s\n"
-msgstr ""
-"\n"
-"Report bugs to: %s\n"
-
-#: gl/lib/version-etc.c:247
-#, c-format
-msgid "Report %s bugs to: %s\n"
-msgstr "Report %s bugs to: %s\n"
-
-#: gl/lib/version-etc.c:251
-#, c-format
-msgid "%s home page: <%s>\n"
-msgstr "%s home page: <%s>\n"
-
-#: gl/lib/version-etc.c:253
-#, c-format
-msgid "%s home page: <http://www.gnu.org/software/%s/>\n"
-msgstr "%s home page: <http://www.gnu.org/software/%s/>\n"
-
-#: gl/lib/version-etc.c:256
-msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
-msgstr "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
-
-#: gl/lib/xalloc-die.c:34
-msgid "memory exhausted"
-msgstr "μνήμη εξαντλήθηκε"
-
-#: gl/lib/xstrtol-error.c:63
-#, c-format
-msgid "invalid %s%s argument '%s'"
-msgstr "invalid %s%s argument '%s'"
-
-#: gl/lib/xstrtol-error.c:68
-#, c-format
-msgid "invalid suffix in %s%s argument '%s'"
-msgstr "invalid suffix in %s%s argument '%s'"
-
-#: gl/lib/xstrtol-error.c:72
-#, c-format
-msgid "%s%s argument '%s' too large"
-msgstr "%s%s όρισμα «%s» πολύ μεγάλο"
-
-#: lib/buildcmd.c:161
+#: lib/buildcmd.c:160
 #, c-format
 msgid "command too long"
 msgstr "διαταγή πολύ μεγάλη"
 
-#: lib/buildcmd.c:301
+#: lib/buildcmd.c:300
 #, c-format
 msgid "can't call exec() due to argument size restrictions"
 msgstr "αδυναμία κλήσης της exec() λόγω περιορισμών στο μέγεθος του ορίσματος"
 
-#: lib/buildcmd.c:371
+#: lib/buildcmd.c:370
 #, c-format
 msgid "cannot fit single argument within argument list size limit"
 msgstr ""
 "δεν μπορώ να περιλάβω μοναδικό όρισμα μέσα\n"
 "στο περιορισμένο μέγεθος της λίστας ορισμάτων"
 
-#: lib/buildcmd.c:377
+#: lib/buildcmd.c:376
 #, c-format
 msgid "argument list too long"
 msgstr "λίστα ορισμάτων πολύ μεγάλη"
 
-#: lib/buildcmd.c:629
+#: lib/buildcmd.c:628
 #, c-format
 msgid "Environment variable %s is not set to a valid decimal number"
 msgstr "Η μεταβλητή περιβάλλοντος %s δε ρυθμίστηκε σε ένα δεκαδικό αριθμό"
@@ -1182,7 +848,7 @@ msgstr "James Youngman"
 msgid "Kevin Dalley"
 msgstr "Kevin Dalley"
 
-#: lib/listfile.c:452
+#: lib/listfile.c:451
 #, fuzzy, c-format
 msgid "Failed to write output (at stage %d)"
 msgstr "Failed to write output"
@@ -1219,6 +885,11 @@ msgid ""
 msgstr ""
 "\n"
 "Αναφορά σφαλμάτων στην <bug-findutils@gnu.org>.\n"
+
+#: locate/code.c:153 locate/frcode.c:210
+#, c-format
+msgid "write error"
+msgstr "write error"
 
 #: locate/frcode.c:160
 #, c-format
@@ -1471,12 +1142,12 @@ msgstr "μη αναμενόμενο τέλος αρχείου στο %s"
 msgid "error reading a word from %s"
 msgstr "σφάλμα κατά την ανάγνωση λέξης από %s"
 
-#: xargs/xargs.c:262
+#: xargs/xargs.c:261
 #, c-format
 msgid "Invalid escape sequence %s in input delimiter specification."
 msgstr "Μη έγκυρη ακολουθία διαφυγής %s στην προδιαγραφή του οριοθέτη εισόδου."
 
-#: xargs/xargs.c:280
+#: xargs/xargs.c:279
 #, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; character "
@@ -1485,7 +1156,7 @@ msgstr ""
 "Μη έγκυρη ακολουθία διαφυγής %s στην προδιαγραφή του οριοθέτη εισόδου· οι "
 "τιμές των χαρακτήρων δεν πρέπει να υπερβαίνουν %lx."
 
-#: xargs/xargs.c:286
+#: xargs/xargs.c:285
 #, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; character "
@@ -1494,7 +1165,7 @@ msgstr ""
 "Μη έγκυρη ακολουθία διαφυγής %s στην προδιαγραφή του οριοθέτη εισόδου· οι "
 "τιμές των χαρακτήρων δεν πρέπει να υπερβαίνουν %lo."
 
-#: xargs/xargs.c:295
+#: xargs/xargs.c:294
 #, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; trailing "
@@ -1503,7 +1174,7 @@ msgstr ""
 "Μη έγκυρη ακολουθία διαφυγής %s στην προδιαγραφή του οριοθέτη εισόδου· οι οι "
 "χαρακήρες στο τέλος %s δεν αναγνωρίζονται"
 
-#: xargs/xargs.c:340
+#: xargs/xargs.c:339
 #, c-format
 msgid ""
 "Invalid input delimiter specification %s: the delimiter must be either a "
@@ -1512,7 +1183,7 @@ msgstr ""
 "Μη έγκυρη προδιαγραφή οριοθέτη εισόδου %s: ο οριοθέτης πρέπει να είναι είτε "
 "ένας μοναδικός χαρακτήρας ή μια ακολουθία διαφυγής που αρχίζει με \\."
 
-#: xargs/xargs.c:357
+#: xargs/xargs.c:356
 #, c-format
 msgid "environment is too large for exec"
 msgstr "το περιβάλλον είναι πολύ μεγάλο γιά την εκτέλεση"
@@ -1910,3 +1581,192 @@ msgstr ""
 #: xargs/xargs.c:1696
 msgid "      --version                output version information and exit\n"
 msgstr "      --version                πληροφορίες έκδοσης κι έξοδος\n"
+
+#~ msgid "invalid argument %s for %s"
+#~ msgstr "Το όρισμα «%s» για την «%s» δεν είναι έγκυρο"
+
+#~ msgid "ambiguous argument %s for %s"
+#~ msgstr "Το όρισμα «%s» για την «%s» είναι ασαφές"
+
+#~ msgid "Valid arguments are:"
+#~ msgstr "Έγκυρα ορίσματα είναι:"
+
+#~ msgid "error closing file"
+#~ msgstr "σφάλμα στο κλείσημο του αρχείου"
+
+#~ msgid "Unknown system error"
+#~ msgstr "Άγνωστο σφάλμα συστήματος"
+
+#~ msgid "%s: option '%s' is ambiguous; possibilities:"
+#~ msgstr "%s: η επιλογή «%s» είναι ασαφής, δυνατότητες:"
+
+#, fuzzy
+#~ msgid "%s: option '%s' is ambiguous\n"
+#~ msgstr "%s: η επιλογή «-W %s» είναι ασαφής\n"
+
+#~ msgid "%s: option '--%s' doesn't allow an argument\n"
+#~ msgstr "%s: η επιλογή «--%s» δεν επιτρέπει όρισμα\n"
+
+#~ msgid "%s: option '%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: η επιλογή «%c%s» δεν επιτρέπει όρισμα\n"
+
+#~ msgid "%s: option '--%s' requires an argument\n"
+#~ msgstr "%s: η επιλογή «--%s» απαιτεί ένα όρισμα\n"
+
+#~ msgid "%s: unrecognized option '--%s'\n"
+#~ msgstr "%s: η επιλογή «--%s» δεν αναγνωρίζεται\n"
+
+#~ msgid "%s: unrecognized option '%c%s'\n"
+#~ msgstr "%s: μη αναγνωριζόμενη επιλογή «%c%s»\n"
+
+#~ msgid "%s: invalid option -- '%c'\n"
+#~ msgstr "%s: μη έγκυρη επιλογή -- «%c»\n"
+
+#~ msgid "%s: option requires an argument -- '%c'\n"
+#~ msgstr "%s: η επιλογή απαιτεί ένα όρισμα -- «%c»\n"
+
+#~ msgid "%s: option '-W %s' is ambiguous\n"
+#~ msgstr "%s: η επιλογή «-W %s» είναι ασαφής\n"
+
+#~ msgid "%s: option '-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: η επιλογή «-W %s» δεν επιτρέπει όρισμα\n"
+
+#~ msgid "%s: option '-W %s' requires an argument\n"
+#~ msgstr "%s: η επιλογή «-W %s» απαιτεί όρισμα\n"
+
+#~ msgid "unable to record current working directory"
+#~ msgstr "unable to record current working directory"
+
+#~ msgid "failed to return to initial working directory"
+#~ msgstr "αποτυχία επαναφοράς στον αρχικό κατάλογο εργασίας"
+
+#~ msgid "`"
+#~ msgstr "`"
+
+#~ msgid "'"
+#~ msgstr "'"
+
+#~ msgid "^[yY]"
+#~ msgstr "^[yY]"
+
+#~ msgid "^[nN]"
+#~ msgstr "^[nN]"
+
+#~ msgid "Packaged by %s (%s)\n"
+#~ msgstr "Packaged by %s (%s)\n"
+
+#~ msgid "Packaged by %s\n"
+#~ msgstr "Packaged by %s\n"
+
+#~ msgid "(C)"
+#~ msgstr "(C)"
+
+#~ msgid ""
+#~ "\n"
+#~ "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
+#~ "html>.\n"
+#~ "This is free software: you are free to change and redistribute it.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
+#~ "html>.\n"
+#~ "This is free software: you are free to change and redistribute it.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ "\n"
+
+#~ msgid "Written by %s.\n"
+#~ msgstr "Γράφτηκε από %s.\n"
+
+#~ msgid "Written by %s and %s.\n"
+#~ msgstr "Γράφτηκε από τους %s και %s.\n"
+
+#~ msgid "Written by %s, %s, and %s.\n"
+#~ msgstr "Γράφτηκε από τους %s, %s, και %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "and %s.\n"
+#~ msgstr ""
+#~ "Γράφτηκε από τους %s, %s, %s,\n"
+#~ "και %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, and %s.\n"
+#~ msgstr ""
+#~ "Γράφτηκε από τους %s, %s, %s,\n"
+#~ "%s, και %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, and %s.\n"
+#~ msgstr ""
+#~ "Γράφτηκε από τους %s, %s, %s,\n"
+#~ "%s, %s, και %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, and %s.\n"
+#~ msgstr ""
+#~ "Γράφτηκε από τους %s, %s, %s,\n"
+#~ "%s, %s, %s, και %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "and %s.\n"
+#~ msgstr ""
+#~ "Γράφτηκε από τους %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "και %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "%s, and %s.\n"
+#~ msgstr ""
+#~ "Γράφτηκε από τους %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "%s, και %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "%s, %s, and others.\n"
+#~ msgstr ""
+#~ "Γράφτηκε από τους %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "%s, %s, και άλλους.\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Report bugs to: %s\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Report bugs to: %s\n"
+
+#~ msgid "Report %s bugs to: %s\n"
+#~ msgstr "Report %s bugs to: %s\n"
+
+#~ msgid "%s home page: <%s>\n"
+#~ msgstr "%s home page: <%s>\n"
+
+#~ msgid "%s home page: <http://www.gnu.org/software/%s/>\n"
+#~ msgstr "%s home page: <http://www.gnu.org/software/%s/>\n"
+
+#~ msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
+#~ msgstr "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
+
+#~ msgid "memory exhausted"
+#~ msgstr "μνήμη εξαντλήθηκε"
+
+#~ msgid "invalid %s%s argument '%s'"
+#~ msgstr "invalid %s%s argument '%s'"
+
+#~ msgid "invalid suffix in %s%s argument '%s'"
+#~ msgstr "invalid suffix in %s%s argument '%s'"
+
+#~ msgid "%s%s argument '%s' too large"
+#~ msgstr "%s%s όρισμα «%s» πολύ μεγάλο"

@@ -1,5 +1,6 @@
 # -*- mode:po; coding:utf-8; -*- Slovenian messages for findutils.
-# Copyright (C) 1996, 2000, 2001, 2005, 2006, 2009, 2011, 2013, 2014, 2015 Free Software Foundation, Inc.
+# Copyright (C) 1996, 2000-2001, 2005-2006, 2009, 2011, 2013-2016 Free
+# Software Foundation, Inc.
 # This file is distributed under the same license as the findutils package.
 # Primož Peterlin <primozz.peterlin@gmail.com>, 2000, 2001, 2005, 2006, 2009, 2011, 2013, 2014, 2015.
 # $Id: findutils-4.5.15.sl.po,v 1.2 2015/12/26 15:02:38 peterlin Exp $
@@ -8,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: findutils 4.5.15\n"
 "Report-Msgid-Bugs-To: bug-findutils@gnu.org\n"
-"POT-Creation-Date: 2015-12-27 20:34+0000\n"
+"POT-Creation-Date: 2016-01-04 00:12+0000\n"
 "PO-Revision-Date: 2015-12-26 16:02+0100\n"
 "Last-Translator: Primož Peterlin <primozz.peterlin@gmail.com>\n"
 "Language-Team: Slovenian <translation-team-sl@lists.sourceforge.net>\n"
@@ -19,42 +20,83 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 
-#: find/exec.c:136
+#: find/exec.c:135
 #, c-format
 msgid "Failed to save working directory in order to run a command on %s"
 msgstr "Neuspela shranitev delovnega imenika, da bi lahko pognali ukaz na %s"
 
-#: find/exec.c:256
+#: find/exec.c:255
 #, c-format
 msgid "Cannot close standard input"
 msgstr "Standardnega vhoda ni mogoče zapreti"
 
-#: find/exec.c:285
+#: find/exec.c:284
 #, fuzzy, c-format
 msgid "Failed to change directory%s%s"
 msgstr "Sprememba imenika ni mogoča: %s"
 
-#: find/exec.c:314 xargs/xargs.c:1265
+#: find/exec.c:313 xargs/xargs.c:1265
 #, c-format
 msgid "cannot fork"
 msgstr "vejitev ni mogoča"
 
-#: find/exec.c:345
+#: find/exec.c:344
 #, c-format
 msgid "error waiting for %s"
 msgstr "napaka pri čakanju na %s"
 
-#: find/exec.c:354
+#: find/exec.c:353
 #, c-format
 msgid "%s terminated by signal %d"
 msgstr "%s zaključen s signalom %d"
 
-#: find/oldfind.c:204 find/ftsfind.c:677
+#: find/fstype.c:185
+#, c-format
+msgid "Cannot read mounted file system list"
+msgstr "Seznama priklopljenih datotečnih sistemov ni mogoče prebrati"
+
+#: find/fstype.c:244
+msgid "unknown"
+msgstr "neznano"
+
+#: find/ftsfind.c:245 find/oldfind.c:1139
+#, c-format
+msgid ""
+"Symbolic link %s is part of a loop in the directory hierarchy; we have "
+"already visited the directory to which it points."
+msgstr ""
+"Simbolna povezava »%s« je del zanke v drevesu imenikov; imenik, na katerega "
+"kaže, smo že obiskali."
+
+#: find/ftsfind.c:259
+#, c-format
+msgid ""
+"File system loop detected; %s is part of the same file system loop as %s."
+msgstr ""
+"Odkrita zanka v datotečnem sistemu: %s je del iste zanke datotečnega sistema "
+"kot %s."
+
+#: find/ftsfind.c:444 find/util.c:221
+#, c-format
+msgid "WARNING: file %s appears to have mode 0000"
+msgstr "OPOZORILO: videti je, da ima datoteka %s zaščito 0000"
+
+#: find/ftsfind.c:559
+#, c-format
+msgid "cannot search %s"
+msgstr "ni mogoče preiskati %s"
+
+#: find/ftsfind.c:609
+#, c-format
+msgid "failed to restore working directory after searching %s"
+msgstr "povrnitev delovnega imenika po preiskovanju %s ni mogoča"
+
+#: find/ftsfind.c:677 find/oldfind.c:204
 #, c-format
 msgid "Failed to initialize shared-file hash table"
 msgstr "Inicializacija porazdeljene zgoščevalne tabele ni uspela"
 
-#: find/oldfind.c:220 find/ftsfind.c:693 locate/bigram.c:105 locate/code.c:174
+#: find/ftsfind.c:693 find/oldfind.c:220 locate/bigram.c:105 locate/code.c:174
 #: locate/frcode.c:233 locate/locate.c:1581 xargs/xargs.c:423
 #, c-format
 msgid "The atexit library function failed"
@@ -108,15 +150,6 @@ msgstr "vrnitev v nadrejeni imenik ni mogoča"
 msgid "Failed to safely change directory into %s"
 msgstr "Varna zamenjava imenika v %s ni uspela"
 
-#: find/oldfind.c:1139 find/ftsfind.c:245
-#, c-format
-msgid ""
-"Symbolic link %s is part of a loop in the directory hierarchy; we have "
-"already visited the directory to which it points."
-msgstr ""
-"Simbolna povezava »%s« je del zanke v drevesu imenikov; imenik, na katerega "
-"kaže, smo že obiskali."
-
 #: find/oldfind.c:1158
 #, c-format
 msgid ""
@@ -158,39 +191,7 @@ msgstr ""
 "noleaf. Prejšnji rezultati so lahko bili napačni, ker v iskanje niso bili "
 "vključeni vsi potrebni imeniki."
 
-#: find/fstype.c:185
-#, c-format
-msgid "Cannot read mounted file system list"
-msgstr "Seznama priklopljenih datotečnih sistemov ni mogoče prebrati"
-
-#: find/fstype.c:244
-msgid "unknown"
-msgstr "neznano"
-
-#: find/ftsfind.c:259
-#, c-format
-msgid ""
-"File system loop detected; %s is part of the same file system loop as %s."
-msgstr ""
-"Odkrita zanka v datotečnem sistemu: %s je del iste zanke datotečnega sistema "
-"kot %s."
-
-#: find/ftsfind.c:444 find/util.c:222
-#, c-format
-msgid "WARNING: file %s appears to have mode 0000"
-msgstr "OPOZORILO: videti je, da ima datoteka %s zaščito 0000"
-
-#: find/ftsfind.c:559
-#, c-format
-msgid "cannot search %s"
-msgstr "ni mogoče preiskati %s"
-
-#: find/ftsfind.c:609
-#, c-format
-msgid "failed to restore working directory after searching %s"
-msgstr "povrnitev delovnega imenika po preiskovanju %s ni mogoča"
-
-#: find/parser.c:452
+#: find/parser.c:451
 #, c-format
 msgid ""
 "The -delete action automatically turns on -depth, but -prune does nothing "
@@ -201,7 +202,7 @@ msgstr ""
 "vklopljeni izbiri -depth ne izvede ničesar. Če želite vseeno nadaljevati, "
 "izrecno uporabite izbiro -depth."
 
-#: find/parser.c:608
+#: find/parser.c:607
 #, c-format
 msgid ""
 "warning: you have specified the %s option after a non-option argument %s, "
@@ -213,7 +214,7 @@ msgstr ""
 "niso pozicijske (%s vpliva na teste, navadene pred njo in za njo). Prosimo, "
 "navedite izbire pred drugimi argumenti.\n"
 
-#: find/parser.c:915
+#: find/parser.c:914
 #, c-format
 msgid ""
 "warning: the -d option is deprecated; please use -depth instead, because the "
@@ -222,7 +223,7 @@ msgstr ""
 "opozorilo: raba izbire -d je odsvetovana; zaradi skladnosti s POSIX namesto "
 "nje priporočamo -depth."
 
-#: find/parser.c:1188
+#: find/parser.c:1187
 #, c-format
 msgid ""
 "%s is not the name of an existing group and it does not look like a numeric "
@@ -231,17 +232,17 @@ msgstr ""
 "%s ni niti ime obstoječe skupine, niti ni videti kot številčni GID, saj ima "
 "nepričakovano pripono %s"
 
-#: find/parser.c:1203
+#: find/parser.c:1202
 #, c-format
 msgid "%s is not the name of an existing group"
 msgstr "%s ni ime obstoječe skupine"
 
-#: find/parser.c:1209
+#: find/parser.c:1208
 #, c-format
 msgid "argument to -group is empty, but should be a group name"
 msgstr "argument k izbiri -group manjka; navedeno bi moralo biti ime skupine"
 
-#: find/parser.c:1231
+#: find/parser.c:1230
 msgid ""
 "\n"
 "default path is the current directory; default expression is -print\n"
@@ -251,7 +252,7 @@ msgstr ""
 "privzeta pot je trenutni imenik; privzeti izraz je -print\n"
 "izraz lahko sestavljajo: operatorji, izbire, testi in dejanja:\n"
 
-#: find/parser.c:1234
+#: find/parser.c:1233
 msgid ""
 "operators (decreasing precedence; -and is implicit where no others are "
 "given):\n"
@@ -264,7 +265,7 @@ msgstr ""
 "IZRAZ2\n"
 "      IZRAZ1 -o IZRAZ2   IZRAZ1 -or IZRAZ2   IZRAZ1 , IZRAZ2\n"
 
-#: find/parser.c:1238
+#: find/parser.c:1237
 msgid ""
 "positional options (always true): -daystart -follow -regextype\n"
 "\n"
@@ -279,7 +280,7 @@ msgstr ""
 "      --version -xdev -ignore_readdir_race -noignore_readdir_race\n"
 "testi (N can be +N or -N or N): -amin N -anewer DATOTEKA -atime N -cmin N\n"
 
-#: find/parser.c:1243
+#: find/parser.c:1242
 msgid ""
 "tests (N can be +N or -N or N): -amin N -anewer FILE -atime N -cmin N\n"
 "      -cnewer FILE -ctime N -empty -false -fstype TYPE -gid N -group NAME\n"
@@ -293,7 +294,7 @@ msgstr ""
 "VZOREC\n"
 "      -links N -lname VZOREC -mmin N -mtime N -name VZOREC -newer DATOTEKA"
 
-#: find/parser.c:1248
+#: find/parser.c:1247
 msgid ""
 "      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN\n"
 "      -readable -writable -executable\n"
@@ -305,11 +306,11 @@ msgstr ""
 "      -wholename VZOREC -size N[bcwkMG] -true -type [bcdpflsD] -uid N \n"
 "      -used N -user IME -xtype [bcdpfls]"
 
-#: find/parser.c:1253
+#: find/parser.c:1252
 msgid "      -context CONTEXT\n"
 msgstr "      -context KONTEKST\n"
 
-#: find/parser.c:1255
+#: find/parser.c:1254
 msgid ""
 "\n"
 "actions: -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print \n"
@@ -323,7 +324,7 @@ msgstr ""
 "      -exec UKAZ ; -exec UKAZ {} + -ok UKAZ ;\n"
 "      -execdir UKAZ ; -execdir UKAZ {} + -okdir UKAZ ;\n"
 
-#: find/parser.c:1261
+#: find/parser.c:1260
 msgid ""
 "Report (and track progress on fixing) bugs via the findutils bug-reporting\n"
 "page at http://savannah.gnu.org/ or, if you have no web access, by sending\n"
@@ -334,12 +335,12 @@ msgstr ""
 "za prijavljanje napak findutils, http://savannah.gnu.org/, ali, če nimate\n"
 "dostopa do spleta, po elektronski pošti na naslov <bug-findutils@gnu.org>."
 
-#: find/parser.c:1316
+#: find/parser.c:1315
 #, c-format
 msgid "sanity check of the fnmatch() library function failed."
 msgstr "preizkus koherentnosti knjižnične funkcije fnmatch() ni uspel."
 
-#: find/parser.c:1330
+#: find/parser.c:1329
 #, c-format
 msgid ""
 "warning: Unix filenames usually don't contain slashes (though pathnames "
@@ -354,42 +355,42 @@ msgstr ""
 "uporabnejša. Če uporabljate GNU grep, lahko uporabite tudi »find ... -print0 "
 "| grep -FzZ %s«."
 
-#: find/parser.c:1456
+#: find/parser.c:1455
 #, c-format
 msgid "Expected a positive decimal integer argument to %s, but got %s"
 msgstr "Izbira %s pričakuje pozitivni desetiški argument namesto %s"
 
-#: find/parser.c:1621
+#: find/parser.c:1620
 #, c-format
 msgid "This system does not provide a way to find the birth time of a file."
 msgstr "Ta sistem ne omogoča ugotavljanja časa nastanka datoteke"
 
-#: find/parser.c:1642
+#: find/parser.c:1641
 #, c-format
 msgid "The %s test needs an argument"
 msgstr "Preizkus %s potrebuje argument"
 
-#: find/parser.c:1679
+#: find/parser.c:1678
 #, c-format
 msgid "I cannot figure out how to interpret %s as a date or time"
 msgstr "Niza %s ni mogoče tolmačiti kot datum ali čas"
 
-#: find/parser.c:1696
+#: find/parser.c:1695
 #, c-format
 msgid "Cannot obtain birth time of file %s"
 msgstr "Časa nastanka datoteke %s ni mogoče ugotoviti"
 
-#: find/parser.c:1840
+#: find/parser.c:1839
 #, c-format
 msgid "warning: -%s %s will not match anything because it ends with /."
 msgstr "opozorilo: -%s %s se zaključi z /., zato se z njim ne bo ujemalo nič"
 
-#: find/parser.c:1937
+#: find/parser.c:1936
 #, c-format
 msgid "invalid mode %s"
 msgstr "neveljaven način %s"
 
-#: find/parser.c:1955
+#: find/parser.c:1954
 #, c-format
 msgid ""
 "warning: you have specified a mode pattern %s (which is equivalent to /000). "
@@ -399,6 +400,11 @@ msgstr ""
 "opozorilo: določili ste vzorec %s, ki je enakovreden /000. Pomen -perm /000 "
 "se je spremenil, tako da je skladen z -perm -000; prej se ni ujemal z nobeno "
 "datoteke, zdaj pa se z vsemi."
+
+#: find/parser.c:2127
+#, fuzzy, c-format
+msgid "failed to compile regular expression '%s': %s"
+msgstr "Neveljavni regularni izraz"
 
 #: find/parser.c:2156
 #, c-format
@@ -581,38 +587,38 @@ msgstr "< %s ... %s > ? "
 msgid "Failed to write prompt for -ok"
 msgstr "Izpis pozivnika za -ok ni uspel"
 
-#: find/pred.c:1192 find/print.c:1239
+#: find/pred.c:1192 find/print.c:1238
 #, c-format
 msgid "getfilecon failed: %s"
 msgstr "klic getfilecon ni uspel: %s"
 
-#: find/print.c:346
+#: find/print.c:345
 #, c-format
 msgid "warning: escape `\\' followed by nothing at all"
 msgstr "opozorilo: ubežnica »\\«, ki ji ne sledi nič"
 
-#: find/print.c:365
+#: find/print.c:364
 #, c-format
 msgid "warning: unrecognized escape `\\%c'"
 msgstr "opozorilo: neprepoznano ubežno zaporedje »\\%c«"
 
-#: find/print.c:385
+#: find/print.c:384
 #, c-format
 msgid "error: %s at end of format string"
 msgstr "napaka: %s na koncu oblikovnega niza"
 
-#: find/print.c:409
+#: find/print.c:408
 #, c-format
 msgid "error: the format directive `%%%c' is reserved for future use"
 msgstr "napaka: formatno določilo »%%%c« je rezervirano za rabo v prihodnosti"
 
-#: find/print.c:417
+#: find/print.c:416
 #, c-format
 msgid ""
 "warning: format directive `%%%c' should be followed by another character"
 msgstr "opozorilo: formatnemu določilu »%%%c« bi moral slediti drug znak"
 
-#: find/print.c:425
+#: find/print.c:424
 #, c-format
 msgid "warning: unrecognized format directive `%%%c'"
 msgstr "opozorilo: neprepoznano formatno določilo »%%%c«"
@@ -731,52 +737,52 @@ msgstr "nepričakovan dodatni predikat"
 msgid "oops -- invalid default insertion of and!"
 msgstr "opla - neveljavno privzeto vstavljanje logičnega ALI!"
 
-#: find/util.c:175
+#: find/util.c:174
 #, c-format
 msgid "Usage: %s [-H] [-L] [-P] [-Olevel] [-D "
 msgstr "Uporaba: %s [-H] [-L] [-P] [-Oraven] [-D"
 
-#: find/util.c:177
+#: find/util.c:176
 #, c-format
 msgid "] [path...] [expression]\n"
 msgstr "] [POT...] [IZRAZ]\n"
 
-#: find/util.c:459
+#: find/util.c:458
 #, fuzzy, c-format
 msgid "Failed to save initial working directory%s%s"
 msgstr "začetnega delovnega imenika ni uspelo shraniti: %s"
 
-#: find/util.c:478
+#: find/util.c:477
 #, fuzzy, c-format
 msgid "Failed to restore initial working directory%s%s"
 msgstr "začetnega delovnega imenika ni uspelo povrniti: %s"
 
-#: find/util.c:828
+#: find/util.c:827
 #, c-format
 msgid "Ignoring unrecognised debug flag %s"
 msgstr "Ne upošteva se neprepoznano stikala za odpravljanje napak %s"
 
-#: find/util.c:835
+#: find/util.c:834
 #, c-format
 msgid "Empty argument to the -D option."
 msgstr "Manjkajoč argument k izbiri -D."
 
-#: find/util.c:851
+#: find/util.c:850
 #, c-format
 msgid "The -O option must be immediately followed by a decimal integer"
 msgstr "Izbiri -O mora neposredno slediti desetiško celo število"
 
-#: find/util.c:861 find/util.c:872
+#: find/util.c:860 find/util.c:871
 #, c-format
 msgid "Please specify a decimal number immediately after -O"
 msgstr "Prosimo, navedite desetiško število neposredno za -O"
 
-#: find/util.c:877 find/util.c:882
+#: find/util.c:876 find/util.c:881
 #, c-format
 msgid "Invalid optimisation level %s"
 msgstr "Neveljavna raven optimizacije %s"
 
-#: find/util.c:890
+#: find/util.c:889
 #, c-format
 msgid ""
 "Optimisation level %lu is too high.  If you want to find files very quickly, "
@@ -785,7 +791,7 @@ msgstr ""
 "Raven optimizacije %lu je previsoka.  Če želite najti datoteke zares hitro, "
 "razmislite o uporabi GNU locate."
 
-#: find/util.c:1034
+#: find/util.c:1033
 #, c-format
 msgid ""
 "The environment variable FIND_BLOCK_SIZE is not supported, the only thing "
@@ -794,369 +800,27 @@ msgstr ""
 "Spremenljivka FIND_BLOCK_SIZE ni podprta; na velikost bloka vpliva "
 "spremenljivka POSIXLY_CORRECT"
 
-#: gl/lib/argmatch.c:133
-#, c-format
-msgid "invalid argument %s for %s"
-msgstr "neveljaven argument %s za %s"
-
-#: gl/lib/argmatch.c:134
-#, c-format
-msgid "ambiguous argument %s for %s"
-msgstr "dvoumen argument %s za %s"
-
-#: gl/lib/argmatch.c:153
-msgid "Valid arguments are:"
-msgstr "Veljavni argumenti so:"
-
-#: gl/lib/closein.c:100
-msgid "error closing file"
-msgstr "napaka pri zapiranju datoteke"
-
-#: gl/lib/closeout.c:112 locate/code.c:153 locate/frcode.c:210
-#, c-format
-msgid "write error"
-msgstr "napaka pri pisanju"
-
-#: gl/lib/error.c:191
-msgid "Unknown system error"
-msgstr "Neznana sistemska napaka"
-
-#: gl/lib/getopt.c:575 gl/lib/getopt.c:604
-#, c-format
-msgid "%s: option '%s' is ambiguous; possibilities:"
-msgstr "%s: izbira »%s« je dvoumna; možnosti so:"
-
-#: gl/lib/getopt.c:619
-#, fuzzy, c-format
-msgid "%s: option '%s' is ambiguous\n"
-msgstr "%s: izbira »-W %s« je dvoumna\n"
-
-#: gl/lib/getopt.c:654 gl/lib/getopt.c:658
-#, c-format
-msgid "%s: option '--%s' doesn't allow an argument\n"
-msgstr "%s: izbira »--%s« ne dovoljuje argumenta\n"
-
-#: gl/lib/getopt.c:667 gl/lib/getopt.c:672
-#, c-format
-msgid "%s: option '%c%s' doesn't allow an argument\n"
-msgstr "%s: izbira »%c%s« ne dovoljuje argumenta\n"
-
-#: gl/lib/getopt.c:715 gl/lib/getopt.c:734
-#, c-format
-msgid "%s: option '--%s' requires an argument\n"
-msgstr "%s: izbira »--%s« zahteva argument\n"
-
-#: gl/lib/getopt.c:772 gl/lib/getopt.c:775
-#, c-format
-msgid "%s: unrecognized option '--%s'\n"
-msgstr "%s: neprepoznana izbira »--%s«\n"
-
-#: gl/lib/getopt.c:783 gl/lib/getopt.c:786
-#, c-format
-msgid "%s: unrecognized option '%c%s'\n"
-msgstr "%s: neprepoznana izbira »%c%s«\n"
-
-#: gl/lib/getopt.c:835 gl/lib/getopt.c:838
-#, c-format
-msgid "%s: invalid option -- '%c'\n"
-msgstr "%s: neveljavna izbira -- »%c«\n"
-
-#: gl/lib/getopt.c:891 gl/lib/getopt.c:908 gl/lib/getopt.c:1118
-#: gl/lib/getopt.c:1136
-#, c-format
-msgid "%s: option requires an argument -- '%c'\n"
-msgstr "%s: izbira zahteva argument -- »%c«\n"
-
-#: gl/lib/getopt.c:964 gl/lib/getopt.c:980
-#, c-format
-msgid "%s: option '-W %s' is ambiguous\n"
-msgstr "%s: izbira »-W %s« je dvoumna\n"
-
-#: gl/lib/getopt.c:1004 gl/lib/getopt.c:1022
-#, c-format
-msgid "%s: option '-W %s' doesn't allow an argument\n"
-msgstr "%s: izbira »-W %s« ne dovoljuje argumenta\n"
-
-#: gl/lib/getopt.c:1043 gl/lib/getopt.c:1061
-#, c-format
-msgid "%s: option '-W %s' requires an argument\n"
-msgstr "%s: izbira »-W %s« zahteva argument\n"
-
-#: gl/lib/openat-die.c:38
-#, c-format
-msgid "unable to record current working directory"
-msgstr "začetnega delovnega imenika ni uspelo zabeležiti"
-
-#: gl/lib/openat-die.c:57
-#, c-format
-msgid "failed to return to initial working directory"
-msgstr "vrnitev v začetni delovni imenik ni uspela"
-
-#. TRANSLATORS:
-#. Get translations for open and closing quotation marks.
-#. The message catalog should translate "`" to a left
-#. quotation mark suitable for the locale, and similarly for
-#. "'".  For example, a French Unicode local should translate
-#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), respectively.
-#.
-#. If the catalog has no translation, we will try to
-#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
-#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
-#. current locale is not Unicode, locale_quoting_style
-#. will quote 'like this', and clocale_quoting_style will
-#. quote "like this".  You should always include translations
-#. for "`" and "'" even if U+2018 and U+2019 are appropriate
-#. for your locale.
-#.
-#. If you don't know what to put here, please see
-#. <http://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
-#. and use glyphs suitable for your language.
-#: gl/lib/quotearg.c:347
-msgid "`"
-msgstr "»"
-
-#: gl/lib/quotearg.c:348
-msgid "'"
-msgstr "«"
-
-#. TRANSLATORS: A regular expression testing for an affirmative answer
-#. (english: "yes").  Testing the first character may be sufficient.
-#. Take care to consider upper and lower case.
-#. To enquire the regular expression that your system uses for this
-#. purpose, you can use the command
-#. locale -k LC_MESSAGES | grep '^yesexpr='
-#: gl/lib/rpmatch.c:150
-msgid "^[yY]"
-msgstr "^[DdJj]"
-
-#. TRANSLATORS: A regular expression testing for a negative answer
-#. (english: "no").  Testing the first character may be sufficient.
-#. Take care to consider upper and lower case.
-#. To enquire the regular expression that your system uses for this
-#. purpose, you can use the command
-#. locale -k LC_MESSAGES | grep '^noexpr='
-#: gl/lib/rpmatch.c:163
-msgid "^[nN]"
-msgstr "^[Nn]"
-
-#: gl/lib/version-etc.c:74
-#, c-format
-msgid "Packaged by %s (%s)\n"
-msgstr "Priprava paketa: %s (%s)\n"
-
-#: gl/lib/version-etc.c:77
-#, c-format
-msgid "Packaged by %s\n"
-msgstr "Priprava paketa: %s\n"
-
-#. TRANSLATORS: Translate "(C)" to the copyright symbol
-#. (C-in-a-circle), if this symbol is available in the user's
-#. locale.  Otherwise, do not translate "(C)"; leave it as-is.
-#: gl/lib/version-etc.c:84
-msgid "(C)"
-msgstr "©"
-
-#: gl/lib/version-etc.c:86
-msgid ""
-"\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>.\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-"\n"
-msgstr ""
-"\n"
-"GPLv3+: GNU GPL, 3. izdaja ali poznejša <http://www.gnu.org/licenses/gpl."
-"html>\n"
-"To je prosto programje; lahko ga redistribuirate in/ali spreminjate.\n"
-"Za izdelek ni NOBENEGA JAMSTVA, do z zakonom dovoljene meje.\n"
-"\n"
-
-#. TRANSLATORS: %s denotes an author name.
-#: gl/lib/version-etc.c:102
-#, c-format
-msgid "Written by %s.\n"
-msgstr "Avtor(ica): %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#: gl/lib/version-etc.c:106
-#, c-format
-msgid "Written by %s and %s.\n"
-msgstr "Avtorja: %s in %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#: gl/lib/version-etc.c:110
-#, c-format
-msgid "Written by %s, %s, and %s.\n"
-msgstr "Avtorji: %s, %s in %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:117
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"and %s.\n"
-msgstr ""
-"Avtorji: %s, %s, %s\n"
-"in %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:124
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, and %s.\n"
-msgstr ""
-"Avtorji: %s, %s, %s\n"
-"%s in %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:131
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, and %s.\n"
-msgstr ""
-"Avtorji: %s, %s, %s\n"
-"%s, %s in %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:139
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, and %s.\n"
-msgstr ""
-"Avtorji: %s, %s, %s\n"
-"%s, %s, %s in %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:147
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"and %s.\n"
-msgstr ""
-"Avtorji: %s, %s, %s\n"
-"%s, %s, %s, %s\n"
-"in %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:156
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"%s, and %s.\n"
-msgstr ""
-"Avtorji: %s, %s, %s\n"
-"%s, %s, %s, %s\n"
-"%s in %s.\n"
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:167
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"%s, %s, and others.\n"
-msgstr ""
-"Avtorji: %s, %s, %s\n"
-"%s, %s, %s, %s\n"
-"%s, %s in drugi.\n"
-
-#. TRANSLATORS: The placeholder indicates the bug-reporting address
-#. for this package.  Please add _another line_ saying
-#. "Report translation bugs to <...>\n" with the address for translation
-#. bugs (typically your translation team's web or email address).
-#: gl/lib/version-etc.c:245
-#, c-format
-msgid ""
-"\n"
-"Report bugs to: %s\n"
-msgstr ""
-"\n"
-"Poročila o napakah: %s\n"
-"Napake v prevodu sporočite na <translation-team-sl@lists.sourceforge.net>.\n"
-
-#: gl/lib/version-etc.c:247
-#, c-format
-msgid "Report %s bugs to: %s\n"
-msgstr ""
-"Napake v programu %s sporočite na: %s\n"
-"Napake v prevodu sporočite na <translation-team-sl@lists.sourceforge.net>.\n"
-
-#: gl/lib/version-etc.c:251
-#, c-format
-msgid "%s home page: <%s>\n"
-msgstr "Domača stran %s: <%s>\n"
-
-#: gl/lib/version-etc.c:253
-#, c-format
-msgid "%s home page: <http://www.gnu.org/software/%s/>\n"
-msgstr "Spletna stran %s: <http://www.gnu.org/software/%s/>.\n"
-
-#: gl/lib/version-etc.c:256
-msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
-msgstr "Splošna pomoč za rabo programja GNU: <http://www.gnu.org/gethelp/>.\n"
-
-#: gl/lib/xalloc-die.c:34
-msgid "memory exhausted"
-msgstr "pomnilnik porabljen"
-
-#: gl/lib/xstrtol-error.c:63
-#, c-format
-msgid "invalid %s%s argument '%s'"
-msgstr "neveljaven argument %s%s za »%s«"
-
-#: gl/lib/xstrtol-error.c:68
-#, c-format
-msgid "invalid suffix in %s%s argument '%s'"
-msgstr "neveljavna pripona argumenta %s%s za »%s«"
-
-#: gl/lib/xstrtol-error.c:72
-#, c-format
-msgid "%s%s argument '%s' too large"
-msgstr "%s%s argument »%s« je preobsežen"
-
-#: lib/buildcmd.c:161
+#: lib/buildcmd.c:160
 #, c-format
 msgid "command too long"
 msgstr "ukaz je predolg"
 
-#: lib/buildcmd.c:301
+#: lib/buildcmd.c:300
 #, c-format
 msgid "can't call exec() due to argument size restrictions"
 msgstr "klic exec() ni mogoč zaradi omejitev glede velikosti argumenta"
 
-#: lib/buildcmd.c:371
+#: lib/buildcmd.c:370
 #, c-format
 msgid "cannot fit single argument within argument list size limit"
 msgstr "posameznega argumenta ni mogoče umestiti v obseg seznama argumentov"
 
-#: lib/buildcmd.c:377
+#: lib/buildcmd.c:376
 #, c-format
 msgid "argument list too long"
 msgstr "seznam argumentov je predolg"
 
-#: lib/buildcmd.c:629
+#: lib/buildcmd.c:628
 #, c-format
 msgid "Environment variable %s is not set to a valid decimal number"
 msgstr "Spremenljivka okolja %s ni nastavljena na veljavno decimalno število"
@@ -1182,7 +846,7 @@ msgstr "James Youngman"
 msgid "Kevin Dalley"
 msgstr "Kevin Dalley"
 
-#: lib/listfile.c:452
+#: lib/listfile.c:451
 #, c-format
 msgid "Failed to write output (at stage %d)"
 msgstr "Pisanje na izhod ni uspelo (na stopnji %d)"
@@ -1220,6 +884,11 @@ msgstr ""
 "\n"
 "Napake v programu sporočite na <bug-findutils@gnu.org>.\n"
 "Napake v prevodu sporočite na <translation-team-sl@lists.sourceforge.net>.\n"
+
+#: locate/code.c:153 locate/frcode.c:210
+#, c-format
+msgid "write error"
+msgstr "napaka pri pisanju"
 
 #: locate/frcode.c:160
 #, c-format
@@ -1468,12 +1137,12 @@ msgstr "nepričakovan EOF v %s"
 msgid "error reading a word from %s"
 msgstr "napaka pri branju besede z %s"
 
-#: xargs/xargs.c:262
+#: xargs/xargs.c:261
 #, c-format
 msgid "Invalid escape sequence %s in input delimiter specification."
 msgstr "Neveljavno ubežno zaporedje %s v specifikaciji vhodnega razmejilnika."
 
-#: xargs/xargs.c:280
+#: xargs/xargs.c:279
 #, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; character "
@@ -1482,7 +1151,7 @@ msgstr ""
 "Neveljavno ubežno zaporedje %s v specifikaciji vhodnega razmejilnika; "
 "vrednost znaka ne sme presegati %lx."
 
-#: xargs/xargs.c:286
+#: xargs/xargs.c:285
 #, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; character "
@@ -1491,7 +1160,7 @@ msgstr ""
 "Neveljavno ubežno zaporedje %s v specifikaciji vhodnega razmejilnika; "
 "vrednost znaka ne sme presegati %lo."
 
-#: xargs/xargs.c:295
+#: xargs/xargs.c:294
 #, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; trailing "
@@ -1500,7 +1169,7 @@ msgstr ""
 "Neveljavno ubežno zaporedje %s v specifikaciji vhodnega razmejilnika; "
 "neprepoznan sledilni znak %s."
 
-#: xargs/xargs.c:340
+#: xargs/xargs.c:339
 #, c-format
 msgid ""
 "Invalid input delimiter specification %s: the delimiter must be either a "
@@ -1509,7 +1178,7 @@ msgstr ""
 "Neveljavno specifikacija vhodnega razmejilnika %s: razmejilnim mora biti "
 "bodisi en sam znak, bodisi ubežno zaporedje, ki se začenja z \\."
 
-#: xargs/xargs.c:357
+#: xargs/xargs.c:356
 #, c-format
 msgid "environment is too large for exec"
 msgstr "okolje je preobsežno za klic exec"
@@ -1911,6 +1580,201 @@ msgstr "      --help                   prikaži ta navodila in zaključi\n"
 msgid "      --version                output version information and exit\n"
 msgstr "      --version                različica programa\n"
 
+#~ msgid "invalid argument %s for %s"
+#~ msgstr "neveljaven argument %s za %s"
+
+#~ msgid "ambiguous argument %s for %s"
+#~ msgstr "dvoumen argument %s za %s"
+
+#~ msgid "Valid arguments are:"
+#~ msgstr "Veljavni argumenti so:"
+
+#~ msgid "error closing file"
+#~ msgstr "napaka pri zapiranju datoteke"
+
+#~ msgid "Unknown system error"
+#~ msgstr "Neznana sistemska napaka"
+
+#~ msgid "%s: option '%s' is ambiguous; possibilities:"
+#~ msgstr "%s: izbira »%s« je dvoumna; možnosti so:"
+
+#, fuzzy
+#~ msgid "%s: option '%s' is ambiguous\n"
+#~ msgstr "%s: izbira »-W %s« je dvoumna\n"
+
+#~ msgid "%s: option '--%s' doesn't allow an argument\n"
+#~ msgstr "%s: izbira »--%s« ne dovoljuje argumenta\n"
+
+#~ msgid "%s: option '%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: izbira »%c%s« ne dovoljuje argumenta\n"
+
+#~ msgid "%s: option '--%s' requires an argument\n"
+#~ msgstr "%s: izbira »--%s« zahteva argument\n"
+
+#~ msgid "%s: unrecognized option '--%s'\n"
+#~ msgstr "%s: neprepoznana izbira »--%s«\n"
+
+#~ msgid "%s: unrecognized option '%c%s'\n"
+#~ msgstr "%s: neprepoznana izbira »%c%s«\n"
+
+#~ msgid "%s: invalid option -- '%c'\n"
+#~ msgstr "%s: neveljavna izbira -- »%c«\n"
+
+#~ msgid "%s: option requires an argument -- '%c'\n"
+#~ msgstr "%s: izbira zahteva argument -- »%c«\n"
+
+#~ msgid "%s: option '-W %s' is ambiguous\n"
+#~ msgstr "%s: izbira »-W %s« je dvoumna\n"
+
+#~ msgid "%s: option '-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: izbira »-W %s« ne dovoljuje argumenta\n"
+
+#~ msgid "%s: option '-W %s' requires an argument\n"
+#~ msgstr "%s: izbira »-W %s« zahteva argument\n"
+
+#~ msgid "unable to record current working directory"
+#~ msgstr "začetnega delovnega imenika ni uspelo zabeležiti"
+
+#~ msgid "failed to return to initial working directory"
+#~ msgstr "vrnitev v začetni delovni imenik ni uspela"
+
+#~ msgid "`"
+#~ msgstr "»"
+
+#~ msgid "'"
+#~ msgstr "«"
+
+#~ msgid "^[yY]"
+#~ msgstr "^[DdJj]"
+
+#~ msgid "^[nN]"
+#~ msgstr "^[Nn]"
+
+#~ msgid "Packaged by %s (%s)\n"
+#~ msgstr "Priprava paketa: %s (%s)\n"
+
+#~ msgid "Packaged by %s\n"
+#~ msgstr "Priprava paketa: %s\n"
+
+#~ msgid "(C)"
+#~ msgstr "©"
+
+#~ msgid ""
+#~ "\n"
+#~ "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
+#~ "html>.\n"
+#~ "This is free software: you are free to change and redistribute it.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "GPLv3+: GNU GPL, 3. izdaja ali poznejša <http://www.gnu.org/licenses/gpl."
+#~ "html>\n"
+#~ "To je prosto programje; lahko ga redistribuirate in/ali spreminjate.\n"
+#~ "Za izdelek ni NOBENEGA JAMSTVA, do z zakonom dovoljene meje.\n"
+#~ "\n"
+
+#~ msgid "Written by %s.\n"
+#~ msgstr "Avtor(ica): %s.\n"
+
+#~ msgid "Written by %s and %s.\n"
+#~ msgstr "Avtorja: %s in %s.\n"
+
+#~ msgid "Written by %s, %s, and %s.\n"
+#~ msgstr "Avtorji: %s, %s in %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "and %s.\n"
+#~ msgstr ""
+#~ "Avtorji: %s, %s, %s\n"
+#~ "in %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, and %s.\n"
+#~ msgstr ""
+#~ "Avtorji: %s, %s, %s\n"
+#~ "%s in %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, and %s.\n"
+#~ msgstr ""
+#~ "Avtorji: %s, %s, %s\n"
+#~ "%s, %s in %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, and %s.\n"
+#~ msgstr ""
+#~ "Avtorji: %s, %s, %s\n"
+#~ "%s, %s, %s in %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "and %s.\n"
+#~ msgstr ""
+#~ "Avtorji: %s, %s, %s\n"
+#~ "%s, %s, %s, %s\n"
+#~ "in %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "%s, and %s.\n"
+#~ msgstr ""
+#~ "Avtorji: %s, %s, %s\n"
+#~ "%s, %s, %s, %s\n"
+#~ "%s in %s.\n"
+
+#~ msgid ""
+#~ "Written by %s, %s, %s,\n"
+#~ "%s, %s, %s, %s,\n"
+#~ "%s, %s, and others.\n"
+#~ msgstr ""
+#~ "Avtorji: %s, %s, %s\n"
+#~ "%s, %s, %s, %s\n"
+#~ "%s, %s in drugi.\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Report bugs to: %s\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Poročila o napakah: %s\n"
+#~ "Napake v prevodu sporočite na <translation-team-sl@lists.sourceforge."
+#~ "net>.\n"
+
+#~ msgid "Report %s bugs to: %s\n"
+#~ msgstr ""
+#~ "Napake v programu %s sporočite na: %s\n"
+#~ "Napake v prevodu sporočite na <translation-team-sl@lists.sourceforge."
+#~ "net>.\n"
+
+#~ msgid "%s home page: <%s>\n"
+#~ msgstr "Domača stran %s: <%s>\n"
+
+#~ msgid "%s home page: <http://www.gnu.org/software/%s/>\n"
+#~ msgstr "Spletna stran %s: <http://www.gnu.org/software/%s/>.\n"
+
+#~ msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
+#~ msgstr ""
+#~ "Splošna pomoč za rabo programja GNU: <http://www.gnu.org/gethelp/>.\n"
+
+#~ msgid "memory exhausted"
+#~ msgstr "pomnilnik porabljen"
+
+#~ msgid "invalid %s%s argument '%s'"
+#~ msgstr "neveljaven argument %s%s za »%s«"
+
+#~ msgid "invalid suffix in %s%s argument '%s'"
+#~ msgstr "neveljavna pripona argumenta %s%s za »%s«"
+
+#~ msgid "%s%s argument '%s' too large"
+#~ msgstr "%s%s argument »%s« je preobsežen"
+
 #~ msgid "cannot get current directory"
 #~ msgstr "trenutnega imenika ni mogoče ugotoviti"
 
@@ -1952,9 +1816,6 @@ msgstr "      --version                različica programa\n"
 
 #~ msgid "No match"
 #~ msgstr "Brez zadetkov"
-
-#~ msgid "Invalid regular expression"
-#~ msgstr "Neveljavni regularni izraz"
 
 #~ msgid "Invalid collation character"
 #~ msgstr "Neveljavni znak za primerjavo"

@@ -1,12 +1,12 @@
 # traditional Chinese translation of findutils.
-# Copyright (C) 2005, 2010 Free Software Foundation, Inc.
+# Copyright (C) 2005, 2010, 2016 Free Software Foundation, Inc.
 # Abel Cheung <abelcheung@gmail.com>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: findutils 4.2.26\n"
 "Report-Msgid-Bugs-To: bug-findutils@gnu.org\n"
-"POT-Creation-Date: 2015-12-27 20:34+0000\n"
+"POT-Creation-Date: 2016-01-04 00:12+0000\n"
 "PO-Revision-Date: 2005-12-06 11:30+0800\n"
 "Last-Translator: Abel Cheung <abelcheung@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -15,42 +15,79 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: find/exec.c:136
+#: find/exec.c:135
 #, fuzzy, c-format
 msgid "Failed to save working directory in order to run a command on %s"
 msgstr "無法決定當前目錄位置"
 
-#: find/exec.c:256
+#: find/exec.c:255
 #, c-format
 msgid "Cannot close standard input"
 msgstr ""
 
-#: find/exec.c:285
+#: find/exec.c:284
 #, fuzzy, c-format
 msgid "Failed to change directory%s%s"
 msgstr "無法決定當前目錄位置"
 
-#: find/exec.c:314 xargs/xargs.c:1265
+#: find/exec.c:313 xargs/xargs.c:1265
 #, c-format
 msgid "cannot fork"
 msgstr "fork 失敗"
 
-#: find/exec.c:345
+#: find/exec.c:344
 #, c-format
 msgid "error waiting for %s"
 msgstr "等待 %s 時出現錯誤"
 
-#: find/exec.c:354
+#: find/exec.c:353
 #, c-format
 msgid "%s terminated by signal %d"
 msgstr "%s 因訊號 %d 而終止"
 
-#: find/oldfind.c:204 find/ftsfind.c:677
+#: find/fstype.c:185
+#, c-format
+msgid "Cannot read mounted file system list"
+msgstr ""
+
+#: find/fstype.c:244
+msgid "unknown"
+msgstr ""
+
+#: find/ftsfind.c:245 find/oldfind.c:1139
+#, c-format
+msgid ""
+"Symbolic link %s is part of a loop in the directory hierarchy; we have "
+"already visited the directory to which it points."
+msgstr ""
+
+#: find/ftsfind.c:259
+#, c-format
+msgid ""
+"File system loop detected; %s is part of the same file system loop as %s."
+msgstr ""
+
+#: find/ftsfind.c:444 find/util.c:221
+#, c-format
+msgid "WARNING: file %s appears to have mode 0000"
+msgstr ""
+
+#: find/ftsfind.c:559
+#, c-format
+msgid "cannot search %s"
+msgstr ""
+
+#: find/ftsfind.c:609
+#, fuzzy, c-format
+msgid "failed to restore working directory after searching %s"
+msgstr "無法決定當前目錄位置"
+
+#: find/ftsfind.c:677 find/oldfind.c:204
 #, c-format
 msgid "Failed to initialize shared-file hash table"
 msgstr ""
 
-#: find/oldfind.c:220 find/ftsfind.c:693 locate/bigram.c:105 locate/code.c:174
+#: find/ftsfind.c:693 find/oldfind.c:220 locate/bigram.c:105 locate/code.c:174
 #: locate/frcode.c:233 locate/locate.c:1581 xargs/xargs.c:423
 #, fuzzy, c-format
 msgid "The atexit library function failed"
@@ -104,13 +141,6 @@ msgstr "無法決定當前目錄位置"
 msgid "Failed to safely change directory into %s"
 msgstr ""
 
-#: find/oldfind.c:1139 find/ftsfind.c:245
-#, c-format
-msgid ""
-"Symbolic link %s is part of a loop in the directory hierarchy; we have "
-"already visited the directory to which it points."
-msgstr ""
-
 #: find/oldfind.c:1158
 #, c-format
 msgid ""
@@ -137,37 +167,7 @@ msgid ""
 "searched."
 msgstr ""
 
-#: find/fstype.c:185
-#, c-format
-msgid "Cannot read mounted file system list"
-msgstr ""
-
-#: find/fstype.c:244
-msgid "unknown"
-msgstr ""
-
-#: find/ftsfind.c:259
-#, c-format
-msgid ""
-"File system loop detected; %s is part of the same file system loop as %s."
-msgstr ""
-
-#: find/ftsfind.c:444 find/util.c:222
-#, c-format
-msgid "WARNING: file %s appears to have mode 0000"
-msgstr ""
-
-#: find/ftsfind.c:559
-#, c-format
-msgid "cannot search %s"
-msgstr ""
-
-#: find/ftsfind.c:609
-#, fuzzy, c-format
-msgid "failed to restore working directory after searching %s"
-msgstr "無法決定當前目錄位置"
-
-#: find/parser.c:452
+#: find/parser.c:451
 #, c-format
 msgid ""
 "The -delete action automatically turns on -depth, but -prune does nothing "
@@ -175,7 +175,7 @@ msgid ""
 "use the -depth option."
 msgstr ""
 
-#: find/parser.c:608
+#: find/parser.c:607
 #, c-format
 msgid ""
 "warning: you have specified the %s option after a non-option argument %s, "
@@ -184,7 +184,7 @@ msgid ""
 "arguments.\n"
 msgstr ""
 
-#: find/parser.c:915
+#: find/parser.c:914
 #, c-format
 msgid ""
 "warning: the -d option is deprecated; please use -depth instead, because the "
@@ -192,24 +192,24 @@ msgid ""
 msgstr ""
 "警告：-d 選項已經過時，請改用 -depth，因為後者才是符合 POSIX 標準的選項。"
 
-#: find/parser.c:1188
+#: find/parser.c:1187
 #, c-format
 msgid ""
 "%s is not the name of an existing group and it does not look like a numeric "
 "group ID because it has the unexpected suffix %s"
 msgstr ""
 
-#: find/parser.c:1203
+#: find/parser.c:1202
 #, c-format
 msgid "%s is not the name of an existing group"
 msgstr ""
 
-#: find/parser.c:1209
+#: find/parser.c:1208
 #, c-format
 msgid "argument to -group is empty, but should be a group name"
 msgstr ""
 
-#: find/parser.c:1231
+#: find/parser.c:1230
 msgid ""
 "\n"
 "default path is the current directory; default expression is -print\n"
@@ -219,7 +219,7 @@ msgstr ""
 "預設路徑為目前的目錄，預設的表達式是 -print\n"
 "表達式可以包括運算子、選項、測試和操作模式：\n"
 
-#: find/parser.c:1234
+#: find/parser.c:1233
 msgid ""
 "operators (decreasing precedence; -and is implicit where no others are "
 "given):\n"
@@ -230,7 +230,7 @@ msgstr ""
 "      ( EXPR )   ! EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2\n"
 "      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 , EXPR2\n"
 
-#: find/parser.c:1238
+#: find/parser.c:1237
 msgid ""
 "positional options (always true): -daystart -follow -regextype\n"
 "\n"
@@ -244,7 +244,7 @@ msgstr ""
 "      -depth --help -maxdepth LEVELS -mindepth LEVELS -mount -noleaf\n"
 "      --version -xdev -ignore_readdir_race -noignore_readdir_race\n"
 
-#: find/parser.c:1243
+#: find/parser.c:1242
 msgid ""
 "tests (N can be +N or -N or N): -amin N -anewer FILE -atime N -cmin N\n"
 "      -cnewer FILE -ctime N -empty -false -fstype TYPE -gid N -group NAME\n"
@@ -258,7 +258,7 @@ msgstr ""
 "PATTERN\n"
 "      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE"
 
-#: find/parser.c:1248
+#: find/parser.c:1247
 #, fuzzy
 msgid ""
 "      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN\n"
@@ -270,11 +270,11 @@ msgstr ""
 "      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N\n"
 "      -used N -user NAME -xtype [bcdpfls]\n"
 
-#: find/parser.c:1253
+#: find/parser.c:1252
 msgid "      -context CONTEXT\n"
 msgstr ""
 
-#: find/parser.c:1255
+#: find/parser.c:1254
 #, fuzzy
 msgid ""
 "\n"
@@ -288,7 +288,7 @@ msgstr ""
 "      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;\n"
 "      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;\n"
 
-#: find/parser.c:1261
+#: find/parser.c:1260
 msgid ""
 "Report (and track progress on fixing) bugs via the findutils bug-reporting\n"
 "page at http://savannah.gnu.org/ or, if you have no web access, by sending\n"
@@ -298,12 +298,12 @@ msgstr ""
 "問題修正的進度)。又或者如果您無法瀏覽網頁，可以選擇用電子郵件寄至\n"
 "<bug-findutils@gnu.org>。"
 
-#: find/parser.c:1316
+#: find/parser.c:1315
 #, c-format
 msgid "sanity check of the fnmatch() library function failed."
 msgstr "測試 fnmatch() 是否可用時出錯。"
 
-#: find/parser.c:1330
+#: find/parser.c:1329
 #, c-format
 msgid ""
 "warning: Unix filenames usually don't contain slashes (though pathnames "
@@ -317,48 +317,53 @@ msgstr ""
 "有用。又或者，如果您使用 GNU grep，可以嘗試使用 'find ... -print0 | grep -"
 "FzZ %s'。"
 
-#: find/parser.c:1456
+#: find/parser.c:1455
 #, c-format
 msgid "Expected a positive decimal integer argument to %s, but got %s"
 msgstr ""
 
-#: find/parser.c:1621
+#: find/parser.c:1620
 #, c-format
 msgid "This system does not provide a way to find the birth time of a file."
 msgstr ""
 
-#: find/parser.c:1642
+#: find/parser.c:1641
 #, fuzzy, c-format
 msgid "The %s test needs an argument"
 msgstr "%s：選項 ‘%s’ 需要參數\n"
 
-#: find/parser.c:1679
+#: find/parser.c:1678
 #, c-format
 msgid "I cannot figure out how to interpret %s as a date or time"
 msgstr ""
 
-#: find/parser.c:1696
+#: find/parser.c:1695
 #, fuzzy, c-format
 msgid "Cannot obtain birth time of file %s"
 msgstr "無法開啟檔案 ‘%s’ 作為輸入資料"
 
-#: find/parser.c:1840
+#: find/parser.c:1839
 #, c-format
 msgid "warning: -%s %s will not match anything because it ends with /."
 msgstr ""
 
-#: find/parser.c:1937
+#: find/parser.c:1936
 #, fuzzy, c-format
 msgid "invalid mode %s"
 msgstr "模式 ‘%s’ 無效"
 
-#: find/parser.c:1955
+#: find/parser.c:1954
 #, c-format
 msgid ""
 "warning: you have specified a mode pattern %s (which is equivalent to /000). "
 "The meaning of -perm /000 has now been changed to be consistent with -perm "
 "-000; that is, while it used to match no files, it now matches all files."
 msgstr ""
+
+#: find/parser.c:2127
+#, fuzzy, c-format
+msgid "failed to compile regular expression '%s': %s"
+msgstr "表達式無效"
 
 #: find/parser.c:2156
 #, c-format
@@ -527,38 +532,38 @@ msgstr "< %s ... %s > ? "
 msgid "Failed to write prompt for -ok"
 msgstr ""
 
-#: find/pred.c:1192 find/print.c:1239
+#: find/pred.c:1192 find/print.c:1238
 #, c-format
 msgid "getfilecon failed: %s"
 msgstr ""
 
-#: find/print.c:346
+#: find/print.c:345
 #, c-format
 msgid "warning: escape `\\' followed by nothing at all"
 msgstr ""
 
-#: find/print.c:365
+#: find/print.c:364
 #, c-format
 msgid "warning: unrecognized escape `\\%c'"
 msgstr "警告：無效辨認轉義控制序列 (escape sequence) ‘\\%c’"
 
-#: find/print.c:385
+#: find/print.c:384
 #, c-format
 msgid "error: %s at end of format string"
 msgstr ""
 
-#: find/print.c:409
+#: find/print.c:408
 #, c-format
 msgid "error: the format directive `%%%c' is reserved for future use"
 msgstr ""
 
-#: find/print.c:417
+#: find/print.c:416
 #, c-format
 msgid ""
 "warning: format directive `%%%c' should be followed by another character"
 msgstr ""
 
-#: find/print.c:425
+#: find/print.c:424
 #, c-format
 msgid "warning: unrecognized format directive `%%%c'"
 msgstr ""
@@ -671,59 +676,59 @@ msgstr ""
 msgid "oops -- invalid default insertion of and!"
 msgstr ""
 
-#: find/util.c:175
+#: find/util.c:174
 #, fuzzy, c-format
 msgid "Usage: %s [-H] [-L] [-P] [-Olevel] [-D "
 msgstr "用法: %s [-H] [-L] [-P] [路徑...] [表達式]\n"
 
-#: find/util.c:177
+#: find/util.c:176
 #, fuzzy, c-format
 msgid "] [path...] [expression]\n"
 msgstr "用法：%s [路徑...] [表達式]\n"
 
-#: find/util.c:459
+#: find/util.c:458
 #, fuzzy, c-format
 msgid "Failed to save initial working directory%s%s"
 msgstr "無法決定當前目錄位置"
 
-#: find/util.c:478
+#: find/util.c:477
 #, fuzzy, c-format
 msgid "Failed to restore initial working directory%s%s"
 msgstr "無法決定當前目錄位置"
 
-#: find/util.c:828
+#: find/util.c:827
 #, fuzzy, c-format
 msgid "Ignoring unrecognised debug flag %s"
 msgstr "警告：無效辨認轉義控制序列 (escape sequence) ‘\\%c’"
 
-#: find/util.c:835
+#: find/util.c:834
 #, c-format
 msgid "Empty argument to the -D option."
 msgstr ""
 
-#: find/util.c:851
+#: find/util.c:850
 #, c-format
 msgid "The -O option must be immediately followed by a decimal integer"
 msgstr ""
 
-#: find/util.c:861 find/util.c:872
+#: find/util.c:860 find/util.c:871
 #, c-format
 msgid "Please specify a decimal number immediately after -O"
 msgstr ""
 
-#: find/util.c:877 find/util.c:882
+#: find/util.c:876 find/util.c:881
 #, c-format
 msgid "Invalid optimisation level %s"
 msgstr ""
 
-#: find/util.c:890
+#: find/util.c:889
 #, c-format
 msgid ""
 "Optimisation level %lu is too high.  If you want to find files very quickly, "
 "consider using GNU locate."
 msgstr ""
 
-#: find/util.c:1034
+#: find/util.c:1033
 #, c-format
 msgid ""
 "The environment variable FIND_BLOCK_SIZE is not supported, the only thing "
@@ -732,341 +737,27 @@ msgstr ""
 "環境變數 FIND_BLOCK_SIZE 已經不再支援，唯一一個能夠影響檔案區段大小的環境變數"
 "是 POSIXLY_CORRECT"
 
-#: gl/lib/argmatch.c:133
-#, c-format
-msgid "invalid argument %s for %s"
-msgstr "%2$s 的參數 %1$s 無效"
-
-#: gl/lib/argmatch.c:134
-#, c-format
-msgid "ambiguous argument %s for %s"
-msgstr "%2$s 的參數 %1$s 不明確"
-
-#: gl/lib/argmatch.c:153
-msgid "Valid arguments are:"
-msgstr "有效的參數為："
-
-#: gl/lib/closein.c:100
-msgid "error closing file"
-msgstr ""
-
-#: gl/lib/closeout.c:112 locate/code.c:153 locate/frcode.c:210
-#, c-format
-msgid "write error"
-msgstr ""
-
-#: gl/lib/error.c:191
-msgid "Unknown system error"
-msgstr "不明的系統錯誤"
-
-#: gl/lib/getopt.c:575 gl/lib/getopt.c:604
-#, fuzzy, c-format
-msgid "%s: option '%s' is ambiguous; possibilities:"
-msgstr "%s：選項 ‘%s’ 不明確\n"
-
-#: gl/lib/getopt.c:619
-#, fuzzy, c-format
-msgid "%s: option '%s' is ambiguous\n"
-msgstr "%s：選項 ‘-W %s’ 不明確\n"
-
-#: gl/lib/getopt.c:654 gl/lib/getopt.c:658
-#, fuzzy, c-format
-msgid "%s: option '--%s' doesn't allow an argument\n"
-msgstr "%s：選項 ‘--%s’ 不可配合參數使用\n"
-
-#: gl/lib/getopt.c:667 gl/lib/getopt.c:672
-#, fuzzy, c-format
-msgid "%s: option '%c%s' doesn't allow an argument\n"
-msgstr "%s：選項 ‘%c%s’ 不可配合參數使用\n"
-
-#: gl/lib/getopt.c:715 gl/lib/getopt.c:734
-#, fuzzy, c-format
-msgid "%s: option '--%s' requires an argument\n"
-msgstr "%s：選項 ‘%s’ 需要參數\n"
-
-#: gl/lib/getopt.c:772 gl/lib/getopt.c:775
-#, fuzzy, c-format
-msgid "%s: unrecognized option '--%s'\n"
-msgstr "%s：‘--%s’ 選項無法辨識\n"
-
-#: gl/lib/getopt.c:783 gl/lib/getopt.c:786
-#, fuzzy, c-format
-msgid "%s: unrecognized option '%c%s'\n"
-msgstr "%s：‘%c%s’ 選項無法辨識\n"
-
-#: gl/lib/getopt.c:835 gl/lib/getopt.c:838
-#, fuzzy, c-format
-msgid "%s: invalid option -- '%c'\n"
-msgstr "%s：無效的選項 ─ %c\n"
-
-#: gl/lib/getopt.c:891 gl/lib/getopt.c:908 gl/lib/getopt.c:1118
-#: gl/lib/getopt.c:1136
-#, fuzzy, c-format
-msgid "%s: option requires an argument -- '%c'\n"
-msgstr "%s：選項需要參數 ─ %c\n"
-
-#: gl/lib/getopt.c:964 gl/lib/getopt.c:980
-#, fuzzy, c-format
-msgid "%s: option '-W %s' is ambiguous\n"
-msgstr "%s：選項 ‘-W %s’ 不明確\n"
-
-#: gl/lib/getopt.c:1004 gl/lib/getopt.c:1022
-#, fuzzy, c-format
-msgid "%s: option '-W %s' doesn't allow an argument\n"
-msgstr "%s：選項 ‘-W %s’ 不可配合參數使用\n"
-
-#: gl/lib/getopt.c:1043 gl/lib/getopt.c:1061
-#, fuzzy, c-format
-msgid "%s: option '-W %s' requires an argument\n"
-msgstr "%s：選項 ‘%s’ 需要參數\n"
-
-#: gl/lib/openat-die.c:38
-#, fuzzy, c-format
-msgid "unable to record current working directory"
-msgstr "無法決定當前目錄位置"
-
-#: gl/lib/openat-die.c:57
-#, fuzzy, c-format
-msgid "failed to return to initial working directory"
-msgstr "無法決定當前目錄位置"
-
-#. TRANSLATORS:
-#. Get translations for open and closing quotation marks.
-#. The message catalog should translate "`" to a left
-#. quotation mark suitable for the locale, and similarly for
-#. "'".  For example, a French Unicode local should translate
-#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
-#. QUOTATION MARK), respectively.
-#.
-#. If the catalog has no translation, we will try to
-#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
-#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
-#. current locale is not Unicode, locale_quoting_style
-#. will quote 'like this', and clocale_quoting_style will
-#. quote "like this".  You should always include translations
-#. for "`" and "'" even if U+2018 and U+2019 are appropriate
-#. for your locale.
-#.
-#. If you don't know what to put here, please see
-#. <http://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
-#. and use glyphs suitable for your language.
-#: gl/lib/quotearg.c:347
-msgid "`"
-msgstr "‘"
-
-#: gl/lib/quotearg.c:348
-msgid "'"
-msgstr "’"
-
-#. TRANSLATORS: A regular expression testing for an affirmative answer
-#. (english: "yes").  Testing the first character may be sufficient.
-#. Take care to consider upper and lower case.
-#. To enquire the regular expression that your system uses for this
-#. purpose, you can use the command
-#. locale -k LC_MESSAGES | grep '^yesexpr='
-#: gl/lib/rpmatch.c:150
-msgid "^[yY]"
-msgstr "^[yY]"
-
-#. TRANSLATORS: A regular expression testing for a negative answer
-#. (english: "no").  Testing the first character may be sufficient.
-#. Take care to consider upper and lower case.
-#. To enquire the regular expression that your system uses for this
-#. purpose, you can use the command
-#. locale -k LC_MESSAGES | grep '^noexpr='
-#: gl/lib/rpmatch.c:163
-msgid "^[nN]"
-msgstr "^[nN]"
-
-#: gl/lib/version-etc.c:74
-#, c-format
-msgid "Packaged by %s (%s)\n"
-msgstr ""
-
-#: gl/lib/version-etc.c:77
-#, c-format
-msgid "Packaged by %s\n"
-msgstr ""
-
-#. TRANSLATORS: Translate "(C)" to the copyright symbol
-#. (C-in-a-circle), if this symbol is available in the user's
-#. locale.  Otherwise, do not translate "(C)"; leave it as-is.
-#: gl/lib/version-etc.c:84
-msgid "(C)"
-msgstr ""
-
-#: gl/lib/version-etc.c:86
-msgid ""
-"\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>.\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-"\n"
-msgstr ""
-
-#. TRANSLATORS: %s denotes an author name.
-#: gl/lib/version-etc.c:102
-#, c-format
-msgid "Written by %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#: gl/lib/version-etc.c:106
-#, c-format
-msgid "Written by %s and %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#: gl/lib/version-etc.c:110
-#, c-format
-msgid "Written by %s, %s, and %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:117
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"and %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:124
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, and %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:131
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, and %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:139
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, and %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:147
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"and %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:156
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"%s, and %s.\n"
-msgstr ""
-
-#. TRANSLATORS: Each %s denotes an author name.
-#. You can use line breaks, estimating that each author name occupies
-#. ca. 16 screen columns and that a screen line has ca. 80 columns.
-#: gl/lib/version-etc.c:167
-#, c-format
-msgid ""
-"Written by %s, %s, %s,\n"
-"%s, %s, %s, %s,\n"
-"%s, %s, and others.\n"
-msgstr ""
-
-#. TRANSLATORS: The placeholder indicates the bug-reporting address
-#. for this package.  Please add _another line_ saying
-#. "Report translation bugs to <...>\n" with the address for translation
-#. bugs (typically your translation team's web or email address).
-#: gl/lib/version-etc.c:245
-#, c-format
-msgid ""
-"\n"
-"Report bugs to: %s\n"
-msgstr ""
-
-#: gl/lib/version-etc.c:247
-#, c-format
-msgid "Report %s bugs to: %s\n"
-msgstr ""
-
-#: gl/lib/version-etc.c:251
-#, c-format
-msgid "%s home page: <%s>\n"
-msgstr ""
-
-#: gl/lib/version-etc.c:253
-#, c-format
-msgid "%s home page: <http://www.gnu.org/software/%s/>\n"
-msgstr ""
-
-#: gl/lib/version-etc.c:256
-msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
-msgstr ""
-
-#: gl/lib/xalloc-die.c:34
-msgid "memory exhausted"
-msgstr ""
-
-#: gl/lib/xstrtol-error.c:63
-#, fuzzy, c-format
-msgid "invalid %s%s argument '%s'"
-msgstr "‘%2$s’ 的參數 ‘%1$s’ 無效"
-
-#: gl/lib/xstrtol-error.c:68
-#, fuzzy, c-format
-msgid "invalid suffix in %s%s argument '%s'"
-msgstr "‘%2$s’ 的參數 ‘%1$s’ 無效"
-
-#: gl/lib/xstrtol-error.c:72
-#, fuzzy, c-format
-msgid "%s%s argument '%s' too large"
-msgstr "參數太長"
-
-#: lib/buildcmd.c:161
+#: lib/buildcmd.c:160
 #, c-format
 msgid "command too long"
 msgstr ""
 
-#: lib/buildcmd.c:301
+#: lib/buildcmd.c:300
 #, c-format
 msgid "can't call exec() due to argument size restrictions"
 msgstr ""
 
-#: lib/buildcmd.c:371
+#: lib/buildcmd.c:370
 #, c-format
 msgid "cannot fit single argument within argument list size limit"
 msgstr ""
 
-#: lib/buildcmd.c:377
+#: lib/buildcmd.c:376
 #, fuzzy, c-format
 msgid "argument list too long"
 msgstr "參數太長"
 
-#: lib/buildcmd.c:629
+#: lib/buildcmd.c:628
 #, c-format
 msgid "Environment variable %s is not set to a valid decimal number"
 msgstr ""
@@ -1090,7 +781,7 @@ msgstr ""
 msgid "Kevin Dalley"
 msgstr ""
 
-#: lib/listfile.c:452
+#: lib/listfile.c:451
 #, fuzzy, c-format
 msgid "Failed to write output (at stage %d)"
 msgstr "無法決定當前目錄位置"
@@ -1127,6 +818,11 @@ msgid ""
 msgstr ""
 "\n"
 "請向 <bug-findutils@gnu.org> 報告錯誤。\n"
+
+#: locate/code.c:153 locate/frcode.c:210
+#, c-format
+msgid "write error"
+msgstr ""
 
 #: locate/frcode.c:160
 #, c-format
@@ -1355,33 +1051,33 @@ msgstr ""
 msgid "error reading a word from %s"
 msgstr "等待 %s 時出現錯誤"
 
-#: xargs/xargs.c:262
+#: xargs/xargs.c:261
 #, fuzzy, c-format
 msgid "Invalid escape sequence %s in input delimiter specification."
 msgstr "轉義控制序列 (escape sequence) ‘%s’ 不合法。"
 
-#: xargs/xargs.c:280
+#: xargs/xargs.c:279
 #, fuzzy, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; character "
 "values must not exceed %lx."
 msgstr "轉義控制序列 (escape sequence) ‘%s’ 不合法：字元值不可以超過 %lx。"
 
-#: xargs/xargs.c:286
+#: xargs/xargs.c:285
 #, fuzzy, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; character "
 "values must not exceed %lo."
 msgstr "轉義控制序列 (escape sequence) ‘%s’ 不合法：字元值不可以超過 %lo。"
 
-#: xargs/xargs.c:295
+#: xargs/xargs.c:294
 #, fuzzy, c-format
 msgid ""
 "Invalid escape sequence %s in input delimiter specification; trailing "
 "characters %s not recognised."
 msgstr "轉義控制序列 (escape sequence) ‘%s’ 不合法：無法辨認最後的字元 ‘%s’。"
 
-#: xargs/xargs.c:340
+#: xargs/xargs.c:339
 #, fuzzy, c-format
 msgid ""
 "Invalid input delimiter specification %s: the delimiter must be either a "
@@ -1390,7 +1086,7 @@ msgstr ""
 "分隔字元 ‘%s’ 不合法：分隔字元必須是一個 ASCII 字元或以反斜號 \\ 開始的轉義控"
 "制序列 (escape sequence)。"
 
-#: xargs/xargs.c:357
+#: xargs/xargs.c:356
 #, c-format
 msgid "environment is too large for exec"
 msgstr "執行 exec 時的環境變數太大"
@@ -1725,6 +1421,98 @@ msgstr ""
 msgid "      --version                output version information and exit\n"
 msgstr ""
 
+#~ msgid "invalid argument %s for %s"
+#~ msgstr "%2$s 的參數 %1$s 無效"
+
+#~ msgid "ambiguous argument %s for %s"
+#~ msgstr "%2$s 的參數 %1$s 不明確"
+
+#~ msgid "Valid arguments are:"
+#~ msgstr "有效的參數為："
+
+#~ msgid "Unknown system error"
+#~ msgstr "不明的系統錯誤"
+
+#, fuzzy
+#~ msgid "%s: option '%s' is ambiguous; possibilities:"
+#~ msgstr "%s：選項 ‘%s’ 不明確\n"
+
+#, fuzzy
+#~ msgid "%s: option '%s' is ambiguous\n"
+#~ msgstr "%s：選項 ‘-W %s’ 不明確\n"
+
+#, fuzzy
+#~ msgid "%s: option '--%s' doesn't allow an argument\n"
+#~ msgstr "%s：選項 ‘--%s’ 不可配合參數使用\n"
+
+#, fuzzy
+#~ msgid "%s: option '%c%s' doesn't allow an argument\n"
+#~ msgstr "%s：選項 ‘%c%s’ 不可配合參數使用\n"
+
+#, fuzzy
+#~ msgid "%s: option '--%s' requires an argument\n"
+#~ msgstr "%s：選項 ‘%s’ 需要參數\n"
+
+#, fuzzy
+#~ msgid "%s: unrecognized option '--%s'\n"
+#~ msgstr "%s：‘--%s’ 選項無法辨識\n"
+
+#, fuzzy
+#~ msgid "%s: unrecognized option '%c%s'\n"
+#~ msgstr "%s：‘%c%s’ 選項無法辨識\n"
+
+#, fuzzy
+#~ msgid "%s: invalid option -- '%c'\n"
+#~ msgstr "%s：無效的選項 ─ %c\n"
+
+#, fuzzy
+#~ msgid "%s: option requires an argument -- '%c'\n"
+#~ msgstr "%s：選項需要參數 ─ %c\n"
+
+#, fuzzy
+#~ msgid "%s: option '-W %s' is ambiguous\n"
+#~ msgstr "%s：選項 ‘-W %s’ 不明確\n"
+
+#, fuzzy
+#~ msgid "%s: option '-W %s' doesn't allow an argument\n"
+#~ msgstr "%s：選項 ‘-W %s’ 不可配合參數使用\n"
+
+#, fuzzy
+#~ msgid "%s: option '-W %s' requires an argument\n"
+#~ msgstr "%s：選項 ‘%s’ 需要參數\n"
+
+#, fuzzy
+#~ msgid "unable to record current working directory"
+#~ msgstr "無法決定當前目錄位置"
+
+#, fuzzy
+#~ msgid "failed to return to initial working directory"
+#~ msgstr "無法決定當前目錄位置"
+
+#~ msgid "`"
+#~ msgstr "‘"
+
+#~ msgid "'"
+#~ msgstr "’"
+
+#~ msgid "^[yY]"
+#~ msgstr "^[yY]"
+
+#~ msgid "^[nN]"
+#~ msgstr "^[nN]"
+
+#, fuzzy
+#~ msgid "invalid %s%s argument '%s'"
+#~ msgstr "‘%2$s’ 的參數 ‘%1$s’ 無效"
+
+#, fuzzy
+#~ msgid "invalid suffix in %s%s argument '%s'"
+#~ msgstr "‘%2$s’ 的參數 ‘%1$s’ 無效"
+
+#, fuzzy
+#~ msgid "%s%s argument '%s' too large"
+#~ msgstr "參數太長"
+
 #, fuzzy
 #~ msgid "Built using GNU gnulib version %s\n"
 #~ msgstr "GNU findutils %s 版本\n"
@@ -1753,10 +1541,6 @@ msgstr ""
 
 #~ msgid "cannot get current directory"
 #~ msgstr "無法決定當前目錄位置"
-
-#, fuzzy
-#~ msgid "Invalid regular expression"
-#~ msgstr "表達式無效"
 
 #, fuzzy
 #~ msgid "Invalid preceding regular expression"
