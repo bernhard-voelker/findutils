@@ -454,8 +454,8 @@ copying (void)
 {
   static const char *copy_para[]=
     {
-      "Copyright (C) 1994, 1996, 1998, 2000-2007, 2009-2011,"
-      ,"2015-2016 Free Software Foundation, Inc."
+      "Copyright (C) 1994, 1996, 1998, 2000-2001, 2003-2007, 2009-2011, 2015-2016"
+      ,"Free Software Foundation, Inc."
       ,""
       ,"Permission is granted to copy, distribute and/or modify this document"
       ,"under the terms of the GNU Free Documentation License, Version 1.3 or"
