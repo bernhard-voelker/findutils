@@ -38,6 +38,7 @@
 #include <unistd.h>
 
 /* gnulib headers. */
+#include "argv-iter.h"
 #include "cloexec.h"
 #include "closeout.h"
 #include "error.h"
@@ -47,6 +48,7 @@
 #include "quotearg.h"
 #include "save-cwd.h"
 #include "xgetcwd.h"
+#include "xalloc.h"
 
 /* find headers. */
 #include "defs.h"
@@ -563,30 +565,131 @@ find (char *arg)
 static bool
 process_all_startpoints (int argc, char *argv[])
 {
-  int i;
-  bool empty = true;
+  FILE *stream = NULL;
+  char const* files0_filename_quoted = NULL;
 
-  /* figure out how many start points there are */
-  for (i = 0; i < argc && !looks_like_expression (argv[i], true); i++)
+  struct argv_iterator *ai;
+  if (options.files_from)
     {
-      empty = false;
-      state.starting_path_length = strlen (argv[i]); /* TODO: is this redundant? */
-      if (!find (argv[i]))
-	return false;
+      /* When using '-files0-from F', you may not specify any files
+         on the command-line.  */
+      if (0 < argc && !looks_like_expression (argv[0], true))
+        {
+          error (0, 0, _("extra operand %s"), safely_quote_err_filename (0, argv[0]));
+          fprintf (stderr, "%s\n",
+                   _("file operands cannot be combined with -files0-from"));
+          usage (EXIT_FAILURE);
+        }
+
+      if (0 == strcmp (options.files_from, "-"))
+        {
+          files0_filename_quoted = safely_quote_err_filename (0, _("(standard input)"));
+          if (options.ok_prompt_stdin)
+            {
+              fprintf (stderr, "%s\n",
+                       _("option -files0-from reading from standard input"
+                         " cannot be combined with -ok, -okdir"));
+              usage (EXIT_FAILURE);
+            }
+          stream = stdin;
+        }
+      else
+        {
+          files0_filename_quoted = safely_quote_err_filename (0, options.files_from);
+          stream = fopen (options.files_from, "r");
+          if (stream == NULL)
+            die (EXIT_FAILURE, errno, _("cannot open %s for reading"),
+                 safely_quote_err_filename (0, options.files_from));
+          /* Set close-on-exec flag.  */
+          const int fd = fileno (stream);
+          assert (fd >= 0);
+          set_cloexec_flag (fd, true);
+       }
+      ai = argv_iter_init_stream (stream);
+    }
+  else
+    {
+      /* Process start points from the command line, or "." only.  */
+      char *cwd_only[2];
+      cwd_only[0] = bad_cast (".");
+      cwd_only[1] = NULL;
+      char **files = (argc <= 0 || looks_like_expression (argv[0], true) ? cwd_only : argv);
+      ai = argv_iter_init_argv (files);
     }
 
-  if (empty)
+  if (!ai)
+    xalloc_die ();
+
+  bool ok = true;
+  while (true)
     {
-      /*
-       * We use a temporary variable here because some actions modify
-       * the path temporarily.  Hence if we use a string constant,
-       * we get a coredump.  The best example of this is if we say
-       * "find -printf %H" (note, not "find . -printf %H").
-       */
-      char defaultpath[2] = ".";
-      return find (defaultpath);
+      enum argv_iter_err ai_err;
+      char *file_name = argv_iter (ai, &ai_err);
+      if (!file_name)
+        {
+          switch (ai_err)
+            {
+            case AI_ERR_EOF:
+              goto argv_iter_done;
+            case AI_ERR_READ:  /* may only happen with -files0-from  */
+              error (0, errno, _("%s: read error"), files0_filename_quoted);
+              state.exit_status = 1;
+              ok = false;
+              goto argv_iter_done;
+            case AI_ERR_MEM:
+              xalloc_die ();
+            default:
+              assert (!"unexpected error code from argv_iter");
+            }
+        }
+      /* Report and skip any empty file names before invoking fts.
+         This works around a glitch in fts, which fails immediately
+         (without looking at the other file names) when given an empty
+         file name.  */
+      if (!file_name[0])
+        {
+          /* Diagnose a zero-length file name.  When it's one
+             among many, knowing the record number may help.  */
+          if (options.files_from == NULL)
+            error (0, ENOENT, "%s", safely_quote_err_filename (0, file_name));
+          else
+            {
+              /* Using the standard 'filename:line-number:' prefix here is
+                 not totally appropriate, since NUL is the separator, not NL,
+                 but it might be better than nothing.  */
+              unsigned long int file_number = argv_iter_n_args (ai);
+              error (0, 0, "%s:%lu: %s", files0_filename_quoted, file_number,
+                     _("invalid zero-length file name"));
+            }
+          state.exit_status = 1;
+          ok = false;
+          continue;
+        }
+
+      /* Terminate loop when processing the start points from command line,
+         and reaching the first expression.  */
+      if (!options.files_from && looks_like_expression (file_name, true))
+        break;
+
+      state.starting_path_length = strlen (file_name); /* TODO: is this redundant? */
+      if (!find (file_name))
+        {
+          ok = false;
+          goto argv_iter_done;
+        }
     }
-  return true;
+ argv_iter_done:
+
+  if (ok && options.files_from && argv_iter_n_args (ai) <= 0)
+    die (EXIT_FAILURE, 0, _("file with starting points is empty: %s"),
+         files0_filename_quoted);
+
+  argv_iter_free (ai);
+
+  if (ok && options.files_from && (ferror (stream) || fclose (stream) != 0))
+    die (EXIT_FAILURE, 0, _("error reading %s"), files0_filename_quoted);
+
+  return ok;
 }
 
 

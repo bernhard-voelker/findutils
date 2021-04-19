@@ -368,6 +368,12 @@ extern enum SymlinkOption symlink_handling; /* defined in oldfind.c. */
 void set_follow_state (enum SymlinkOption opt);
 void cleanup(void);
 
+static inline char *
+bad_cast (char const *s)
+{
+  return (char *) s;
+}
+
 /* fstype.c */
 char *filesystem_type (const struct stat *statp, const char *path);
 bool is_used_fs_type(const char *name);
@@ -636,6 +642,12 @@ struct options
   /* How should we quote filenames in error messages and so forth?
    */
   enum quoting_style err_quoting_style;
+
+  /* Read starting points from FILE (instead of argv).  */
+  const char *files_from;
+
+  /* True if actions like -ok, -okdir need a user confirmation via stdin.  */
+  bool ok_prompt_stdin;
 };
 
 
