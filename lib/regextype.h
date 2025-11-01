@@ -35,14 +35,14 @@ enum {
 
 
 /* Returns the regex type name corresponding to index IX.
- * Indexes start at 0.  Returns nullptr if IX is too large.
+ * Indexes start at 0.  Returns NULL if IX is too large.
  */
 const char * get_regex_type_name(unsigned int ix);
 
 
 /* Returns the option mask name corresponding to regular expression
  * type index IX.  Indexes start at 0.  Behaviour is undefined if IX
- * has a value which would cause get_regex_type_name to return nullptr.
+ * has a value which would cause get_regex_type_name to return NULL.
  */
 int get_regex_type_flags(unsigned int ix);
 

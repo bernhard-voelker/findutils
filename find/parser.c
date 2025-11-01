@@ -208,29 +208,29 @@ static struct parser_table const parse_entry_newerXY =
 static struct parser_table const parse_table[] =
 {
   /* Regular options: no PRED function.  */
-  { ARG_OPTION, "d",                     parse_d,             nullptr }, /* Mac OS X, FreeBSD, NetBSD, OpenBSD */
+  { ARG_OPTION, "d",                     parse_d,             NULL }, /* Mac OS X, FreeBSD, NetBSD, OpenBSD */
                                                                          /* but deprecated in favour of -depth */
-  { ARG_OPTION, "depth",                 parse_depth,         nullptr }, /* POSIX */
-  { ARG_OPTION, "files0-from",           parse_files0_from,   nullptr }, /* GNU */
-  { ARG_OPTION, "ignore_readdir_race",   parse_ignore_race,   nullptr }, /* GNU */
-  { ARG_OPTION, "maxdepth",              parse_maxdepth,      nullptr }, /* GNU */
-  { ARG_OPTION, "mindepth",              parse_mindepth,      nullptr }, /* GNU */
-  { ARG_OPTION, "mount",                 parse_mount,         nullptr }, /* POSIX */
-  { ARG_OPTION, "noleaf",                parse_noleaf,        nullptr }, /* GNU */
-  { ARG_OPTION, "noignore_readdir_race", parse_noignore_race, nullptr }, /* GNU */
-  { ARG_OPTION, "xdev",                  parse_xdev,          nullptr }, /* POSIX */
+  { ARG_OPTION, "depth",                 parse_depth,         NULL }, /* POSIX */
+  { ARG_OPTION, "files0-from",           parse_files0_from,   NULL }, /* GNU */
+  { ARG_OPTION, "ignore_readdir_race",   parse_ignore_race,   NULL }, /* GNU */
+  { ARG_OPTION, "maxdepth",              parse_maxdepth,      NULL }, /* GNU */
+  { ARG_OPTION, "mindepth",              parse_mindepth,      NULL }, /* GNU */
+  { ARG_OPTION, "mount",                 parse_mount,         NULL }, /* POSIX */
+  { ARG_OPTION, "noleaf",                parse_noleaf,        NULL }, /* GNU */
+  { ARG_OPTION, "noignore_readdir_race", parse_noignore_race, NULL }, /* GNU */
+  { ARG_OPTION, "xdev",                  parse_xdev,          NULL }, /* POSIX */
   /* GNU mandated, general options.  */
-  { ARG_OPTION, "help",                  parse_help,          nullptr }, /* GNU */
-  { ARG_OPTION, "-help",                 parse_help,          nullptr }, /* GNU */
-  { ARG_OPTION, "version",               parse_version,       nullptr }, /* GNU */
-  { ARG_OPTION, "-version",              parse_version,       nullptr }, /* GNU */
+  { ARG_OPTION, "help",                  parse_help,          NULL }, /* GNU */
+  { ARG_OPTION, "-help",                 parse_help,          NULL }, /* GNU */
+  { ARG_OPTION, "version",               parse_version,       NULL }, /* GNU */
+  { ARG_OPTION, "-version",              parse_version,       NULL }, /* GNU */
 
   /* Positional options (whose position is important).  */
-  { ARG_POSITIONAL_OPTION, "daystart",   parse_daystart,  nullptr }, /* GNU */
-  { ARG_POSITIONAL_OPTION, "follow",     parse_follow,    nullptr }, /* GNU, Unix */
-  { ARG_POSITIONAL_OPTION, "nowarn",     parse_nowarn,    nullptr }, /* GNU */
-  { ARG_POSITIONAL_OPTION, "regextype",  parse_regextype, nullptr }, /* GNU */
-  { ARG_POSITIONAL_OPTION, "warn",       parse_warn,      nullptr }, /* GNU */
+  { ARG_POSITIONAL_OPTION, "daystart",   parse_daystart,  NULL }, /* GNU */
+  { ARG_POSITIONAL_OPTION, "follow",     parse_follow,    NULL }, /* GNU, Unix */
+  { ARG_POSITIONAL_OPTION, "nowarn",     parse_nowarn,    NULL }, /* GNU */
+  { ARG_POSITIONAL_OPTION, "regextype",  parse_regextype, NULL }, /* GNU */
+  { ARG_POSITIONAL_OPTION, "warn",       parse_warn,      NULL }, /* GNU */
 
   /* Punctuation. */
   { ARG_PUNCTUATION, "!",   parse_negate,     pred_negate     }, /* POSIX */
@@ -312,14 +312,14 @@ static struct parser_table const parse_table[] =
 #endif
 
   /* Internal pseudo-option, therefore 3 minus: ---noop.  */
-  { ARG_NOOP, "--noop", nullptr, pred_true }, /* GNU, internal use only */
+  { ARG_NOOP, "--noop", NULL, pred_true }, /* GNU, internal use only */
 
-  {0, nullptr, nullptr, nullptr}
+  {0, NULL, NULL, NULL}
 };
 
 
-static const char *first_nonoption_arg = nullptr;
-static const struct parser_table *noop = nullptr;
+static const char *first_nonoption_arg = NULL;
+static const struct parser_table *noop = NULL;
 
 static int
 fallback_getfilecon (int fd, const char *name, char **p, int prev_rv)
@@ -450,9 +450,9 @@ static const struct parser_table*
 get_noop (void)
 {
   int i;
-  if (nullptr == noop)
+  if (NULL == noop)
     {
-      for (i = 0; parse_table[i].parser_name != nullptr; i++)
+      for (i = 0; parse_table[i].parser_name != NULL; i++)
         {
           if (ARG_NOOP ==parse_table[i].type)
             {
@@ -535,7 +535,7 @@ parse_begin_user_args (char **args, int argno,
   (void) argno;
   (void) last;
   (void) predicates;
-  first_nonoption_arg = nullptr;
+  first_nonoption_arg = NULL;
 }
 
 void
@@ -582,7 +582,7 @@ found_parser (const char *original_arg, const struct parser_table *entry)
   if (entry->type != ARG_POSITIONAL_OPTION)
     {
       if (entry->type == ARG_NOOP)
-        return nullptr;  /* internal use only, trap -noop here.  */
+        return NULL;  /* internal use only, trap -noop here.  */
 
       /* Something other than -follow/-daystart.
        * If this is an option, check if it followed
@@ -590,7 +590,7 @@ found_parser (const char *original_arg, const struct parser_table *entry)
        */
       if (entry->type == ARG_OPTION)
         {
-          if ((first_nonoption_arg != nullptr)
+          if ((first_nonoption_arg != NULL)
               && should_issue_warnings ())
             {
               /* option which follows a non-option */
@@ -611,7 +611,7 @@ found_parser (const char *original_arg, const struct parser_table *entry)
            * so remember we've seen it in order to
            * use it in a possible future warning message.
            */
-          if (first_nonoption_arg == nullptr)
+          if (first_nonoption_arg == NULL)
             {
               first_nonoption_arg = original_arg;
             }
@@ -624,7 +624,7 @@ found_parser (const char *original_arg, const struct parser_table *entry)
 
 /* Return a pointer to the parser function to invoke for predicate
    SEARCH_NAME.
-   Return nullptr if SEARCH_NAME is not a valid predicate name. */
+   Return NULL if SEARCH_NAME is not a valid predicate name. */
 
 const struct parser_table*
 find_parser (const char *search_name)
@@ -642,7 +642,7 @@ find_parser (const char *search_name)
   if (*search_name == '-')
     search_name++;
 
-  for (i = 0; parse_table[i].parser_name != nullptr; i++)
+  for (i = 0; parse_table[i].parser_name != NULL; i++)
     {
       if (strcmp (parse_table[i].parser_name, search_name) == 0)
         {
@@ -663,7 +663,7 @@ find_parser (const char *search_name)
           return found_parser (original_arg, &parse_table[i]);
         }
     }
-  return nullptr;
+  return NULL;
 }
 
 static float
@@ -708,9 +708,9 @@ estimate_timestamp_success_rate (time_t when)
 static bool
 collect_arg_nonconst (char **argv, int *arg_ptr, char **collected_arg)
 {
-  if ((argv == nullptr) || (argv[*arg_ptr] == nullptr))
+  if ((argv == NULL) || (argv[*arg_ptr] == NULL))
     {
-      *collected_arg = nullptr;
+      *collected_arg = NULL;
       return false;
     }
   else
@@ -748,7 +748,7 @@ collect_arg_stat_info (char **argv, int *arg_ptr, struct stat *p,
     }
   else
     {
-      *argument = nullptr;
+      *argument = NULL;
       return false;
     }
 }
@@ -1145,14 +1145,14 @@ parse_group (const struct parser_table* entry, char **argv, int *arg_ptr)
       gid_t gid;
       struct group *cur_gr = getgrnam (groupname);
       endgrent ();
-      if (cur_gr != nullptr)
+      if (cur_gr != NULL)
         {
           gid = cur_gr->gr_gid;
         }
       else
         {
           uintmax_t num;
-          if ((xstrtoumax (groupname, nullptr, 10, &num, "") != LONGINT_OK)
+          if ((xstrtoumax (groupname, NULL, 10, &num, "") != LONGINT_OK)
                 || (GID_T_MAX < num))
             {
               error (EXIT_FAILURE, 0,
@@ -1336,7 +1336,7 @@ parse_ls (const struct parser_table* entry, char **argv, int *arg_ptr)
 {
   (void) &argv;
   (void) &arg_ptr;
-  return insert_fls (entry, nullptr);
+  return insert_fls (entry, NULL);
 }
 
 static bool
@@ -1460,7 +1460,7 @@ parse_negate (const struct parser_table* entry, char **argv, int *arg_ptr)
   (void) &argv;
   (void) &arg_ptr;
 
-  our_pred = get_new_pred_chk_op (entry, nullptr);
+  our_pred = get_new_pred_chk_op (entry, NULL);
   our_pred->pred_func = pred_negate;
   our_pred->p_type = UNI_OP;
   our_pred->p_prec = NEGATE_PREC;
@@ -1495,7 +1495,7 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
   (void) argv;
   (void) arg_ptr;
 
-  if ((argv == nullptr) || (argv[*arg_ptr] == nullptr))
+  if ((argv == NULL) || (argv[*arg_ptr] == NULL))
     {
       return false;
     }
@@ -1524,8 +1524,8 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
 
       /* -newertY (for any Y) is invalid. */
       if (x == 't'
-          || (nullptr == strchr (validchars, x))
-          || (nullptr == strchr ( validchars, y)))
+          || (NULL == strchr (validchars, x))
+          || (NULL == strchr ( validchars, y)))
         {
           return false;
         }
@@ -1536,7 +1536,7 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
           /* Because this item is ARG_SPECIAL_PARSE, we have to advance arg_ptr
            * past the test name (for most other tests, this is already done)
            */
-          if (argv[1+*arg_ptr] == nullptr)
+          if (argv[1+*arg_ptr] == NULL)
             {
               error (EXIT_FAILURE, 0, _("The %s test needs an argument"),
                      quotearg_n_style (0, options.err_quoting_style, argv[*arg_ptr]));
@@ -1600,7 +1600,7 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
           our_pred->est_success_rate = estimate_timestamp_success_rate (our_pred->args.reftime.ts.tv_sec);
           (*arg_ptr)++;
 
-          assert (our_pred->pred_func != nullptr);
+          assert (our_pred->pred_func != NULL);
           assert (our_pred->pred_func == pred_newerXY);
           assert (our_pred->need_stat);
           return true;
@@ -1624,7 +1624,7 @@ parse_nogroup (const struct parser_table* entry, char **argv, int *arg_ptr)
   (void) &argv;
   (void) &arg_ptr;
 
-  our_pred = insert_primary (entry, nullptr);
+  our_pred = insert_primary (entry, NULL);
   our_pred->est_success_rate = 1e-4;
   return true;
 }
@@ -1669,7 +1669,7 @@ parse_openparen (const struct parser_table* entry, char **argv, int *arg_ptr)
   (void) argv;
   (void) arg_ptr;
 
-  our_pred = get_new_pred_chk_op (entry, nullptr);
+  our_pred = get_new_pred_chk_op (entry, NULL);
   our_pred->pred_func = pred_openparen;
   our_pred->p_type = OPEN_PAREN;
   our_pred->p_prec = NO_PREC;
@@ -1829,14 +1829,14 @@ parse_perm (const struct parser_table* entry, char **argv, int *arg_ptr)
      The latter were formerly accepted as a GNU extension, but that
      extension was incompatible with how GNU 'chmod' treats these modes now,
      and it would be confusing if 'find' continued to support it.  */
-  if (nullptr == change
+  if (NULL == change
       || (perm_expr[0] == '+' && '0' <= perm_expr[1] && perm_expr[1] < '8'))
     {
       error (EXIT_FAILURE, 0, _("invalid mode %s"),
              quotearg_n_style (0, options.err_quoting_style, perm_expr));
     }
-  perm_val[0] = mode_adjust (0, false, 0, change, nullptr);
-  perm_val[1] = mode_adjust (0, true, 0, change, nullptr);
+  perm_val[0] = mode_adjust (0, false, 0, change, NULL);
+  perm_val[1] = mode_adjust (0, true, 0, change, NULL);
   free (change);
 
   if (('/' == perm_expr[0]) && (0 == perm_val[0]) && (0 == perm_val[1]))
@@ -1897,7 +1897,7 @@ parse_print0 (const struct parser_table* entry, char **argv, int *arg_ptr)
   (void) entry;
   (void) argv;
   (void) arg_ptr;
-  return insert_fprint (entry, nullptr);
+  return insert_fprint (entry, NULL);
 }
 
 static bool
@@ -2015,11 +2015,11 @@ insert_regex (char **argv,
       our_pred->args.regex = re;
       re->allocated = 100;
       re->buffer = xmalloc (re->allocated);
-      re->fastmap = nullptr;
+      re->fastmap = NULL;
 
       re_set_syntax (regex_options);
       re->syntax = regex_options;
-      re->translate = nullptr;
+      re->translate = NULL;
 
       error_message = re_compile_pattern (rx, strlen (rx), re);
       if (error_message)
@@ -2049,7 +2049,7 @@ parse_size (const struct parser_table* entry, char **argv, int *arg_ptr)
   /* XXX: cannot (yet) convert to use collect_arg() as this
    * function modifies the args in-place.
    */
-  if ((argv == nullptr) || (argv[*arg_ptr] == nullptr))
+  if ((argv == NULL) || (argv[*arg_ptr] == NULL))
     return false;
   arg = argv[*arg_ptr];
 
@@ -2386,14 +2386,14 @@ parse_user (const struct parser_table* entry, char **argv, int *arg_ptr)
       uid_t uid;
       struct passwd *cur_pwd = getpwnam (username);
       endpwent ();
-      if (cur_pwd != nullptr)
+      if (cur_pwd != NULL)
         {
           uid = cur_pwd->pw_uid;
         }
       else
         {
           uintmax_t num;
-          if ((xstrtoumax (username, nullptr, 10, &num, "") != LONGINT_OK)
+          if ((xstrtoumax (username, NULL, 10, &num, "") != LONGINT_OK)
                 || (UID_T_MAX < num))
             {
               error (EXIT_FAILURE, 0,
@@ -2459,7 +2459,7 @@ parse_context (const struct parser_table* entry, char **argv, int *arg_ptr)
 {
   struct predicate *our_pred;
 
-  if ((argv == nullptr) || (argv[*arg_ptr] == nullptr))
+  if ((argv == NULL) || (argv[*arg_ptr] == NULL))
     return false;
 
   if (is_selinux_enabled () <= 0)
@@ -2468,7 +2468,7 @@ parse_context (const struct parser_table* entry, char **argv, int *arg_ptr)
              _("invalid predicate -context: SELinux is not enabled."));
       return false;
     }
-  our_pred = insert_primary (entry, nullptr);
+  our_pred = insert_primary (entry, NULL);
   our_pred->est_success_rate = 0.01f;
   our_pred->need_stat = false;
   our_pred->args.scontext = argv[*arg_ptr];
@@ -2721,7 +2721,7 @@ check_path_safety (const char *action)
   const char *path_separators = ":";
   size_t pos, len;
 
-  if (nullptr == path)
+  if (NULL == path)
     {
       /* $PATH is not set.  Assume the OS default is safe.
        * That may not be true on Windows, but I'm not aware
@@ -2782,7 +2782,7 @@ insert_exec_ok (const char *action,
   struct predicate *our_pred;
   struct exec_val *execp;       /* Pointer for efficiency. */
 
-  if ((argv == nullptr) || (argv[*arg_ptr] == nullptr))
+  if ((argv == NULL) || (argv[*arg_ptr] == NULL))
     return false;
 
   our_pred = insert_primary_withpred (entry, func, "(some -exec* arguments)");
@@ -2791,7 +2791,7 @@ insert_exec_ok (const char *action,
 
   assert(predicate_uses_exec (our_pred));
   execp = &our_pred->args.exec_vec;
-  execp->wd_for_exec = nullptr;
+  execp->wd_for_exec = NULL;
 
   if ((func != pred_okdir) && (func != pred_ok))
     {
@@ -2813,13 +2813,13 @@ insert_exec_ok (const char *action,
 
   if ((func == pred_execdir) || (func == pred_okdir))
     {
-      execp->wd_for_exec = nullptr;
+      execp->wd_for_exec = NULL;
       options.ignore_readdir_race = false;
       check_path_safety (action);
     }
   else
     {
-      assert (nullptr != initial_wd);
+      assert (NULL != initial_wd);
       execp->wd_for_exec = initial_wd;
     }
 
@@ -2829,8 +2829,8 @@ insert_exec_ok (const char *action,
    * Also figure out if the command is terminated by ";" or by "+".
    */
   start = *arg_ptr;
-  for (end = start, prev_was_braces_only=false, brace_count=0, brace_arg=nullptr;
-       (argv[end] != nullptr)
+  for (end = start, prev_was_braces_only=false, brace_count=0, brace_arg=NULL;
+       (argv[end] != NULL)
        && ((argv[end][0] != ';') || (argv[end][1] != '\0'));
        end++)
     {
@@ -2877,7 +2877,7 @@ insert_exec_ok (const char *action,
     }
 
   /* Fail if no command given or no semicolon found. */
-  if ((end == start) || (argv[end] == nullptr))
+  if ((end == start) || (argv[end] == NULL))
     {
       *arg_ptr = end;
       free (our_pred);
@@ -2940,8 +2940,8 @@ insert_exec_ok (const char *action,
       /* "+" terminator, so we can just append our arguments after the
        * command and initial arguments.
        */
-      execp->replace_vec = nullptr;
-      execp->ctl.replace_pat = nullptr;
+      execp->replace_vec = NULL;
+      execp->ctl.replace_pat = NULL;
       execp->ctl.rplen = 0;
       execp->ctl.lines_per_exec = 0; /* no limit */
       execp->ctl.args_per_exec = 0; /* no limit */
@@ -2957,7 +2957,7 @@ insert_exec_ok (const char *action,
         {
           bc_push_arg (&execp->ctl, &execp->state,
                        argv[i], strlen (argv[i])+1,
-                       nullptr, 0,
+                       NULL, 0,
                        1);
         }
     }
@@ -2985,7 +2985,7 @@ insert_exec_ok (const char *action,
         }
     }
 
-  if (argv[end] == nullptr)
+  if (argv[end] == NULL)
     *arg_ptr = end;
   else
     *arg_ptr = end + 1;
@@ -3030,7 +3030,7 @@ get_relative_timestamp (const char *str,
         }
 
       /* Convert the ASCII number into floating-point. */
-      if (xstrtod (str, nullptr, &offset, strtod))
+      if (xstrtod (str, NULL, &offset, strtod))
         {
           if (isnan (offset))
             {
@@ -3216,7 +3216,7 @@ get_num (const char *str,
 {
   char *pend;
 
-  if (str == nullptr)
+  if (str == NULL)
     return false;
 
   /* Figure out the comparison type if the caller accepts one. */
@@ -3277,17 +3277,17 @@ insert_num (char **argv, int *arg_ptr, const struct parser_table *entry)
                predicate,
                quotearg_n_style (0, options.err_quoting_style, numstr));
         /*NOTREACHED*/
-        return nullptr;
+        return NULL;
       }
   }
-  return nullptr;
+  return NULL;
 }
 
 static void
 open_output_file (const char *path, struct format_val *p)
 {
-  p->segment = nullptr;
-  p->quote_opts = clone_quoting_options (nullptr);
+  p->segment = NULL;
+  p->quote_opts = clone_quoting_options (NULL);
 
   if (!strcmp (path, "/dev/stderr"))
     {
@@ -3304,7 +3304,7 @@ open_output_file (const char *path, struct format_val *p)
       p->stream = sharefile_fopen (state.shared_files, path);
       p->filename = path;
 
-      if (p->stream == nullptr)
+      if (p->stream == NULL)
         {
           fatal_nontarget_file_error (errno, path);
         }

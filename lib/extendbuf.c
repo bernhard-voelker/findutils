@@ -76,7 +76,7 @@ extendbuf (void* existing, size_t wanted, size_t *allocated)
       /* Sanity check: If there is no existing allocation size, there
        * must be no existing allocated buffer.
        */
-      assert (nullptr == existing);
+      assert (NULL == existing);
 
       (*allocated) = newsize;
       result = malloc (newsize);
@@ -87,7 +87,7 @@ extendbuf (void* existing, size_t wanted, size_t *allocated)
         {
           (*allocated) = newsize;
           result = realloc (existing, newsize);
-          if (nullptr == result)
+          if (NULL == result)
             {
               saved_errno = errno;
             }
@@ -113,7 +113,7 @@ void *
 xextendbuf (void* existing, size_t wanted, size_t *allocated)
 {
   void *p = extendbuf (existing, wanted, allocated);
-  if (nullptr == p)
+  if (NULL == p)
     {
       free (existing);
       xalloc_die ();

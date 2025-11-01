@@ -463,7 +463,7 @@ find (char *arg)
   inside_dir (AT_FDCWD);
 
   arglist[0] = arg;
-  arglist[1] = nullptr;
+  arglist[1] = NULL;
 
   switch (options.symlink_handling)
     {
@@ -486,8 +486,8 @@ find (char *arg)
   if (options.xdev)
     ftsoptions |= FTS_XDEV;
 
-  p = fts_open (arglist, ftsoptions, nullptr);
-  if (nullptr == p)
+  p = fts_open (arglist, ftsoptions, NULL);
+  if (NULL == p)
     {
       error (0, errno, _("cannot search %s"),
              safely_quote_err_filename (0, arg));
@@ -497,7 +497,7 @@ find (char *arg)
     {
       int level = INT_MIN;
 
-      while ( (errno=0, ent=fts_read (p)) != nullptr )
+      while ( (errno=0, ent=fts_read (p)) != NULL )
         {
           if (state.execdirs_outstanding && ((int)ent->fts_level != level))
             {
@@ -518,7 +518,7 @@ find (char *arg)
           state.type = state.have_type ? ent->fts_statp->st_mode : 0;
           consider_visiting (p, ent);
         }
-      /* fts_read returned nullptr; distinguish between "finished" and "error". */
+      /* fts_read returned NULL; distinguish between "finished" and "error". */
       if (errno)
         {
           error (0, errno,
@@ -540,7 +540,7 @@ find (char *arg)
           state.exit_status = EXIT_FAILURE;
           return false;
         }
-      p = nullptr;
+      p = NULL;
     }
   return true;
 }
@@ -552,8 +552,8 @@ process_all_startpoints (int argc, char *argv[])
   /* Did the user pass starting points on the command line?  */
   bool argv_starting_points = 0 < argc && !looks_like_expression (argv[0], true);
 
-  FILE *stream = nullptr;
-  char const* files0_filename_quoted = nullptr;
+  FILE *stream = NULL;
+  char const* files0_filename_quoted = NULL;
 
   struct argv_iterator *ai;
   if (options.files0_from)
@@ -585,7 +585,7 @@ process_all_startpoints (int argc, char *argv[])
         {
           files0_filename_quoted = safely_quote_err_filename (0, options.files0_from);
           stream = fopen (options.files0_from, "r");
-          if (stream == nullptr)
+          if (stream == NULL)
             {
               error (EXIT_FAILURE, errno, _("cannot open %s for reading"),
                      files0_filename_quoted);
@@ -669,7 +669,7 @@ process_all_startpoints (int argc, char *argv[])
         {
           /* Diagnose a zero-length file name.  When it's one
              among many, knowing the record number may help.  */
-          if (options.files0_from == nullptr)
+          if (options.files0_from == NULL)
             error (0, ENOENT, "%s", safely_quote_err_filename (0, file_name));
           else
             {
@@ -734,7 +734,7 @@ main (int argc, char **argv)
     }
 
   state.shared_files = sharefile_init ("w");
-  if (nullptr == state.shared_files)
+  if (NULL == state.shared_files)
     {
       error (EXIT_FAILURE, errno,
              _("Failed to initialize shared-file hash table"));
