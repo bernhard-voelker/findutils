@@ -1,9 +1,11 @@
 .TH XARGS 1 2024-06-03 findutils \" -*- nroff -*-
 .ie \n(.g \{\
+.  ds '  \(aq
 .  ds en \(en
 .  ds ~~ \~
 .\}
 .el \{\
+.  ds '  '
 .  ds en \-
 .  ds ~~ \ \" backslash, space
 .\}
@@ -546,7 +548,8 @@ uses, and you can also use an extra invocation of
 to ensure that very long lines do not occur.
 For example:
 .P
-.B somecommand | xargs \-s 50000 echo | xargs \-I '{}' \-s 100000 rm '{}'
+.B somecommand | xargs \-s 50000 echo | xargs \-I \*'{}\*' \-s 100000 \
+rm \*'{}\*'
 .P
 Here, the first invocation of
 .B xargs
