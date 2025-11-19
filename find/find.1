@@ -1,5 +1,12 @@
 '\" t
 .TH FIND 1 2025-10-12 findutils \" -*- nroff -*-
+.ie \n(.g \{\
+.  ds " \(dq
+.\}
+.el \{\
+.  \" \*" is not usable in macro arguments on AT&T troff.
+.  ds " ""\" two adjacent quotes and no space before this comment
+.\}
 .SH NAME
 find \- search for files in a directory hierarchy
 .SH SYNOPSIS
@@ -980,7 +987,7 @@ The metacharacters do not treat `/' or `.\&' specially;
 so, for example,
 .in +4n
 .nf
-find .\& \-path \(dq./sr*sc\(dq
+find .\& \-path \*"./sr*sc\*"
 .fi
 .in
 will print an entry for a directory called
@@ -1940,7 +1947,7 @@ going to a terminal.
 .IP "\-ls, \-fls"
 Unusual characters are always escaped.  White space, backslash, and
 double quote characters are printed using C-style escaping (for
-example `\ef', `\e\(dq').  Other unusual characters are printed using an
+example `\ef', `\e\*"').  Other unusual characters are printed using an
 octal escape.  Other printable characters (for
 .B \-ls
 and
