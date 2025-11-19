@@ -131,6 +131,7 @@ If neither
 nor
 .B \-e
 is used, no end-of-file string is used.
+.
 .TP
 .BR \-e "[\fIeof-str\fR], " "\-\-eof" [\fI=eof-str\fR]
 This option is a synonym for the
@@ -148,6 +149,7 @@ If neither
 nor
 .B \-e
 is used, no end-of-file string is used.
+.
 .TP
 .BI \-I " replace-str"
 Replace occurrences of
@@ -181,6 +183,7 @@ The
 option is deprecated; use
 .B \-I
 instead.
+.
 .TP
 .BI \-L " max-lines"
 Use at most
@@ -190,6 +193,7 @@ Trailing blanks cause an input line to be logically continued on the
 next input line.
 Implies
 .BR \-x .
+.
 .TP
 .BR \-l "[\fImax-lines\fR], " \-\-max-lines "[=\fImax-lines\fR]"
 Synonym for the
@@ -208,6 +212,7 @@ The
 option is deprecated since the POSIX standard specifies
 .B \-L
 instead.
+.
 .TP
 .BI \-n " max-args\fR, \fI" "\-\-max\-args" \fR=\fImax-args
 Use at most
@@ -222,6 +227,7 @@ option) is exceeded, unless the
 option is given, in which case
 .B xargs
 will exit.
+.
 .TP
 .BI \-P " max-procs\fR, \fI" \-\-max\-procs "\fR=\fImax-procs"
 Run up to
@@ -278,6 +284,7 @@ but reduce performance.
 If you don't want to tolerate the performance difference, simply
 arrange for each process to produce a separate output file (or
 otherwise use separate resources).
+.
 .TP
 .B \-o, \-\-open\-tty
 Reopen standard input as
@@ -286,6 +293,7 @@ in the child process before executing the command.
 This is useful if you want
 .B xargs
 to run an interactive application.
+.
 .TP
 .B \-p, \-\-interactive
 Prompt the user about whether to run each command line and read a line
@@ -293,6 +301,7 @@ from the terminal.
 Only run the command line if the response starts with `y' or `Y'.
 Implies
 .BR \-t .
+.
 .TP
 .BR \-\-process\-slot\-var "=\fIname\fR"
 Set the environment variable
@@ -300,12 +309,14 @@ Set the environment variable
 to a unique value in each running child process.
 Values are reused once child processes exit.
 This can be used in a rudimentary load distribution scheme, for example.
+.
 .TP
 .B \-r, \-\-no\-run\-if\-empty
 If the standard input does not contain any nonblanks, do not run the
 command.
 Normally, the command is run once even if there is no input.
 This option is a GNU extension.
+.
 .TP
 .BI \-s " max-chars\fR, \fI" \-\-max\-chars "=\fImax-chars\fR"
 Use at most
@@ -321,6 +332,7 @@ otherwise, the default value is the maximum.
 1\*(~~KiB is 1024 bytes.
 .B xargs
 automatically adapts to tighter constraints.
+.
 .TP
 .B "\-\-show\-limits"
 Display the limits on the command-line length which are imposed by the
@@ -336,15 +348,18 @@ Pipe the input from
 if you don't want
 .B xargs
 to do anything.
+.
 .TP
 .B \-t, \-\-verbose
 Print the command line on the standard error output before executing
 it.
+.
 .TP
 .B \-x, \-\-exit
 Exit if the size (see the
 .B \-s
 option) is exceeded.
+.
 .TP
 .B \-\-
 Delimit the option list.
@@ -365,11 +380,13 @@ instead of printing the usage text, and
 runs the command
 .I \-\-mycommand
 instead of rejecting this as unrecognized option.
+.
 .TP
 .B \-\-help
 Print a summary of the options to
 .B xargs
 and exit.
+.
 .TP
 .B \-\-version
 Print the version number of
