@@ -1,4 +1,10 @@
 .TH LOCATEDB 5 2020-12-27 findutils \" -*- nroff -*-
+.ie \n(.g \{\
+.  ds en \(en
+.\}
+.el \{\
+.  ds en \-
+.\}
 .SH NAME
 locatedb \- front-compressed file name database
 .
@@ -107,7 +113,7 @@ format starts with a 256 byte table containing the 128 most common
 bigrams in the file list.  A bigram is a pair of adjacent bytes.
 Bytes in the database that have the high bit set are indexes (with the
 high bit cleared) into the bigram table.  The bigram and
-offset-differential count coding makes these databases 20\(en25% smaller
+offset-differential count coding makes these databases 20\*(en25% smaller
 than the new format, but makes them not 8-bit clean.  Any byte in a
 file name that is in the ranges used for the special codes is replaced
 in the database by a question mark, which not coincidentally is the
@@ -159,7 +165,7 @@ mailing list:
 .RE
 .
 .SH COPYRIGHT
-Copyright \(co 1994\(en2026 Free Software Foundation, Inc.
+Copyright \(co 1994\*(en2026 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
 .br
 This is free software: you are free to change and redistribute it.

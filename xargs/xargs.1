@@ -1,4 +1,10 @@
 .TH XARGS 1 2024-06-03 findutils \" -*- nroff -*-
+.ie \n(.g \{\
+.  ds en \(en
+.\}
+.el \{\
+.  ds en \-
+.\}
 .SH NAME
 xargs \- build and execute command lines from standard input
 .SH SYNOPSIS
@@ -430,7 +436,7 @@ exits with the following status:
 .IP 0
 if it succeeds
 .IP 123
-if any invocation of the command exited with status 1\(en125
+if any invocation of the command exited with status 1\*(en125
 .IP 124
 if the command exited with status 255
 .IP 125
@@ -585,7 +591,7 @@ mailing list:
 .RE
 .
 .SH COPYRIGHT
-Copyright \(co 1990\(en2026 Free Software Foundation, Inc.
+Copyright \(co 1990\*(en2026 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
 .br
 This is free software: you are free to change and redistribute it.
