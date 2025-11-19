@@ -390,7 +390,7 @@ because it would not actually conflict.
 .
 .SH "EXAMPLES"
 .nf
-.B find /tmp \-name core \-type f \-print | xargs /bin/rm \-f
+.B "find /tmp \-name core \-type f \-print | xargs /bin/rm \-f"
 .fi
 .P
 Find files named
@@ -402,7 +402,7 @@ Note that this will work incorrectly if there are
 any filenames containing newlines or spaces.
 .
 .P
-.B find /tmp \-name core \-type f \-print0 | xargs \-0 /bin/rm \-f
+.B "find /tmp \-name core \-type f \-print0 | xargs \-0 /bin/rm \-f"
 .P
 Find files named
 .B core
@@ -412,7 +412,7 @@ and delete them, processing filenames in such a way that file or
 directory names containing spaces or newlines are correctly handled.
 .
 .P
-.B find /tmp \-depth \-name core \-type f \-delete
+.B "find /tmp \-depth \-name core \-type f \-delete"
 .P
 Find files named
 .B core
@@ -431,7 +431,7 @@ process).
 .
 .P
 .nf
-.B cut \-d: \-f1 < /etc/passwd | sort | xargs echo
+.B "cut \-d: \-f1 < /etc/passwd | sort | xargs echo"
 .
 .fi
 Generates a compact listing of all the users on the system.
