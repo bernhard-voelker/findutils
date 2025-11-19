@@ -154,8 +154,10 @@ terminate input items; instead the separator is the newline character.
 Implies
 .B \-x
 and
-.B \-L
-1.
+\*(lq\c
+.B "\-L 1\c"
+\*(rq.
+.
 .TP
 .BR \-i "[\fIreplace-str\fR], " "\-\-replace" [\fI=replace-str\fR]
 This option is a synonym for
@@ -166,7 +168,9 @@ is specified.
 If the
 .I replace-str
 argument is missing, the effect is the same as
-.BR \-I {}.
+\*(lq\c
+.B \-I{}\c
+\*(rq.
 The
 .B \-i
 option is deprecated; use
@@ -334,15 +338,19 @@ option) is exceeded.
 .B "\-\-"
 Delimit the option list.
 Later arguments, if any, are treated as operands even if they begin with
-.IR \- .
+\*(lq\-\*(rq.
 For example,
-.B xargs \-\- \-\-help
+\*(lq\c
+.B "xargs \-\- \-\-help\c"
+\*(rq
 runs the command
 .I \-\-help
 (found in
 .IR PATH )
 instead of printing the usage text, and
-.B xargs \-\- \-\-mycommand
+\*(lq\c
+.B "xargs \-\- \-\-mycommand\c"
+\*(rq
 runs the command
 .I \-\-mycommand
 instead of rejecting this as unrecognized option.
@@ -377,8 +385,7 @@ will issue a warning diagnostic on standard error.
 The exception to this rule is that the special
 .I max-args
 value
-.I 1
-('\fB\-n\fP\fI1\fP')
+\*(lq\fB\-n\fP\fI1\fP\*(rq)
 is ignored after the
 .B \-\-replace
 option and its aliases
@@ -510,7 +517,8 @@ The
 program was invented by Herb Gellis at Bell Labs.
 See the Texinfo manual for
 .IR findutils ,
-.IR "Finding Files" ,
+chapter
+\*(lqFinding Files\*(rq,
 for more information.
 .
 .SH "BUGS"
