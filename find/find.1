@@ -430,7 +430,7 @@ The
 action also acts like an option (since it implies
 .BR \-depth ).
 .
-.SS POSITIONAL OPTIONS
+.SS "POSITIONAL OPTIONS"
 Positional options always return true.  They affect only tests occurring
 later on the command line.
 .
@@ -518,7 +518,7 @@ environment variable is set, and
 .B \-warn
 is also used, it is not specified which, if any, warnings will be active.
 .
-.SS GLOBAL OPTIONS
+.SS "GLOBAL OPTIONS"
 Global options always return true.
 Global options take effect even for tests which occur earlier on the
 command line.  To prevent confusion, global options should be specified
@@ -669,7 +669,7 @@ Print the \fBfind\fR version number and exit.
 .IP \-xdev
 Don't descend into directories on other devices.
 .
-.SS TESTS
+.SS "TESTS"
 Some tests, for example
 .B \-newerXY
 and
@@ -1217,7 +1217,7 @@ will behave the same as
 (SELinux only) Security context of the file matches glob
 .IR pattern .
 .
-.SS ACTIONS
+.SS "ACTIONS"
 .IP "\-delete \&"
 Delete files or directories; true if removal succeeded.
 If the removal failed, an error message is issued and
@@ -1859,7 +1859,7 @@ find / \-name needle \-print \-quit
 .fi
 .in
 .
-.SS OPERATORS
+.SS "OPERATORS"
 Listed in order of decreasing precedence:
 .
 .IP "( \fIexpr\fR )"
@@ -1923,7 +1923,7 @@ This means that
 will never print
 .IR afile .
 .
-.SH UNUSUAL FILENAMES
+.SH "UNUSUAL FILENAMES"
 Many of the actions of
 .B find
 result in the printing of data which is under the control of other
@@ -1991,7 +1991,7 @@ and
 .B \-okdir
 actions print the current filename as-is.  This may change in a future release.
 .
-.SH STANDARDS CONFORMANCE
+.SH "STANDARDS CONFORMANCE"
 For closest compliance to the POSIX standard, you should set the
 .B POSIXLY_CORRECT
 environment variable.
@@ -2144,7 +2144,7 @@ or
 .B \-iregex
 tests because those tests aren't specified in the POSIX standard.
 .
-.SH ENVIRONMENT VARIABLES
+.SH "ENVIRONMENT VARIABLES"
 .
 .IP LANG
 Provides a default value for the internationalization variables that
@@ -2259,7 +2259,7 @@ and
 .
 .SH EXAMPLES
 .\" A bulleted \(bu list of examples.
-.SS Simple `find|xargs` approach
+.SS "Simple `find|xargs` approach"
 .IP \(bu 4n
 Find files named
 .I core
@@ -2276,7 +2276,7 @@ and delete them.
 Note that this will work incorrectly if there are
 any filenames containing newlines, single or double quotes, or spaces.
 .
-.SS Safer `find \-print0 | xargs \-0` approach
+.SS "Safer `find \-print0 | xargs \-0` approach"
 .IP \(bu 4n
 Find files named \fIcore\fP in or below the directory \fI/tmp\fP
 and delete them, processing filenames in such a way that file or
@@ -2304,7 +2304,7 @@ process executed by
 .B xargs
 works with that file.
 .
-.SS Processing arbitrary starting points
+.SS "Processing arbitrary starting points"
 .IP \(bu 4n
 Given that another program \fIproggy\fR pre-filters and creates a huge
 NUL-separated list of files, process those as starting points, and find
@@ -2348,7 +2348,7 @@ or better the
 .B `\-execdir\ \&...\&\ +`
 syntax for performance and security reasons.
 .
-.SS Traversing the filesystem just once \(en for 2 different actions
+.SS "Traversing the filesystem just once \(en for 2 different actions"
 .IP \(bu 4n
 Traverse the filesystem just once, listing set-user-ID files and
 directories into
@@ -2650,7 +2650,7 @@ Here is an example including some output.
 .in
 .fi
 .
-.SH EXIT STATUS
+.SH "EXIT STATUS"
 .B find
 exits with status 0 if all files are processed successfully, greater
 than 0 if errors occur.
@@ -2692,7 +2692,7 @@ and
 came from Dan Bernstein.
 .
 .SH COMPATIBILITY
-.SS Feature Additions
+.SS "Feature Additions"
 .TS
 l l l l .
 Feature	Added in	Year	Also occurs in
@@ -2724,7 +2724,7 @@ Feature	Added in	Year	Also occurs in
 \-iregex	3.8	1993
 \-print0	2.0	1990	POSIX (from Issue 8, IEEE Std 1003.1\-2024)
 .TE
-.SS Functional Changes
+.SS "Functional Changes"
 .TS
 l l l .
 Version	Year	Change
@@ -2768,7 +2768,7 @@ T}
 .P
 .
 .SH NON-BUGS
-.SS Operator precedence surprises
+.SS "Operator precedence surprises"
 The command
 .B find .\& \-name afile \-o \-name bfile \-print
 will never print
@@ -2782,7 +2782,7 @@ is higher than that of
 and when there is no operator specified between tests,
 .B \-a
 is assumed.
-.SS \(lqpaths must precede expression\(rq error message
+.SS "\(lqpaths must precede expression\(rq error message"
 .nf
 .B $ find .\& \-name *.c \-print
 find: paths must precede expression
@@ -2831,7 +2831,7 @@ has no effect on the
 .B \-ok
 action.
 .
-.SH REPORTING BUGS
+.SH "REPORTING BUGS"
 GNU findutils online help: <https://www.gnu.org/software/findutils/#get-help>
 .br
 Report any translation bugs to <https://translationproject.org/team/>
@@ -2854,7 +2854,7 @@ License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 .
-.SH SEE ALSO
+.SH "SEE ALSO"
 .BR chmod (1),
 .BR locate (1),
 .BR ls (1),
