@@ -1,28 +1,74 @@
 .TH LOCATE 1 2020-12-27 findutils \" -*- nroff -*-
+.\" As a GNU troff extension, \% at the beginning of a word suppresses
+.\" its hyphenation.
+.ie \n(.g \{\
+.  ds % \%
+.\}
+.el \{\
+.  ds % \" empty
+.\}
 .SH NAME
 locate \- list files in databases that match a pattern
 .
 .SH SYNOPSIS
 .B locate
-[\-d path | \-\-database=path]
-[\-e | \-E | \-\-[non\-]existing]
-[\-i | \-\-ignore-case]
-[\-0 | \-\-null]
-[\-c | \-\-count]
-[\-w | \-\-wholename]
-[\-b | \-\-basename]
-[\-l N | \-\-limit=N]
-[\-S | \-\-statistics]
-[\-r | \-\-regex ]
-[\-\-regextype R]
-[\-\-max-database-age D]
-[\-P | \-H | \-\-nofollow]
-[\-L | \-\-follow]
-[\-\-version]
-[\-A | \-\-all]
-[\-p | \-\-print]
-[\-\-help]
-pattern...
+.RB [ \-d
+.I path
+|
+.BI \*%\-\-database= path\c
+]
+.RB [ \-e
+|
+.B \-E
+|
+.BR \*%\-\- [ non\- ] existing ]
+.RB [ \-i
+|
+.BR \*%\-\-ignore\-case ]
+.RB [ \-0
+|
+.BR \-\-null ]
+.RB [ \-c
+|
+.BR \*%\-\-count ]
+.RB [ \-w
+|
+.BR \*%\-\-wholename ]
+.RB [ \-b
+|
+.BR \*%\-\-basename ]
+.RB [ \-l
+.I N
+|
+.BI \*%\-\-limit= N\c
+]
+.RB [ \-S
+|
+.BR \*%\-\-statistics ]
+.RB [ \-r
+|
+.BR \*%\-\-regex ]
+.RB \*%[ \-\-regextype
+.IR R ]
+.RB \*%[ \-\-max\-database\-age
+.IR D ]
+.RB [ \-P
+|
+.B \-H
+|
+.BR \*%\-\-nofollow ]
+.RB [ \-L
+|
+.BR \*%\-\-follow ]
+.RB \*%[ \-\-version ]
+.RB [ \-A
+|
+.BR \-\-all ]
+.RB [ \-p
+|
+.BR \*%\-\-print ]
+.RB \*%[ \-\-help ]
+.IR pattern ...
 .
 .SH DESCRIPTION
 This manual page
