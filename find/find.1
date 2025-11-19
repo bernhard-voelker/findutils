@@ -2266,7 +2266,7 @@ and
 .
 .SH EXAMPLES
 .\" A bulleted \(bu list of examples.
-.SS "Simple `find|xargs` approach"
+.SS "Simple \(gafind|xargs\(ga approach"
 .IP \(bu 4n
 Find files named
 .I core
@@ -2283,7 +2283,7 @@ and delete them.
 Note that this will work incorrectly if there are
 any filenames containing newlines, single or double quotes, or spaces.
 .
-.SS "Safer `find \-print0 | xargs \-0` approach"
+.SS "Safer \(gafind \-print0 | xargs \-0\(ga approach"
 .IP \(bu 4n
 Find files named \fIcore\fP in or below the directory \fI/tmp\fP
 and delete them, processing filenames in such a way that file or
