@@ -2246,9 +2246,9 @@ and
 .BR \-fprintf .
 .
 .SH EXAMPLES
-.\" A bulleted \[bu] list of examples.
+.\" A bulleted \(bu list of examples.
 .SS Simple `find|xargs` approach
-.IP \[bu] 4n
+.IP \(bu 4n
 Find files named
 .I core
 in or below the directory
@@ -2265,7 +2265,7 @@ Note that this will work incorrectly if there are
 any filenames containing newlines, single or double quotes, or spaces.
 .
 .SS Safer `find \-print0 | xargs \-0` approach
-.IP \[bu] 4n
+.IP \(bu 4n
 Find files named \fIcore\fP in or below the directory \fI/tmp\fP
 and delete them, processing filenames in such a way that file or
 directory names containing single or double quotes, spaces or newlines
@@ -2293,7 +2293,7 @@ process executed by
 works with that file.
 .
 .SS Processing arbitrary starting points
-.IP \[bu] 4n
+.IP \(bu 4n
 Given that another program \fIproggy\fR pre-filters and creates a huge
 NUL-separated list of files, process those as starting points, and find
 all regular, empty files among them:
@@ -2314,7 +2314,7 @@ into directories (in the case one of the starting points is one).
 .
 .SS
 Executing a command for each file
-.IP \[bu] 4n
+.IP \(bu 4n
 Run
 .I file
 on every file in or below the current directory.
@@ -2337,7 +2337,7 @@ or better the
 syntax for performance and security reasons.
 .
 .SS Traversing the filesystem just once \(en for 2 different actions
-.IP \[bu] 4n
+.IP \(bu 4n
 Traverse the filesystem just once, listing set-user-ID files and
 directories into
 .I /root/suid.txt
@@ -2360,7 +2360,7 @@ lines to instruct the shell to continue reading the command on the next line.
 .
 .SS
 Searching files by age
-.IP \[bu] 4n
+.IP \(bu 4n
 Search for files in your home directory which have been modified in
 the last twenty-four hours.
 .nf
@@ -2380,7 +2380,7 @@ a file will have to have a modification in the past which is less than
 .
 .SS
 Searching files by permissions
-.IP \[bu] 4n
+.IP \(bu 4n
 Search for files which are executable but not readable.
 .nf
 \&
@@ -2389,7 +2389,7 @@ Search for files which are executable but not readable.
 .in
 .fi
 .
-.IP \[bu] 4n
+.IP \(bu 4n
 Search for files which have read and write permission for their owner,
 and group, but which other users can read but not write to.
 .nf
@@ -2402,7 +2402,7 @@ and group, but which other users can read but not write to.
 Files which meet these criteria but have other permissions bits set
 (for example if someone can execute the file) will not be matched.
 .
-.IP \[bu]
+.IP \(bu
 Search for files which have read and write permission for their owner
 and group, and which other users can read, without regard to the
 presence of any extra permission bits (for example the executable
@@ -2418,7 +2418,7 @@ This will match a file which has mode
 .IR 0777 ,
 for example.
 .
-.IP \[bu]
+.IP \(bu
 Search for files which are writable by somebody (their owner, or
 their group, or anybody else).
 .nf
@@ -2428,7 +2428,7 @@ their group, or anybody else).
 .in
 .fi
 .
-.IP \[bu]
+.IP \(bu
 Search for files which are writable by either their owner or their group.
 .nf
 \&
@@ -2445,7 +2445,7 @@ symbolic form.
 The files don't have to be writable by both the owner and group to be matched;
 either will do.
 .
-.IP \[bu]
+.IP \(bu
 Search for files which are writable by both their owner and their group.
 .nf
 \&
@@ -2457,7 +2457,7 @@ Search for files which are writable by both their owner and their group.
 .fi
 Both these commands do the same thing.
 .
-.IP \[bu]
+.IP \(bu
 A more elaborate search on permissions.
 .nf
 \&
@@ -2484,7 +2484,7 @@ respectively).
 .
 .SS
 Pruning \(en omitting files and subdirectories
-.IP \[bu] 4n
+.IP \(bu 4n
 Copy the contents of
 .I /source-dir
 to
@@ -2528,7 +2528,7 @@ binds more tightly than
 this is the default anyway, but the parentheses help to show
 what is going on.
 .
-.IP \[bu] 4n
+.IP \(bu 4n
 Given the following directory of projects and their associated SCM
 administrative directories, perform an efficient search for the
 projects' roots:
@@ -2583,7 +2583,7 @@ are found.
 .
 .SS
 Other useful examples
-.IP \[bu] 4n
+.IP \(bu 4n
 Search for several file types.
 .nf
 \&
@@ -2603,7 +2603,7 @@ which is otherwise equivalent to the longer, yet more portable:
 .in
 .fi
 .
-.IP \[bu] 4n
+.IP \(bu 4n
 Search for files with the particular name
 .I needle
 and stop immediately when we find the first one.
@@ -2614,7 +2614,7 @@ and stop immediately when we find the first one.
 .in
 .fi
 .
-.IP \[bu] 4n
+.IP \(bu 4n
 Demonstrate the interpretation of the
 .B %f
 and
