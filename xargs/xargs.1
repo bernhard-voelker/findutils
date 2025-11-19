@@ -75,7 +75,7 @@ Disables the end-of-file string, which is treated like any other argument.
 Useful when input items might contain white space, quote marks, or backslashes.
 The GNU find (and from POSIX Issue 8, IEEE Std 1003.1\-2024)
 \-print0 option produces input suitable for this mode.
-
+.
 .TP
 .BI "\-a " file ", \-\-arg\-file=" file
 Read items from
@@ -84,7 +84,7 @@ instead of standard input.
 If you use this option, standard input remains unchanged when commands are run.
 Otherwise, standard input is redirected from
 .IR /dev/null .
-
+.
 .TP
 .BI "\-\-delimiter=" delim ", \-d" " delim"
 Input items are terminated by the specified character.
@@ -107,7 +107,7 @@ simply newline-separated items, although it is almost always better to
 design your program to use
 .B \-\-null
 where this is possible.
-
+.
 .TP
 .BI \-E " eof-str"
 Set the end-of-file string to \fIeof-str\fR.
@@ -229,7 +229,7 @@ another.
 .B xargs
 always waits for all child processes to exit before exiting itself
 (but see BUGS).
-
+.IP
 If you do not use the
 .B \-P
 option,
@@ -239,7 +239,7 @@ will terminate the program (unless they were blocked in the parent
 process before
 .B xargs
 was started).
-
+.IP
 .B Please note
 that it is up to the called processes to properly manage parallel
 access to shared resources.
@@ -374,13 +374,13 @@ option and its aliases
 and
 .BR \-i ,
 because it would not actually conflict.
-
+.
 .
 .SH "EXAMPLES"
 .nf
 .B find /tmp \-name core \-type f \-print | xargs /bin/rm \-f
-
 .fi
+.P
 Find files named
 .B core
 in or below the directory
@@ -388,19 +388,20 @@ in or below the directory
 and delete them.
 Note that this will work incorrectly if there are
 any filenames containing newlines or spaces.
+.
 .P
 .B find /tmp \-name core \-type f \-print0 | xargs \-0 /bin/rm \-f
-
+.P
 Find files named
 .B core
 in or below the directory
 .B /tmp
 and delete them, processing filenames in such a way that file or
 directory names containing spaces or newlines are correctly handled.
-
+.
 .P
 .B find /tmp \-depth \-name core \-type f \-delete
-
+.P
 Find files named
 .B core
 in or below the directory
@@ -415,11 +416,11 @@ to launch
 and we don't need the extra
 .B xargs
 process).
-
+.
 .P
 .nf
 .B cut \-d: \-f1 < /etc/passwd | sort | xargs echo
-
+.
 .fi
 Generates a compact listing of all the users on the system.
 .
@@ -442,7 +443,7 @@ if the command is not found
 .IP 1
 if some other error occurred.
 .RE
-
+.
 .P
 Exit codes greater than 128 are used by the shell to indicate that
 a program died due to a fatal signal.
@@ -453,7 +454,7 @@ The long-standing
 option of
 .B xargs
 appeared first in Issue 8 (IEEE Std 1003.1\-2024) of the POSIX standard.
-
+.P
 As of GNU xargs version 4.2.9, the default behaviour of
 .B xargs
 is not to have a logical end-of-file marker.
@@ -478,7 +479,7 @@ The
 .B \-\-show\-limits
 option can be used to discover the actual limits in force on the
 current system.
-
+.P
 In versions of
 .B xargs
 up to and including version 4.9.0, SIGUSR1 and SIGUSR2 would
@@ -489,7 +490,7 @@ to terminate even if the
 option was not used.
 .
 .SH "HISTORY"
-
+.
 The
 .B xargs
 program was invented by Herb Gellis at Bell Labs.
@@ -518,7 +519,7 @@ The
 option of
 .B find
 can often be used as a more secure alternative.
-
+.P
 When you use the
 .B \-I
 option, each line read from the input is buffered internally.
