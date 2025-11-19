@@ -401,9 +401,9 @@ because it would not actually conflict.
 .fi
 .P
 Find files named
-.B core
+.I core
 in or below the directory
-.B /tmp
+.I /tmp
 and delete them.
 Note that this will work incorrectly if there are
 any filenames containing newlines or spaces.
@@ -412,9 +412,9 @@ any filenames containing newlines or spaces.
 .B "find /tmp \-name core \-type f \-print0 | xargs \-0 /bin/rm \-f"
 .P
 Find files named
-.B core
+.I core
 in or below the directory
-.B /tmp
+.I /tmp
 and delete them, processing filenames in such a way that file or
 directory names containing spaces or newlines are correctly handled.
 .
@@ -422,9 +422,9 @@ directory names containing spaces or newlines are correctly handled.
 .B "find /tmp \-depth \-name core \-type f \-delete"
 .P
 Find files named
-.B core
+.I core
 in or below the directory
-.B /tmp
+.I /tmp
 and delete them, but more efficiently than in the previous example
 (because we avoid the need to use
 .BR fork (2)
