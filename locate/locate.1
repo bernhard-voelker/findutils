@@ -292,22 +292,32 @@ appears to be derived from the same code.
 Significant changes to
 .B locate
 in reverse order:
+.P
 .TS
 tab(|);
 LL.
-4.3.7 | Byte-order independent support for old database format
-4.3.3 | locate \fI\-i\fR supports multi-byte characters correctly
-      | Introduced \fI\-\-max_db_age\fR
-4.3.2 | Support for the slocate database format
-4.2.22| Introduced the \fI\-\-all\fR option
-4.2.15| Introduced the \fI\-\-regex\fR option
-4.2.14| Introduced options \fI\-L, \-P, \-H\fR
-4.2.12| Empty items in \fBLOCATE_PATH\fR now indicate the default database
-4.2.11| Introduced the \fI\-\-statistics\fR option
-4.2.4 | Introduced \fI\-\-count\fR and \fI\-\-limit\fR
-4.2.0 | Glob characters cause matching against the whole file name
-4.0   | Introduced the LOCATE02 database format
-3.7   | Locate can search multiple databases
+4.3.7|T{
+.na
+Byte-order independent support for old database format
+T}
+4.3.3|locate \fI\-i\fR supports multi-byte characters correctly
+\^|Introduced \fI\-\-max_db_age\fR
+4.3.2|Support for the slocate database format
+4.2.22|Introduced the \fI\-\-all\fR option
+4.2.15|Introduced the \fI\-\-regex\fR option
+4.2.14|Introduced options \fI\-L, \-P, \-H\fR
+4.2.12|T{
+.na
+Empty items in \fBLOCATE_PATH\fR now indicate the default database
+T}
+4.2.11|Introduced the \fI\-\-statistics\fR option
+4.2.4|Introduced \fI\-\-count\fR and \fI\-\-limit\fR
+4.2.0|T{
+.na
+Glob characters cause matching against the whole file name
+T}
+4.0|Introduced the LOCATE02 database format
+3.7|Locate can search multiple databases
 .TE
 .
 .SH "BUGS"
