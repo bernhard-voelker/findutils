@@ -122,7 +122,8 @@ where this is possible.
 .
 .TP
 .BI \-E " eof-str"
-Set the end-of-file string to \fIeof-str\fR.
+Set the end-of-file string to
+.IR eof-str .
 If the end-of-file
 string occurs as a line of input, the rest of the input is ignored.
 If neither
@@ -139,7 +140,9 @@ Use
 .B \-E
 instead,
 because it is POSIX compliant while this option is not.
-If \fIeof-str\fR is omitted, there is no end-of-file string.
+If
+.I eof-str
+is omitted, there is no end-of-file string.
 If neither
 .B \-E
 nor
@@ -147,7 +150,9 @@ nor
 is used, no end-of-file string is used.
 .TP
 .BI \-I " replace-str"
-Replace occurrences of \fIreplace-str\fR in the initial-arguments with
+Replace occurrences of
+.I replace-str
+in the initial-arguments with
 names read from standard input.
 Also, unquoted blanks do not
 terminate input items; instead the separator is the newline character.
@@ -178,7 +183,9 @@ option is deprecated; use
 instead.
 .TP
 .BI \-L " max-lines"
-Use at most \fImax-lines\fR nonblank input lines per command line.
+Use at most
+.I max-lines
+nonblank input lines per command line.
 Trailing blanks cause an input line to be logically continued on the
 next input line.
 Implies
@@ -203,7 +210,9 @@ option is deprecated since the POSIX standard specifies
 instead.
 .TP
 .BI \-n " max-args\fR, \fI" "\-\-max\-args" \fR=\fImax-args
-Use at most \fImax-args\fR arguments per command line.
+Use at most
+.I max-args
+arguments per command line.
 Fewer than
 .I max-args
 arguments will be used if the size (see the
@@ -299,7 +308,9 @@ Normally, the command is run once even if there is no input.
 This option is a GNU extension.
 .TP
 .BI \-s " max-chars\fR, \fI" \-\-max\-chars "=\fImax-chars\fR"
-Use at most \fImax-chars\fR characters per command line, including the
+Use at most
+.I max-chars
+characters per command line, including the
 command and initial-arguments and the terminating nulls at the ends of
 the argument strings.
 The largest allowed value is system-dependent, and is calculated as the
@@ -367,12 +378,14 @@ and exit.
 .PP
 The options
 .B \-\-max-lines
-(\fB\-L\fP, \fB\-l\fP),
+.RB ( \-L ,
+.BR \-l ),
 .B \-\-replace
-(\fB\-I\fP, \fB\-i\fP)
+.RB ( \-I ,
+.BR \-i ),
 and
 .B \-\-max-args
-(\fB\-n\fP)
+.RB ( \-n )
 are mutually exclusive.
 If some of them are specified at the same time, then
 .B xargs
@@ -385,7 +398,10 @@ will issue a warning diagnostic on standard error.
 The exception to this rule is that the special
 .I max-args
 value
-\*(lq\fB\-n\fP\fI1\fP\*(rq)
+\*(lq1\*(rq
+(\*(lq\c
+.BI \-n 1\c
+\*(rq)
 is ignored after the
 .B \-\-replace
 option and its aliases
