@@ -9,6 +9,17 @@
 .  ds en \-
 .  ds ~~ \ \" backslash, space
 .\}
+.
+.do if d TQ .ig
+.\" Add supplementary paragraph tag on its own line after TP.
+.de TQ
+.  br
+.  ns
+.  \" Do not quote the argument to `TP`; the user might specify
+.  \" their own quotes for multi-word tags or to exercise AT&T troff
+.  \" quoting rules.
+.  TP \\$1\"
+..
 .SH NAME
 xargs \- build and execute command lines from standard input
 .SH SYNOPSIS
@@ -76,7 +87,9 @@ An error message is issued on standard error when this happens.
 .
 .SH OPTIONS
 .TP
-.B \-0, \-\-null
+.B \-0
+.TQ
+.B \-\-null
 Input items are terminated by a null character instead of by
 whitespace, and the quotes and backslash are not special (every
 character is taken literally).
@@ -89,7 +102,9 @@ The GNU
 option produces input suitable for this mode.
 .
 .TP
-.BI "\-a " file ", \-\-arg\-file=" file
+.BI \-a\*(~~ file
+.TQ
+.BI \-\-arg\-file= file
 Read items from
 .I file
 instead of standard input.
@@ -98,7 +113,9 @@ Otherwise, standard input is redirected from
 .IR /dev/null .
 .
 .TP
-.BI "\-\-delimiter=" delim ", \-d" " delim"
+.BI \-\-delimiter= delim
+.TQ
+.BI \-d\*(~~ delim
 Input items are terminated by the specified character.
 The specified delimiter may be a single character, a C-style character escape such
 as
@@ -121,7 +138,7 @@ design your program to use
 where this is possible.
 .
 .TP
-.BI \-E " eof-str"
+.BI \-E\*(~~ eof-str
 Set the end-of-file string to
 .IR eof-str .
 If the end-of-file
@@ -133,7 +150,13 @@ nor
 is used, no end-of-file string is used.
 .
 .TP
-.BR \-e "[\fIeof-str\fR], " "\-\-eof" [\fI=eof-str\fR]
+.\" We use font selection escape sequences here because usage of `\c` in
+.\" arguments to man(7) font macros is not portable to AT&T troff.  (The
+.\" formatter's input traps don't honor them; compare GNU troff's `it`
+.\" and `itc` requests.)
+.BR \-e [\fIeof-str\fP]
+.TQ
+.BR \-\-eof [ =\fIeof-str ]
 This option is a synonym for the
 .B \-E
 option.
@@ -151,7 +174,7 @@ nor
 is used, no end-of-file string is used.
 .
 .TP
-.BI \-I " replace-str"
+.BI \-I\*(~~ replace-str
 Replace occurrences of
 .I replace-str
 in the initial-arguments with
@@ -166,7 +189,13 @@ and
 \*(rq.
 .
 .TP
-.BR \-i "[\fIreplace-str\fR], " "\-\-replace" [\fI=replace-str\fR]
+.\" We use font selection escape sequences here because usage of `\c` in
+.\" arguments to man(7) font macros is not portable to AT&T troff.  (The
+.\" formatter's input traps don't honor them; compare GNU troff's `it`
+.\" and `itc` requests.)
+.BR \-i [\fIreplace-str\fP]
+.TQ
+.BR \-\-replace [ =\fIreplace-str ]
 This option is a synonym for
 .BI \-I replace-str
 if
@@ -185,7 +214,7 @@ option is deprecated; use
 instead.
 .
 .TP
-.BI \-L " max-lines"
+.BI \-L\*(~~ max-lines
 Use at most
 .I max-lines
 nonblank input lines per command line.
@@ -195,7 +224,13 @@ Implies
 .BR \-x .
 .
 .TP
-.BR \-l "[\fImax-lines\fR], " \-\-max-lines "[=\fImax-lines\fR]"
+.\" We use font selection escape sequences here because usage of `\c` in
+.\" arguments to man(7) font macros is not portable to AT&T troff.  (The
+.\" formatter's input traps don't honor them; compare GNU troff's `it`
+.\" and `itc` requests.)
+.BR \-l [\fImax-lines\fP]
+.TQ
+.BR \-\-max\-lines [ =\fImax-lines ]
 Synonym for the
 .B \-L
 option.
@@ -214,7 +249,9 @@ option is deprecated since the POSIX standard specifies
 instead.
 .
 .TP
-.BI \-n " max-args\fR, \fI" "\-\-max\-args" \fR=\fImax-args
+.BI \-n\*(~~ max-args
+.TQ
+.BI \-\-max\-args= max-args
 Use at most
 .I max-args
 arguments per command line.
@@ -229,7 +266,9 @@ option is given, in which case
 will exit.
 .
 .TP
-.BI \-P " max-procs\fR, \fI" \-\-max\-procs "\fR=\fImax-procs"
+.BI \-P\*(~~ max-procs
+.TQ
+.BI \-\-max\-procs= max-procs
 Run up to
 .I max-procs
 processes at a time; the default is 1.
@@ -286,7 +325,9 @@ arrange for each process to produce a separate output file (or
 otherwise use separate resources).
 .
 .TP
-.B \-o, \-\-open\-tty
+.B \-o
+.TQ
+.B \-\-open\-tty
 Reopen standard input as
 .I /dev/tty
 in the child process before executing the command.
@@ -295,7 +336,9 @@ This is useful if you want
 to run an interactive application.
 .
 .TP
-.B \-p, \-\-interactive
+.B \-p
+.TQ
+.B \-\-interactive
 Prompt the user about whether to run each command line and read a line
 from the terminal.
 Only run the command line if the response starts with `y' or `Y'.
@@ -303,7 +346,7 @@ Implies
 .BR \-t .
 .
 .TP
-.BR \-\-process\-slot\-var "=\fIname\fR"
+.BI \-\-process\-slot\-var= name
 Set the environment variable
 .I name
 to a unique value in each running child process.
@@ -311,14 +354,18 @@ Values are reused once child processes exit.
 This can be used in a rudimentary load distribution scheme, for example.
 .
 .TP
-.B \-r, \-\-no\-run\-if\-empty
+.B \-r
+.TQ
+.B \-\-no\-run\-if\-empty
 If the standard input does not contain any nonblanks, do not run the
 command.
 Normally, the command is run once even if there is no input.
 This option is a GNU extension.
 .
 .TP
-.BI \-s " max-chars\fR, \fI" \-\-max\-chars "=\fImax-chars\fR"
+.BI \-s\*(~~ max-chars
+.TQ
+.BI \-\-max\-chars= max-chars
 Use at most
 .I max-chars
 characters per command line, including the
@@ -334,7 +381,7 @@ otherwise, the default value is the maximum.
 automatically adapts to tighter constraints.
 .
 .TP
-.B "\-\-show\-limits"
+.B \-\-show\-limits
 Display the limits on the command-line length which are imposed by the
 operating system,
 .BR xargs '
@@ -350,12 +397,16 @@ if you don't want
 to do anything.
 .
 .TP
-.B \-t, \-\-verbose
+.B \-t
+.TQ
+.B \-\-verbose
 Print the command line on the standard error output before executing
 it.
 .
 .TP
-.B \-x, \-\-exit
+.B \-x
+.TQ
+.B \-\-exit
 Exit if the size (see the
 .B \-s
 option) is exceeded.
