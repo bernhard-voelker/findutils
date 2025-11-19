@@ -5,6 +5,8 @@
 .  ds '  \(aq
 .  ds ~  \(ti
 .  ds en \(en
+.  ds %  \%
+.  ds :  \:
 .\}
 .el \{\
 .  \" \*" is not usable in macro arguments on AT&T troff.
@@ -12,6 +14,8 @@
 .  ds '  '
 .  ds ~  ~
 .  ds en \-
+.  ds %  \" empty
+.  ds :  \" empty
 .\}
 .SH NAME
 find \- search for files in a directory hierarchy
@@ -319,7 +323,9 @@ If you use the
 .B "\-fstype\ \fIFOO\fR"
 predicate and specify a filesystem type
 .I FOO
-which is not known (that is, present in `/etc/mtab') at the time
+which is not known (that is, present in
+.IR \*%/etc/\*:mtab )
+at the time
 .B find
 starts, that predicate is equivalent to
 .BR \-false .
