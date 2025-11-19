@@ -1,9 +1,11 @@
 .TH XARGS 1 2024-06-03 findutils \" -*- nroff -*-
 .ie \n(.g \{\
 .  ds en \(en
+.  ds ~~ \~
 .\}
 .el \{\
 .  ds en \-
+.  ds ~~ \ \" backslash, space
 .\}
 .SH NAME
 xargs \- build and execute command lines from standard input
@@ -293,10 +295,10 @@ command and initial-arguments and the terminating nulls at the ends of
 the argument strings.
 The largest allowed value is system-dependent, and is calculated as the
 argument length limit for exec, less the size of your environment,
-less 2048\~bytes of headroom.
-If this value is more than 128\~KiB, 128\~KiB is used as the default value;
+less 2048\*(~~bytes of headroom.
+If this value is more than 128\*(~~KiB, 128\*(~~KiB is used as the default value;
 otherwise, the default value is the maximum.
-1\~KiB is 1024 bytes.
+1\*(~~KiB is 1024 bytes.
 .B xargs
 automatically adapts to tighter constraints.
 .TP
