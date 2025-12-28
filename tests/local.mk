@@ -85,7 +85,9 @@ EXTRA_DIST += \
   tests/sample-test
 
 all_root_tests = \
-  tests/find/type_list.sh
+  tests/find/type_list.sh \
+  tests/find/mount-vs-xdev-bind.sh \
+  tests/find/mount-vs-xdev-other-fs.sh
 
 check_PROGRAMS = $(binary_tests)
 binary_tests = \
