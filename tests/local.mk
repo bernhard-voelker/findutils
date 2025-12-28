@@ -137,6 +137,7 @@ sh_tests = \
   tests/xargs/conflicting_opts.sh \
   tests/xargs/verbose-quote.sh \
   tests/find/arg-nan.sh \
+  tests/find/mount-vs-xdev.sh \
   $(all_root_tests)
 
 $(TEST_LOGS): $(PROGRAMS)
