@@ -549,8 +549,11 @@ struct options
      are non-directories. */
   bool no_leaf_check;
 
+  /* If true, skip files on other devices. */
+  bool mount;
+
   /* If true, don't cross filesystem boundaries. */
-  bool stay_on_filesystem;
+  bool xdev;
 
   /* If true, we ignore the problem where we find that a directory entry
    * no longer exists by the time we get around to processing it.
@@ -648,7 +651,7 @@ struct state
   int starting_path_length;
 
   /* If true, don't descend past current directory.
-     Can be set by -prune, -maxdepth, and -xdev/-mount. */
+     Can be set by -prune, -maxdepth, -mount and -xdev. */
   bool stop_at_current_level;
 
   /* Status value to return to system. */

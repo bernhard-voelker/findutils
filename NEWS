@@ -28,6 +28,9 @@ GNU findutils NEWS - User visible changes.      -*- outline -*- (allout)
   are passed with a leading dash, e.g. '-!'.  Future releases will not accept
   that any more.  Accepting that was rather a bug "since the beginning".
 
+  The -mount option is now POSIX 2024 compliant.  Find will ignore files on
+  different devices as opposed to being a mere alias for -xdev. [#54745]
+
 ** Documentation Changes
 
   The forthcoming Issue 8 of the POSIX standard will standardise "find

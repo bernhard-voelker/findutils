@@ -630,10 +630,7 @@ non-negative integer).  Using
 means process all files except the starting-points.
 
 .IP \-mount
-Don't descend directories on other filesystems.  An alternate name for
-.BR \-xdev ,
-for compatibility with some other versions of
-.BR find .
+Ignore files on other devices.
 
 .IP \-noignore_readdir_race
 Turns off the effect of
@@ -659,7 +656,7 @@ to stat them; this gives a significant increase in search speed.
 Print the \fBfind\fR version number and exit.
 
 .IP \-xdev
-Don't descend directories on other filesystems.
+Don't descend into directories on other devices.
 
 .SS TESTS
 Some tests, for example
@@ -1989,7 +1986,7 @@ For closest compliance to the POSIX standard, you should set the
 .B POSIXLY_CORRECT
 environment variable.
 The following options are specified in the POSIX standard
-(IEEE Std 1003.1-2008, 2016 Edition):
+(IEEE Std 1003.1-2024 Edition):
 
 .IP \fB\-H\fR
 This option is supported.
@@ -2053,6 +2050,7 @@ The primaries
 .BR \-exec ,
 .BR \-group ,
 .BR \-links ,
+.BR \-mount ,
 .BR \-mtime ,
 .BR \-nogroup ,
 .BR \-nouser ,

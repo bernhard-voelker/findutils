@@ -480,7 +480,10 @@ find (char *arg)
       break;
     }
 
-  if (options.stay_on_filesystem)
+  if (options.mount)
+    ftsoptions |= FTS_MOUNT;
+
+  if (options.xdev)
     ftsoptions |= FTS_XDEV;
 
   p = fts_open (arglist, ftsoptions, nullptr);

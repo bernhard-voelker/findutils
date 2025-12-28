@@ -1010,7 +1010,7 @@ set_option_defaults (struct options *p)
   p->cur_day_start.tv_nsec = p->start_time.tv_nsec;
 
   p->full_days = false;
-  p->stay_on_filesystem = false;
+  p->mount = p->xdev = false;
   p->ignore_readdir_race = false;
 
   if (p->posixly_correct)

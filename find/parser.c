@@ -122,6 +122,7 @@ static bool parse_ls            (const struct parser_table*, char *argv[], int *
 static bool parse_maxdepth      (const struct parser_table*, char *argv[], int *arg_ptr);
 static bool parse_mindepth      (const struct parser_table*, char *argv[], int *arg_ptr);
 static bool parse_mmin          (const struct parser_table*, char *argv[], int *arg_ptr);
+static bool parse_mount         (const struct parser_table*, char *argv[], int *arg_ptr);
 static bool parse_name          (const struct parser_table*, char *argv[], int *arg_ptr);
 static bool parse_negate        (const struct parser_table*, char *argv[], int *arg_ptr);
 static bool parse_newer         (const struct parser_table*, char *argv[], int *arg_ptr);
@@ -214,7 +215,7 @@ static struct parser_table const parse_table[] =
   { ARG_OPTION, "ignore_readdir_race",   parse_ignore_race,   nullptr }, /* GNU */
   { ARG_OPTION, "maxdepth",              parse_maxdepth,      nullptr }, /* GNU */
   { ARG_OPTION, "mindepth",              parse_mindepth,      nullptr }, /* GNU */
-  { ARG_OPTION, "mount",                 parse_xdev,          nullptr }, /* Unix */
+  { ARG_OPTION, "mount",                 parse_mount,         nullptr }, /* POSIX */
   { ARG_OPTION, "noleaf",                parse_noleaf,        nullptr }, /* GNU */
   { ARG_OPTION, "noignore_readdir_race", parse_noignore_race, nullptr }, /* GNU */
   { ARG_OPTION, "xdev",                  parse_xdev,          nullptr }, /* POSIX */
@@ -2477,9 +2478,16 @@ parse_context (const struct parser_table* entry, char **argv, int *arg_ptr)
 }
 
 static bool
+parse_mount (const struct parser_table* entry, char **argv, int *arg_ptr)
+{
+  options.mount = true;
+  return parse_noop (entry, argv, arg_ptr);
+}
+
+static bool
 parse_xdev (const struct parser_table* entry, char **argv, int *arg_ptr)
 {
-  options.stay_on_filesystem = true;
+  options.xdev = true;
   return parse_noop (entry, argv, arg_ptr);
 }
 
