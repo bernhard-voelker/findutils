@@ -20,6 +20,17 @@ GNU findutils NEWS - User visible changes.      -*- outline -*- (allout)
 
 ** Changes in find
 
+  As announced since the release of 4.7.0 (2019) and mandated by POSIX 2024,
+  the behaviour of the -mount option changed: while it was a mere alias for
+  the -xdev option to prevent descending into directories of another device,
+  the -mount option now makes find(1) ignore files on another device, i.e.,
+  'find -mount' will skip the entry of active mount points already.
+  Example, assuming the PROC filesystem is mounted on '/proc':
+    $ find / -mount -path /proc -print
+    $ find / -xdev -path /proc -print
+    /proc
+  [#54745]
+
   The actions -execdir and -okdir now refuse the '{}' replacement in the zeroth
   argument of the command to be run.  While POSIX allows this for -exec, this is
   deemed insecure as an attacker could influence which files could be found.
@@ -27,9 +38,6 @@ GNU findutils NEWS - User visible changes.      -*- outline -*- (allout)
   find now issues a warning when the punctuation operators '(', ')', '!' and ','
   are passed with a leading dash, e.g. '-!'.  Future releases will not accept
   that any more.  Accepting that was rather a bug "since the beginning".
-
-  The -mount option is now POSIX 2024 compliant.  Find will ignore files on
-  different devices as opposed to being a mere alias for -xdev. [#54745]
 
 ** Documentation Changes
 
