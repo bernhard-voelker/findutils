@@ -1,5 +1,5 @@
 #! /bin/sh
-# Copyright (C) 2019-2025 Free Software Foundation, Inc.
+# Copyright (C) 2019-2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -202,7 +202,7 @@ send other questions to
 <A HREF="mailto:gnu@gnu.org"><EM>gnu@gnu.org</EM></A>.
 
 <P>
-Copyright &copy; 1997-2025 Free Software Foundation, Inc.,
+Copyright &copy; 1997-2026 Free Software Foundation, Inc.,
 &lt;<A HREF="https://fsf.org/">https://fsf.org/</A>&gt;
 
 <P>
