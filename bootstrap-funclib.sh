@@ -1,8 +1,8 @@
 # A library of shell functions for autopull.sh, autogen.sh, and bootstrap.
 
-scriptlibversion=2025-09-07.23; # UTC
+scriptlibversion=2025-12-04.19; # UTC
 
-# Copyright (C) 2003-2025 Free Software Foundation, Inc.
+# Copyright (C) 2003-2026 Free Software Foundation, Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -824,7 +824,8 @@ autopull()
     elif check_exists git-merge-changelog; then
       echo "$0: initializing git-merge-changelog driver"
       git config merge.merge-changelog.name 'GNU-style ChangeLog merge driver'
-      git config merge.merge-changelog.driver 'git-merge-changelog %O %A %B'
+      git config merge.merge-changelog.driver \
+          'git-merge-changelog %O %A %B "%Y"'
     else
       echo "$0: consider installing git-merge-changelog from gnulib"
     fi
