@@ -19,9 +19,17 @@
 . "${srcdir=.}/tests/init.sh"; fu_path_prepend_
 print_ver_ find
 
+# Require GNU df in getmntpoint.
+for f in df gdf; do
+  # Find GNU df.
+  $f --version | grep GNU \
+    && DF=$f
+done
+test "$DF" || skip_ "GNU df required."
+
 getmntpoint () {
   # Skip header line and print last field.
-  df "$1" | awk 'NR==2 {print $NF}'
+  $DF "$1" | awk 'NR==2 {print $NF}'
 }
 
 mnt_root=$( getmntpoint '/' ) \
@@ -32,9 +40,10 @@ found=0
 # Find a directory entry which is mounted (likely) from a different device
 # than the '/' directory.
 for m in /dev /home /proc /run /tmp; do
-  test -e "$m" \
+  test -d "$m" \
     && mnt_m=$( getmntpoint "$m" )  \
     && test "$mnt_root" != "$mnt_m" \
+    && test "$m" = "$mnt_m" \
     || continue
 
   found=1
