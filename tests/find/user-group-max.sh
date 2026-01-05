@@ -40,12 +40,12 @@ compare /dev/null err || fail=1
 # Verify that UID/GID numbers larger than UID_T_MAX/GID_T_MAX get rejected.
 echo "find: invalid user name or UID argument to -user: '$UID_T_OFLOW'" >exp || framework_failure_
 returns_ 1 find -user "$UID_T_OFLOW" -name enoent >/dev/null 2>err || fail=1
-sed -i 's/^.*find/find/' err || framework_failure_
-compare exp err || fail=1
+sed 's/^.*find/find/' err > err2 || framework_failure_
+compare exp err2 || fail=1
 
 echo "find: invalid group name or GID argument to -group: '$GID_T_OFLOW'" >exp || framework_failure_
 returns_ 1 find -group "$GID_T_OFLOW" -name enoent >/dev/null 2>err || fail=1
-sed -i 's/^.*find/find/' err || framework_failure_
-compare exp err || fail=1
+sed 's/^.*find/find/' err > err2 || framework_failure_
+compare exp err2 || fail=1
 
 Exit $fail
