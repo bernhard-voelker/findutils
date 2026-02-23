@@ -1348,7 +1348,8 @@ xargs_do_exec (struct buildcmd_control *ctl, void *usercontext, int argc, char *
               errno = E2BIG;
             else
               execvp (argv[0], argv);
-            if (errno)
+            int saved_errno = errno;
+            if (saved_errno)
               {
                 /* Write errno value to parent.  We do this even if
                  * the error was not E2BIG, because we need to
@@ -1362,19 +1363,21 @@ xargs_do_exec (struct buildcmd_control *ctl, void *usercontext, int argc, char *
                  * utility if we run it, for POSIX compliance on the
                  * handling of exit values.
                  */
-                write (fd[1], &errno, sizeof (int));
+                write (fd[1], &saved_errno, sizeof (int));
               }
 
             close (fd[1]);
-            if (E2BIG != errno)
+            if (E2BIG != saved_errno)
               {
-                error (0, errno, _("failed to run command %s"),
+                error (0, saved_errno, _("failed to run command %s"),
                        quotearg_n_style (0, locale_quoting_style, argv[0]));
               }
             /* The actual value returned here should be irrelevant,
              * because the parent will test our value of errno.
              */
-            _exit (errno == ENOENT ? XARGS_EXIT_COMMAND_NOT_FOUND : XARGS_EXIT_COMMAND_CANNOT_BE_RUN);
+            _exit (saved_errno == ENOENT
+                     ? XARGS_EXIT_COMMAND_NOT_FOUND
+                     : XARGS_EXIT_COMMAND_CANNOT_BE_RUN);
 
           /*NOTREACHED*/
           } /* child */
