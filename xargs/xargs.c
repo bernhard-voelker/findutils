@@ -1368,7 +1368,8 @@ xargs_do_exec (struct buildcmd_control *ctl, void *usercontext, int argc, char *
             close (fd[1]);
             if (E2BIG != errno)
               {
-                error (0, errno, "%s", argv[0]);
+                error (0, errno, _("failed to run command %s"),
+                       quotearg_n_style (0, locale_quoting_style, argv[0]));
               }
             /* The actual value returned here should be irrelevant,
              * because the parent will test our value of errno.

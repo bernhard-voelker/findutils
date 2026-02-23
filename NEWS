@@ -39,6 +39,11 @@ GNU findutils NEWS - User visible changes.      -*- outline -*- (allout)
   are passed with a leading dash, e.g. '-!'.  Future releases will not accept
   that any more.  Accepting that was rather a bug "since the beginning".
 
+** Improvements
+
+  xargs now gives a better error diagnostic when executing the given command
+  failed.
+
 ** Documentation Changes
 
   The forthcoming Issue 8 of the POSIX standard will standardise "find
