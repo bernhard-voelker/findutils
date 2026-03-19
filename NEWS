@@ -35,6 +35,11 @@ GNU findutils NEWS - User visible changes.      -*- outline -*- (allout)
   argument of the command to be run.  While POSIX allows this for -exec, this is
   deemed insecure as an attacker could influence which files could be found.
 
+  'find -regex' with the default or the 'emacs' regextype now aligns better with
+  Emacs behaviour, and therefore e.g. supports character classes:
+    $ touch 123 && find -regex './12[[:digit:]]'
+    ./123
+
   find now issues a warning when the punctuation operators '(', ')', '!' and ','
   are passed with a leading dash, e.g. '-!'.  Future releases will not accept
   that any more.  Accepting that was rather a bug "since the beginning".
