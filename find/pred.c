@@ -61,32 +61,6 @@
 
 static bool match_lname (const char *pathname, struct stat *stat_buf, struct predicate *pred_ptr, bool ignore_case);
 
-/* Returns ts1 - ts2 */
-static double ts_difference (struct timespec ts1,
-                             struct timespec ts2)
-{
-  double d =  difftime (ts1.tv_sec, ts2.tv_sec)
-    + (1.0e-9 * (ts1.tv_nsec - ts2.tv_nsec));
-  return d;
-}
-
-
-static int
-compare_ts (struct timespec ts1,
-            struct timespec ts2)
-{
-  if ((ts1.tv_sec == ts2.tv_sec) &&
-      (ts1.tv_nsec == ts2.tv_nsec))
-    {
-      return 0;
-    }
-  else
-    {
-      double diff = ts_difference (ts1, ts2);
-      return diff < 0.0 ? -1 : +1;
-    }
-}
-
 /* Predicate processing routines.
 
    PATHNAME is the full pathname of the file being checked.
@@ -109,10 +83,10 @@ pred_timewindow (struct timespec ts, struct predicate const *pred_ptr, int windo
   switch (pred_ptr->args.reftime.kind)
     {
     case COMP_GT:
-      return compare_ts (ts, pred_ptr->args.reftime.ts) > 0;
+      return timespec_cmp (ts, pred_ptr->args.reftime.ts) > 0;
 
     case COMP_LT:
-      return compare_ts (ts, pred_ptr->args.reftime.ts) < 0;
+      return timespec_cmp (ts, pred_ptr->args.reftime.ts) < 0;
 
     case COMP_EQ:
       {
@@ -129,8 +103,9 @@ pred_timewindow (struct timespec ts, struct predicate const *pred_ptr, int windo
          * was not created today.  If the delta is 86400, the file
          * was created this instant.
          */
-        double delta = ts_difference (ts, pred_ptr->args.reftime.ts);
-        return (delta > 0.0 && delta <= window);
+        struct timespec delta = timespec_sub (ts, pred_ptr->args.reftime.ts);
+        return (timespec_cmp (delta, make_timespec (0, 0)) > 0
+                  && timespec_cmp (delta, make_timespec (window, 0)) <= 0);
       }
     }
   assert (0);
@@ -162,7 +137,7 @@ pred_anewer (const char *pathname, struct stat *stat_buf, struct predicate *pred
 {
   (void) &pathname;
   assert (COMP_GT == pred_ptr->args.reftime.kind);
-  return compare_ts (get_stat_atime(stat_buf), pred_ptr->args.reftime.ts) > 0;
+  return timespec_cmp (get_stat_atime(stat_buf), pred_ptr->args.reftime.ts) > 0;
 }
 
 bool
@@ -195,7 +170,7 @@ pred_cnewer (const char *pathname, struct stat *stat_buf, struct predicate *pred
   (void) pathname;
 
   assert (COMP_GT == pred_ptr->args.reftime.kind);
-  return compare_ts (get_stat_ctime(stat_buf), pred_ptr->args.reftime.ts) > 0;
+  return timespec_cmp (get_stat_ctime(stat_buf), pred_ptr->args.reftime.ts) > 0;
 }
 
 bool
@@ -599,7 +574,7 @@ pred_newer (const char *pathname, struct stat *stat_buf, struct predicate *pred_
   (void) pathname;
 
   assert (COMP_GT == pred_ptr->args.reftime.kind);
-  return compare_ts (get_stat_mtime(stat_buf), pred_ptr->args.reftime.ts) > 0;
+  return timespec_cmp (get_stat_mtime(stat_buf), pred_ptr->args.reftime.ts) > 0;
 }
 
 bool
@@ -645,7 +620,7 @@ pred_newerXY (const char *pathname, struct stat *stat_buf, struct predicate *pre
     }
 
   assert (collected);
-  return compare_ts (ts, pred_ptr->args.reftime.ts) > 0;
+  return timespec_cmp (ts, pred_ptr->args.reftime.ts) > 0;
 }
 
 bool
@@ -1051,6 +1026,7 @@ pred_uid (const char *pathname, struct stat *stat_buf, struct predicate *pred_pt
                       stat_buf->st_uid);
 }
 
+/* File was last accessed less than, more than or exactly n days after its status was last changed. */
 bool
 pred_used (const char *pathname, struct stat *stat_buf, struct predicate *pred_ptr)
 {
@@ -1062,7 +1038,7 @@ pred_used (const char *pathname, struct stat *stat_buf, struct predicate *pred_p
   ct = get_stat_ctime (stat_buf);
 
   /* Always evaluate to false if atime < ctime.  */
-  if (compare_ts (at, ct) < 0)
+  if (timespec_cmp (at, ct) < 0)
     return false;
 
   delta.tv_sec  = ct.tv_sec  - at.tv_sec;
