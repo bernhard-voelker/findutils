@@ -19,15 +19,32 @@
 . "${srcdir=.}/tests/init.sh"; fu_path_prepend_
 print_ver_ find
 
+# Find a GNU-like 'date' utility which supports '-d "5 day"'.
+DATE=
+for tool in date gdate; do
+  "$tool" -d "5 day" '+%Y-%m-%d %H:%M:%S' \
+    && { DATE="$tool" && break; }
+done
+test "$DATE" || skip_ "no GNU-like date(1) found supporting -d 'N day'"
+
+# Find a GNU-like 'stat' utility which supports '-c' for '%X' and '%Z'.
+STAT=
+for tool in stat gstat; do
+  "$tool" -c '%X' . \
+    && "$tool" -c '%Z' . \
+    && { STAT="$tool" && break; }
+done
+test "$STAT" || skip_ "no GNU-like stat(1) found supporting -c '%X%Z'"
+
 # Create sample files with the access date D=10,20,30,40 days in the future.
 for d in 10 20 30 40; do
-  touch -a -d "$(date -d "$d day" '+%Y-%m-%d %H:%M:%S')" t$d \
+  touch -a -d "$($DATE -d "$d day" '+%Y-%m-%d %H:%M:%S')" t$d \
     || skip_ "creating files with future timestamp failed"
 
-  # Check with stat(1) the access (%X) vs. the status change time (%z).
+  # Check with stat(1) the access (%X) vs. the status change time (%Z).
   exp="$( expr 86400 '*' $d )" \
-    && x="$( stat -c "%X" t$d )" \
-    && z="$( stat -c "%Z" t$d )" \
+    && x="$( $STAT -c "%X" t$d )" \
+    && z="$( $STAT -c "%Z" t$d )" \
     && tdiff="$( expr "$x" - "$z" )" \
     && test "$tdiff" -ge "$exp" \
     || skip_ "cannot verify timestamps of sample files"
@@ -36,7 +53,7 @@ done
 touch t00 \
   || skip_ "creating sample file failed"
 
-stat -c "Name: %n  Access: %x  Change: %z" t?0 || : # ignore error.
+$STAT -c "Name: %n  Access: %x  Change: %z" t?0 || : # ignore error.
 
 # Verify the output for "find -used $d".  Use even number of days to avoid
 # possibly strange effects due to atime/ctime precision etc.
