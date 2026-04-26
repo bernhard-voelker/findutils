@@ -22,6 +22,9 @@ GNU findutils NEWS - User visible changes.      -*- outline -*- (allout)
   already states this, and now find's behaviour matches the
   documentation.
 
+  'updatedb.sh' now properly handles the variables for the 'find' and 'frcode'
+  utilities, and hence avoids command injection.
+
 ** Changes in find
 
   As announced since the release of 4.7.0 (2019) and mandated by POSIX 2024,

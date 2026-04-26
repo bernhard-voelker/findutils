@@ -242,14 +242,14 @@ checkbinary () {
     if test -x "$1" ; then
 	: ok
     else
-      eval echo "updatedb needs to be able to execute $1, but cannot." >&2
+      echo "updatedb needs to be able to execute '$1', but cannot." >&2
       exit 1
     fi
 }
 
-for binary in $find $frcode
+for binary in "$find" "$frcode"
 do
-  checkbinary $binary
+  checkbinary "$binary"
 done
 
 
